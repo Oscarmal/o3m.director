@@ -1,0 +1,102 @@
+### DICCIONARIO ESPAÑOL-MX ###
+#Común
+	comun|usuario 		= Usuario
+	comun|clave 		= Clave
+	comun|login 		= Ingrese sus Credenciales
+	comun|entrar 		= Entrar
+	comun|regresar 		= Regresar
+	comun|guardar 		= Guardar
+	comun|cancelar 		= Cancelar
+	comun|cerrar 		= Cerrar
+	comun|editar 		= Editar
+	comun|id			= ID
+	comun|fecha			= Fecha
+#Iconos
+	ico|detalle			= 		Detalle
+	ico|eliminar		= 		Eliminar
+	ico|baja			= 		Baja
+	ico|editar			= 		Editar
+	ico|imprimir		= 		Imprimir
+	ico|visita			= 		Visita
+	ico|llamada			= 		Llamada
+	ico|propuesta		= 		Propuesta
+	ico|cierre 			= 		Cierre
+	ico|requerido		= 		Requerido
+	ico|contactos		= 		Asignar Contactos
+	ico|empresas		= 		Asignar Empresas
+	ico|ejecutivos		= 		Asignar Ejecutivos
+	ico|asignar			= 		Asignar
+	ico|deasignar		= 		Quitar Contacto
+	ico|reactivar		= 		Reactivar
+#Modal 
+	modal|txt_si 		= 		Si
+	modal|txt_no		= 		No
+	modal|txt_cerrar	= 		Cerrar
+
+# Error
+	error|mensaje=No existe acción
+# Login
+	login|msj_entrar=Ingrese sus datos de usuario
+	login|msj_noauth=Sin autorización para accesar
+	login|msj_salir=Sesión Cerrada
+# Menú Top
+	menutop|mod01=Inicio
+	menutop|mod02=Empresas
+	menutop|mod03=Contactos
+	menutop|mod04=Ejecutivos
+	menutop|mod05=Operación
+	menutop|mod06=Reportes
+	menutop|mod07=Catálogos
+# Menú Lateral
+	menulateral|submenu01 = Listado General
+	menulateral|submenu02 = Prospectos
+	menulateral|submenu03 = Clientes
+	menulateral|submenu04 = Nueva Empresa
+	menulateral|submenu05 = Asignar
+	menulateral|submenu06 = Asignar Contactos
+	menulateral|submenu07 = Asignar Empresas
+	#Operaciones
+	menulateral|submenu08 = Listado Operaciones
+	menulateral|submenu09 = Nueva Visita
+	menulateral|submenu10 = Nueva Llamada
+	menulateral|submenu11 = Nueva Propuesta
+	menulateral|submenu12 = Nuevo Cierre
+	#Ejecutivos
+	menulateral|submenu13 = Asignar Empresas
+	menulateral|submenu16 = Supervisores
+	#Contactos
+	menulateral|submenu14 = Nuevo Contacto
+	menulateral|submenu15 = Nuevo Ejecutivo
+	#Catálogos
+	menulateral|submenu17 = Servicios
+	menulateral|submenu18 = Zonas
+	menulateral|submenu19 = Sectores
+	menulateral|submenu20 = Usuarios
+	menulateral|submenu21 = Perfiles
+	#Reportes
+	menulateral|submenu22 = General
+	menulateral|submenu23 = Por Cliente
+	menulateral|submenu24 = Por Ejecutivo
+#Mensajes
+	msj|exito_insert = <strong>Exito!</strong><br>El registro se dio de alta correctamente;
+	msj|error_sql 	 = <strong>Error!</strong><br>El registro no se pudo dar de alta, intente mas tarde;
+	msj|requeridos 	 = <strong>Error!</strong><br>los campos marcados con asterisco son obligatorios;
+
+# General
+	general|titulo			=	Inicio
+	general|inicio			=	Inicio
+	general|barra	 		=	Bienvenido(a) 
+	general|salir 			=	Salir
+	general|msj_inicio 		=	Bienvenido al sistema
+	general|entrar 			=	Entrar
+
+# Login
+	login|olvido_clave 		=  	Recuperar mi clave
+
+#Captura
+	captura|listado_titulo 		= Listado
+
+
+#Tooltips
+	#Login
+	tooltips|tooltip_usuario	= Ingrese su usuario

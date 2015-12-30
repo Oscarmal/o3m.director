@@ -1,0 +1,137 @@
+body,html{
+    /*overflow-y: auto !important;*/
+}
+#contenedor-principal{
+    min-height: 300px;
+}
+.breadcums{
+    background-color: #f2f2f2;
+    position: relative;
+    margin-left: 200px;
+    font-size: 9px;
+    padding-left:20px; 
+}
+input:focus, textarea:focus, select:focus{
+    background-color: #DDEEFF;
+}
+
+.input-error{
+    background-color: #FFDDDD;
+}
+
+.txtFooter{
+    font-size: .6em;
+}
+.calendario{
+    background-position: right center;
+    background-image: url(../img/calendario.png);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+.horas{
+    background-position: right center;
+    background-image: url(../img/reloj.png);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+.tbl_labels{
+    text-align: right;
+    vertical-align: middle;
+}
+
+.fechaHeader{
+    font-size: 0.7em;
+    text-align: right;
+}
+
+/*Iconos*/
+.ico{
+    font-size: 1.4em;
+    font-weight: bold;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #008080;
+    margin: 0 1px;
+    
+}
+.ico:hover{ color: #64B5AC;}
+
+.ico-requerido{ color: #970000; font-size: .5em; margin: 2px; vertical-align: middle;}
+
+.borde { border: 1px solid #ccc;}
+
+/*Tooltips*/
+.ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+}
+  .ui-tooltip {
+    padding: 5px 10px;
+    color: white;
+    border-radius: 20px;
+    /*font:  .6em "Helvetica Neue", Sans-Serif;*/
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .6em;
+    box-shadow: 0 0 7px black;
+  }
+  .arrow {
+    width: 50px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }
+
+.transparent_class {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    /* IE 5-7 */
+    filter: alpha(opacity=50);
+    /* Netscape */
+    -moz-opacity: 0.5;
+    /* Safari 1.x */
+    -khtml-opacity: 0.5;
+    /* Good browsers */
+    opacity: 0.5;
+}
+/*Fin tooltip*/
+
+.table .tbl-consecutivo{
+    font-weight: bold;
+    font-size: .8em;
+    text-align: center;
+    vertical-align: middle;
+    color: #bbb;
+}
+/*O3M*/

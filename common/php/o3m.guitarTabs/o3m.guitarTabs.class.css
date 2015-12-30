@@ -1,0 +1,130 @@
+/*Fonts*/
+@font-face {
+    font-family: 'ArialRoundedMTBold';
+    src: url('fonts/Arial-Rounded-MT-Bold.eot');
+    src: url('fonts/Arial-Rounded-MT-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Arial-Rounded-MT-Bold.woff') format('woff'),
+         url('fonts/Arial-Rounded-MT-Bold.ttf') format('truetype'),
+         url('fonts/Arial-Rounded-MT-Bold.svg#ArialRoundedMTBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'nunitoregular';
+    src: url('fonts/nunito-regular-webfont.eot');
+    src: url('fonts/nunito-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/nunito-regular-webfont.woff') format('woff'),
+         url('fonts/nunito-regular-webfont.ttf') format('truetype'),
+         url('fonts/nunito-regular-webfont.svg#nunitoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'nunitobold';
+    src: url('fonts/nunito-bold-webfont.eot');
+    src: url('fonts/nunito-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/nunito-bold-webfont.woff') format('woff'),
+         url('fonts/nunito-bold-webfont.ttf') format('truetype'),
+         url('fonts/nunito-bold-webfont.svg#nunitobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/**/
+
+body{
+	/*font-family: ArialRoundedMTBold, Arial, Helvetica, sans-serif;*/
+	/*font-size: 12pt;*/
+}
+
+#gitartabs{
+	/*position: absolute;*/
+	width: 100%;
+	margin-left:auto; 
+	margin-right:auto;
+	border: 1px solid #D3D3D3;
+	overflow: hidden;
+}
+#gitartabs-content {
+	font-family: ArialRoundedMTBold, Arial, Helvetica, sans-serif;
+	font-size: 1.2em; 
+	color: #333;
+}
+#gitartabs-content table th{
+	font-size: 1em; 
+	color:#006FDD;
+	text-align: left;
+}
+
+#tabs-header{
+	font-family: nunitoregular, Arial, Helvetica, sans-serif;
+	font-size: 1em; 
+	width:100%; 
+	text-align:center;
+	color: #808080;
+}
+#tabs-header table{
+	width: 70%;
+	text-align:center; 
+	margin-left:auto; 
+	margin-right:auto; 
+	/*border:1px solid #ccc;*/
+	font-size: .9em;
+	border-spacing: 0px;			
+}
+#tabs-header table th{
+	font-size: .7em;
+	vertical-align: middle;
+	text-align:right;	
+	padding: 2px;
+	text-transform: uppercase;
+	font-weight: lighter;
+}
+#tabs-header table td{
+	text-align:left;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+#tabs-header table .td-intemedio{
+	width: 20%;
+}
+#tabs-header .titulo{
+	width: 100%;
+	padding-top: 15px;
+	text-align: center; 
+	font-weight: bold;
+	color: #000;
+	font-size: 1.5em;
+}
+#tabs-header .subtitulo{
+	color: #747474;
+	text-transform: capitalize;
+	vertical-align: middle;
+}
+#tabs-header .subtitulo-lbl{
+	font-size: .7em;
+	vertical-align: middle;
+}
+#tabs-header .escala{
+	text-transform: capitalize;
+}
+
+.borde-abajo{
+	border-bottom: 2px solid #FFC90F;
+}
+.borde-izq{
+	border-left: 2px solid #FFC90F;
+}
+.borde-der{
+	border-right: 2px solid #FFC90F;
+}
+#tabs-header .centro{text-align: center;}
+
+#tabs-footer{
+	text-align: center;
+	font-size: .7em;
+	color: #767676;
+	/*line-height: 18px;*/
+}
