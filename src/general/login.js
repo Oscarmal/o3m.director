@@ -8,16 +8,18 @@ function btnSubmit(){
 	var clave = $('#txtClave').val();
 	var msj = '';
 	if(usuario == ''){
-		msj = 'Ingrese su Usuario, por favor...';
-		// popup('Usuario',msj,0,0,1,'txtUsuario');
-		alert(msj);
+		ico = '<i class="fa fa-exclamation-triangle"></i> ';
+		txt = ico+'Ingrese su Usuario, por favor...';
+		msj = build_mensaje(txt);
+		$("#mensajes").html(msj);
 		$("#txtUsuario").focus();
 		return false;
 	}
 	if(clave == ''){
-		msj = 'Ingrese su Clave, por favor...';
-		// popup('Clave',msj,0,0,1,'txtClave');
-		alert(msj);
+		ico = '<i class="fa fa-exclamation-triangle"></i> ';
+		txt = ico+'Ingrese su Clave, por favor...';
+		msj = build_mensaje(txt);
+		$("#mensajes").html(msj);
 		$("#txtClave").focus();
 		return false;
 	}	
@@ -41,20 +43,29 @@ function login(usuario, clave){
 			accion : 'login',
 			usuario : usuario, 
 			clave : clave
-		},
-		beforeSend: function(){    
-			txt = "Validando credenciales, por favor espere...";
-		    msj = "<img src='"+raiz+"common/img/loader2.gif' width='40' height='30' valign='middle' align='center'>&nbsp";
-		    // popup('Autentificando',msj,0,0,3);  		    
-		    $("#popups-alerts").html(msj);
-		},
-		success: function(respuesta){ 
-			$("#popups-alerts").empty();
-			setTimeout(function(){	$(location).attr('href', respuesta.url)	}, 2000);
-		},
-		complete: function(){    			
-		    $("#popups-alerts").empty();
 		}
+		,beforeSend: function(){
+			ico = '<i class="fa fa-cog fa-spin"></i> ';
+		    msj = build_mensaje('Espere un momento por favor... ',3,ico+'Validando!');
+		    $("#mensajes").html(msj);
+		}
+		,success: function(respuesta){ 
+			setTimeout(function(){
+				if(respuesta.success){
+						ico = '<i class="fa fa-thumbs-up"></i> ';
+						msj = build_mensaje('Entrando a sistema...','success',ico+'Éxito!');
+						$("#mensajes").html(msj);
+						$(location).attr('href', respuesta.url)	
+				}else{
+					ico = '<i class="fa fa-times-circle"></i> ';
+					msj = build_mensaje('Sus credenciales no son válidas.','danger',ico+'Error!');
+					$("#mensajes").html(msj);
+				}
+			}, 2000);
+		}
+		// ,complete: function(){    			
+		//     $("#mensajes").empty();
+		// }
     });
 }
 
