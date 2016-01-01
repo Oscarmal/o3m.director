@@ -96,6 +96,14 @@
 #Captura
 	captura|listado_titulo 		= Listado
 
+#Iglesia
+	iglesia|iglesia_titulo 		= Iglesia
+	iglesia|contacto_titulo 	= Contacto
+	iglesia|ubicacion_titulo 	= Ubicación
+	iglesia|facebook_titulo 	= Facebook
+	iglesia|red_palabramiel_titulo 	= Red Palabra Miel
+	iglesia|twitter_titulo 		= Twitter
+	iglesia|youtube_titulo 		= Youtube
 
 #Tooltips
 	#Login

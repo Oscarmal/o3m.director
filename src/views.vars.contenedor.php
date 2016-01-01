@@ -7,16 +7,6 @@ require_once('views.vars.error.php');
 require_once($Path[src].'build.menu_lateral.php');
 // Modulo Padre
 #Modulos
-	$modulos = array(
-				 GENERAL		=> 'views.vars.general.php'
-				,CAPTURA		=> 'views.vars.captura.php'
-			);
-	$idmenus = array(
-	// ID's de tabla sis_menu_lateral
-				 GENERAL		=> 1				
-				,CAPTURA		=> 2
-			);
-
 	$contenedor = array(
 			 CONTENEDOR 		=> 'system/frm_contenedor.html'
 			,FRM_HEADER 		=> 'system/frm_header.html'
@@ -26,6 +16,17 @@ require_once($Path[src].'build.menu_lateral.php');
 			,FRM_MENU_LATERAL	=> 'system/frm_menu_lateral.html'
 		);
 
+	$modulos = array(
+				 GENERAL		=> 'views.vars.general.php'
+				,CAPTURA		=> 'views.vars.captura.php'
+				,IGLESIA		=> 'views.vars.iglesia.php'
+			);
+	$idmenus = array(
+	// ID's de tabla sis_menu_lateral
+				 GENERAL		=> 1				
+				,CAPTURA		=> 2
+				,IGLESIA		=> 3
+			);
 	// $visitas = MODULO => SECCIONES
 	$frm_vistas = array(
 				 GENERAL => 
@@ -45,8 +46,17 @@ require_once($Path[src].'build.menu_lateral.php');
 						,ALBUMS 		=> 'albums.html'
 						,ARTISTAS 		=> 'artistas.html'
 						,CANTOS 		=> 'cantos.html'
-					)		 					
-				,ERROR  					=> 'error.html'
+					)
+				,IGLESIA =>
+					array(
+						 IGLESIA 		=> 'iglesia.html'
+						,CONTACTO 		=> 'contacto.html'
+						,UBICACION 		=> 'ubicacion.html'
+						,FACEBOOK 		=> 'facebook.html'
+						,TWITTER 		=> 'twitter.html'
+						,YOUTUBE 		=> 'youtube.html'
+						)
+				,ERROR  => 'error.html'
 			);
 
 	# Comandos
@@ -111,6 +121,7 @@ require_once($Path[src].'build.menu_lateral.php');
 								,USUARIO	=> ucwords(strtolower(utf8_encode($usuario[nombre])))
 								,EMAIL 		=> utf8_encode($usuario[email])
 								,GRUPO 		=> ucwords(strtolower(utf8_encode($usuario[grupo])))
+								,URL	=> $Path['url']
 								,LINK_ACORDES => $Path['url'].$parm[CAPTURA].'/'.$parm[LISTADO]
 							);
 			$MENU 		= contenidoHtml($contenedor[FRM_MENU], $menu_opc);
