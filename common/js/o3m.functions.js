@@ -6,7 +6,7 @@ $(document).ready(function(){
     });
     // reloj('txtReloj'); 
     // Contador 
-    var timer = ($('#sec').val()!='login')?contador(parseInt($('#tm-out').val())-1):'';
+    var timer = ($('#sec').val()!='login')?contador(parseInt($('#tm-out').val())+1):'';
 });
 
 
@@ -322,16 +322,14 @@ function contador(duration) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        // display.text(minutes + ":" + seconds);
-
         if (--timer < 0) { timer = duration;  }
         if(minutes==0 && seconds==0){
             var titulo      = 'Sesión terminada!';
-            var contenido   = 'Su sesión se ha terminado por inactividad. Por favor, vuelva a ingresar sus credenciales. <h3><span id="timeout"></span></h3>';
-            build_modal('modal', titulo, contenido, true, false, false, 'Login', 'location.reload();');
+            var contenido   = 'Por inactividad su sesión se ha terminado. Por favor, vuelva a ingresar sus credenciales.';
+            build_modal('modal', titulo, contenido, true, 'Login', 'location.reload();');
             clearInterval(ciclos);
         }else{
-            if(display){$('#'+display).html(minutes + ":" + seconds);}
+            // if(display){$('#'+display).html(minutes + ":" + seconds);}
         }
     }, 1000);
 }
