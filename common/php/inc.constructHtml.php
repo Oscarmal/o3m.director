@@ -43,6 +43,7 @@ function contenidoHtml($template='system/error.html', $params=array()){
 	$html->set('PATH_CSS', $Path[css]);
 	$html->set('PATH_IMG', $Path[img]);
 	$html->set('PATH_TPL', $Path[tpl]);	
+	$html->set('PATH_URL', $Path[url]);
 	$more = ($params[MORE])?$params[MORE]:'';
 	$html->set('INCLUDES', includesHtml($more));
 	$html->set('FOOTER', footerHtml());
@@ -84,6 +85,7 @@ function footerHtml($template='system/footer.html', $params=array()){
 	$footer->set('PATH_CSS', $Path[css]);
 	$footer->set('PATH_IMG', $Path[img]);
 	$footer->set('PATH_TPL', $Path[tpl]);	
+	$footer->set('PATH_URL', $Path[url]);	
 	$footer->set('ANIO', date('Y'));
 	$footer=$footer->output();
 	return $footer;
@@ -94,6 +96,7 @@ function popupsHtml($params=array()){
 	$template='system/popups.html';
 	$htmlTpl = $Path['html'].$template;
 	$popups = new Template($htmlTpl);
+	$popups->set('PATH_URL', $Path[url]);
 	// Busca variables adicionales dentro array $params
 	if($tvars = count($params)){		
 		$vnames = array_keys($params);

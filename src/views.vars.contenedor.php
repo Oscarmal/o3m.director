@@ -107,6 +107,7 @@ require_once($Path[src].'build.menu_lateral.php');
 						,LINK_INICIO 	=> $Path['url'].$parm[GENERAL].'/'.$parm[INICIO]
 						,FECHA_HOY		=> fechaHoy()
 						,LINK_SALIR		=> $Path['url'].$parm[GENERAL].'/'.$parm[LOGOUT]
+						,TIMEOUT 		=> $cfg[php_session_lifetime]
 					);
 			$HEADER 	= contenidoHtml($contenedor[FRM_HEADER], $header_opc);
 			// --

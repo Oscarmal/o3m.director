@@ -4,8 +4,11 @@ $(document).ready(function(){
     $('input').change(function(){
           inputFocus(this.id);
     });
-    reloj('txtReloj');    
+    // reloj('txtReloj'); 
+    // Contador 
+    var timer = contador(parseInt($('#tm-out').val())-1);     
 });
+
 
 function changeCss(archivo) {
     var raiz = raizPath();
@@ -103,22 +106,6 @@ function scriptJs_Enter(Folder){
     $.getScript(raiz + "common/js/inc.enter.js", function(){
     });
 }
-
-// function raizPath(Folder){
-// // Obtiene Carpeta raiz
-//     if(!Folder){Folder='site';}
-//     Folrder = Folder + '/';
-//     var pathname = window.location.pathname;
-//     var raiz = window.location.pathname.split(Folder);
-//     var file = raiz[1];
-//     var niveles = file.split('/');
-//     var n = niveles.length -1;
-//     var raiz = '';
-//     for (var i = 1; i <= n; i++) { 
-//         raiz += '../';
-//     }
-//     return raiz;
-// }
 
 function raizPath(Folder){
 // Obtiene Carpeta raiz
@@ -318,39 +305,80 @@ function formData(selector, template){
     }// next  
     return data;
 }
-function values_requeridos(formulario, debug){
-    var ids = "";
-    var items_vacios = 0;
-    var padre = (formulario) ? '#'+formulario+' ' : '';
-    jQuery(padre+" .requerido").each(function(){ 
-        if(jQuery(this).prop('tagName')=='SELECT'){
-            /*if(jQuery(this).hasAttr('multiple')){
-                if(!jQuery("[name='"+jQuery(this).attr('name')+"'] option").length>0){
-                    items_vacios++; 
-                     ids = jQuery(this).attr('name')+'|'+ids;
-                }
-                if(!jQuery("[name='"+jQuery(this).attr('name')+"'] option:selected").length>0){
-                    items_vacios++; 
-                     ids = jQuery(this).attr('name')+'|'+ids;
-                }
-            }else{*/
-               var select = jQuery("select[name='"+jQuery(this).attr('name')+"'] option:selected");
-                if(select.val()==0){
-                    items_vacios++
-                } 
-            //}
-        }else{
-            if(jQuery(this).val()==''){
-                ids = jQuery(this).attr("id")+'|'+ids;
-                items_vacios++
-            } 
-        }
+
+function contador(duration) {
+// Cuenta regresiva
+/* Uso:
+    jQuery(function ($) {
+        var Duracion = 60 * 5
+        contador(Duracion);
     });
-    if(debug){
-       alert(ids); 
-    }
-    //alert(ids);
-    return items_vacios;
+*/
+    var timer = duration, minutes, seconds;
+    var display = 'timeout';
+    var ciclos = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        // display.text(minutes + ":" + seconds);
+
+        if (--timer < 0) { timer = duration;  }
+        if(minutes==0 && seconds==0){
+            var titulo      = 'Sesión terminada!';
+            var contenido   = 'Su sesión se ha terminado por inactividad. Por favor, vuelva a ingresar sus credenciales. <h3><span id="timeout"></span></h3>';
+            build_modal('modal', titulo, contenido, true, false, false, 'Login', 'location.reload();');
+            clearInterval(ciclos);
+        }else{
+            if(display){$('#'+display).html(minutes + ":" + seconds);}
+        }
+    }, 1000);
+}
+
+function build_modal(tipo, titulo, contenido, botones, txt_cerrar, link_cerrar, txt_si, link_si, txt_no, link_no){
+// Construye un modal para el template (bootstrap)
+    titulo      = (!titulo)?'TITULO':titulo;
+    contenido   = (!contenido)?'Contenido':contenido;
+    tipo        = (!tipo)?'modal_wait':tipo;
+    link_cerrar = (!link_cerrar)?false:link_cerrar;
+    link_si     = (!link_si)?'#':link_si;
+    link_no     = (!link_no)?'#':link_no;
+    txt_cerrar  = (!txt_cerrar)?'':txt_cerrar;
+    txt_si      = (!txt_si)?'':txt_si;
+    txt_no      = (!txt_no)?'':txt_no;
+    botones     = (!botones)?false:true;
+    var raiz = raizPath();
+    var ajax_url = raiz+"src/modal/modal.php";
+    $.ajax({
+        type: 'POST',
+        url: ajax_url,
+        dataType: "html",
+        data: {      
+         auth : 1,
+         accion     : tipo,
+         titulo     : titulo,
+         contenido  : contenido,
+         link_cerrar: link_cerrar,
+         link_si    : link_si,
+         link_no    : link_no,
+         txt_cerrar : txt_cerrar,
+         txt_si     : txt_si,
+         txt_no     : txt_no,
+         botones    : botones
+        }
+        ,beforeSend: function(){
+            $('#ajaxModal').empty();
+        }
+        ,success: function(respuesta){             
+         $('#ajaxModal').html(respuesta);
+         $('#ajaxModal').modal({backdrop: 'static', keyboard: false, closable: false}); //Desactiva click fuera de ventana
+         $('#ajaxModal').modal('show');
+        }
+        ,complete: function(){              
+             // location.reload();
+         }
+    });
 }
 
 //O3M//

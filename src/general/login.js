@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$("#txtUsuario").focus();
 	scriptJs_Enter(); //Carga detección de ENTER
+	reloj('txtReloj');
 });
 
 function btnSubmit(){
