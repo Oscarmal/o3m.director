@@ -6,7 +6,7 @@ $(document).ready(function(){
     });
     // reloj('txtReloj'); 
     // Contador 
-    var timer = contador(parseInt($('#tm-out').val())-1);     
+    var timer = ($('#sec').val()!='login')?contador(parseInt($('#tm-out').val())-1):'';
 });
 
 
@@ -107,17 +107,17 @@ function scriptJs_Enter(Folder){
     });
 }
 
-function raizPath(Folder){
+function raizPath(){
 // Obtiene Carpeta raiz
-    if(!Folder){Folder='/';}
-    Folder = Folder;
+    // Folder = (!Folder)?'/':Folder;
+    var Folder = $('#app-fol').val();
     var dominio = document.domain;
     var raiz = window.location.pathname.split(Folder);
-    // var ruta = raiz[0] + Folder;
-    var ruta = '';
-    for(var i=0; i<=raiz.length-4; i++){
-        ruta +=  raiz[i]+'/';
-    }
+    var ruta = 'http://'+dominio+raiz[0] + Folder + '/';
+    // var ruta = '';
+    // for(var i=0; i<=raiz.length-4; i++){
+    //     ruta +=  raiz[i]+'/';
+    // }
     return ruta;
 }
 

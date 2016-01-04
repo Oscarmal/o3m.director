@@ -119,6 +119,9 @@ require_once($Path[src].'build.menu_lateral.php');
 								,bienvenida => $dic[general][barra].$cfg['breadcrums_char']
 								,modulo 	=> $bc_modulo
 								,seccion 	=> $bc_seccion
+								,MODULE 	=> strtolower($modulo)
+								,SECTION 	=> $seccion
+								,FOLDER 	=> $cfg[app_folder]
 								,USUARIO	=> ucwords(strtolower(utf8_encode($usuario[nombre])))
 								,EMAIL 		=> utf8_encode($usuario[email])
 								,GRUPO 		=> ucwords(strtolower(utf8_encode($usuario[grupo])))
