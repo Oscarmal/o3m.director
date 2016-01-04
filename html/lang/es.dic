@@ -47,8 +47,8 @@
 	menutop|iglesia05	= Facebook
 	menutop|iglesia06	= Twitter
 	menutop|iglesia07	= Youtube
-	menutop|red01 		= Palabra Miel
-	menutop|red02 		= Red Palabra Miel
+	menutop|pmiel01		= Palabra Miel
+	menutop|pmiel02		= Red Palabra Miel
 
 # Menú Lateral
 	menulateral|submenu01 = Opcion1

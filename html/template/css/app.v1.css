@@ -9888,7 +9888,8 @@ body.container{
 	background-color: #15a25a !important;
 }
 .bg-info{
-	background-color: #5a6a7a;
+	background-color: #37424D;
+	/*background-color: #181f24;*/
 	color: #eaf6f9;
 }
 .bg-info.lt,.bg-info .lt{

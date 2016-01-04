@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-01-04 13:30:44
+Date: 2016-01-04 13:46:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -682,45 +682,14 @@ INSERT INTO `sis_menu` VALUES ('7', '6', '6', '2', 'CAPTURA-01-1-1', 'icon-music
 INSERT INTO `sis_menu` VALUES ('23', '6', '6', '2', 'CAPTURA-01-1-2', 'icon-disc icon', '2', 'CAPTURA/LISTADO', 'captura04', null, '1');
 INSERT INTO `sis_menu` VALUES ('24', '6', '6', '2', 'CAPTURA-01-1-3', 'fa fa-users', '3', 'CAPTURA/LISTADO', 'captura05', null, '1');
 INSERT INTO `sis_menu` VALUES ('25', '25', '25', '0', 'IGLESIA-01', null, '1', null, 'iglesia01', null, '1');
-INSERT INTO `sis_menu` VALUES ('26', '25', '25', '1', 'IGLESIA-01-1', 'icon-home icon', '1', 'IGLESIA/IGLESIA', 'iglesia02', null, '1');
-INSERT INTO `sis_menu` VALUES ('27', '25', '25', '1', 'IGLESIA-01-2', 'icon-bubbles icon', '2', 'IGLESIA/CONTACTO', 'iglesia03', null, '1');
-INSERT INTO `sis_menu` VALUES ('28', '25', '25', '1', 'IGLESIA-01-3', 'icon-pointer icon', '3', 'IGLESIA/UBICACION', 'iglesia04', null, '1');
+INSERT INTO `sis_menu` VALUES ('26', '25', '25', '1', 'IGLESIA-01-1', 'icon-home icon text-warning', '1', 'IGLESIA/IGLESIA', 'iglesia02', null, '1');
+INSERT INTO `sis_menu` VALUES ('27', '25', '25', '1', 'IGLESIA-01-2', 'icon-bubbles icon text-warning', '2', 'IGLESIA/CONTACTO', 'iglesia03', null, '1');
+INSERT INTO `sis_menu` VALUES ('28', '25', '25', '1', 'IGLESIA-01-3', 'icon-pointer icon text-warning', '3', 'IGLESIA/UBICACION', 'iglesia04', null, '1');
 INSERT INTO `sis_menu` VALUES ('29', '25', '25', '1', 'IGLESIA-01-4', 'icon-social-facebook icon text-info-dker', '4', 'IGLESIA/FACEBOOK', 'iglesia05', null, '1');
 INSERT INTO `sis_menu` VALUES ('30', '25', '25', '1', 'IGLESIA-01-5', 'icon-social-twitter icon text-info-dker', '5', 'IGLESIA/TWITTER', 'iglesia06', null, '1');
 INSERT INTO `sis_menu` VALUES ('31', '25', '25', '1', 'IGLESIA-01-6', 'icon-social-youtube icon text-info-dker', '6', 'IGLESIA/YOUTUBE', 'iglesia07', null, '1');
-INSERT INTO `sis_menu` VALUES ('32', '32', '32', '0', 'RED-01', '', '1', '', 'red01', null, '1');
-INSERT INTO `sis_menu` VALUES ('33', '32', '32', '1', 'RED-01-1', 'icon-globe icon text-success-lter', '1', 'RED/RED', 'red02', null, '1');
-
--- ----------------------------
--- Table structure for sis_menu_copy
--- ----------------------------
-DROP TABLE IF EXISTS `sis_menu_copy`;
-CREATE TABLE `sis_menu_copy` (
-  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
-  `id_grupo` int(11) DEFAULT NULL,
-  `id_superior` int(11) DEFAULT NULL,
-  `nivel` tinyint(1) DEFAULT '1',
-  `menu` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `ico` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `orden` smallint(3) DEFAULT NULL,
-  `link` varchar(70) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `texto` varchar(70) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `timestamp` datetime DEFAULT NULL,
-  `activo` tinyint(1) DEFAULT '1',
-  PRIMARY KEY (`id_menu`),
-  KEY `i_superior` (`id_superior`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- ----------------------------
--- Records of sis_menu_copy
--- ----------------------------
-INSERT INTO `sis_menu_copy` VALUES ('1', '1', '1', '1', 'CANTOS-01', 'icon-music-tone-alt text-info', '1', 'CAPTURA/LISTADO', 'mod01', null, '1');
-INSERT INTO `sis_menu_copy` VALUES ('2', '2', '2', '1', 'ALBUMS-01', 'icon-disc text-success', '2', 'CAPTURA/LISTADO', 'mod02', null, '1');
-INSERT INTO `sis_menu_copy` VALUES ('3', '3', '3', '1', 'ARTISTAS-01', 'fa fa-users text-primary-lter', '3', 'CAPTURA/LISTADO', 'mod03', null, '1');
-INSERT INTO `sis_menu_copy` VALUES ('4', '4', '4', '1', 'CAPTURA-01', 'icon-playlist icon text-info-dker', '4', 'CAPTURA/LISTADO', 'mod04', null, '1');
-INSERT INTO `sis_menu_copy` VALUES ('5', '4', '4', '2', 'CAPTURA-02', 'icon-music-tone icon', '1', 'CAPTURA/LISTADO', 'mod05', null, '1');
-INSERT INTO `sis_menu_copy` VALUES ('6', '4', '4', '2', 'CAPTURA-03', 'icon-disc icon', '2', 'CAPTURA/LISTADO', 'mod06', null, '1');
-INSERT INTO `sis_menu_copy` VALUES ('7', '4', '4', '2', 'CAPTURA-04', 'fa fa-users', '3', 'CAPTURA/LISTADO', 'mod07', null, '1');
+INSERT INTO `sis_menu` VALUES ('32', '32', '32', '0', 'PMIEL-01', '', '1', '', 'pmiel01', null, '1');
+INSERT INTO `sis_menu` VALUES ('33', '32', '32', '1', 'PMIEL-01-1', 'icon-globe icon text-success-lter', '1', 'PMIEL/RED', 'pmiel02', null, '1');
 
 -- ----------------------------
 -- Table structure for sis_menu_lateral
@@ -792,7 +761,7 @@ CREATE TABLE `sis_online` (
 -- ----------------------------
 -- Records of sis_online
 -- ----------------------------
-INSERT INTO `sis_online` VALUES ('1', '2', '1451935778');
+INSERT INTO `sis_online` VALUES ('1', '2', '1451936758');
 INSERT INTO `sis_online` VALUES ('2', '0', '1448641146');
 INSERT INTO `sis_online` VALUES ('3', '8', '1444853002');
 INSERT INTO `sis_online` VALUES ('4', '3', '1450882810');
