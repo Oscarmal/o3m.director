@@ -28,7 +28,7 @@ function SQLQuery($SQL, $assoc=3){
 		if(in_array(strtoupper($vSql[0]),$Cmd)){
 		    try{
 		    	$conn = SQLConn(); //Llama conexión
-		    	$qry = $conn->query($SQL)or die(mysqli_connect_errno($conn).' -> '.mysqli_connect_error()); //Ejecuta query	    	 	
+		    	$qry = $conn->query($SQL)or die($conn->error); //Ejecuta query  	 	
 		    	if(mysqli_num_rows($qry)){
 		    		if(mysqli_num_rows($qry)==1){
 		    			mysqli_data_seek($qry,0);
@@ -69,7 +69,7 @@ function SQLDo($SQL){
 		if(in_array(strtoupper($vSql[0]),$Cmd)){			
 		    try{
 		    	$conn = SQLConn(); //Llama conexión
-		    	$qry = $conn->query($SQL)or die(mysqli_connect_errno($conn).' -> '.mysqli_connect_error()); //Ejecuta query	    	 	
+		    	$qry = $conn->query($SQL)or die($conn->error); //Ejecuta query		    	
 				// Guardar LOGS
 		    	if($cfg[querylog_onoff]){
 			    	// $Id = $conn->insert_id;
