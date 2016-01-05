@@ -6,6 +6,7 @@
 	comun|entrar 		= Entrar
 	comun|regresar 		= Regresar
 	comun|guardar 		= Guardar
+	comun|agregar 		= Agregar
 	comun|cancelar 		= Cancelar
 	comun|cerrar 		= Cerrar
 	comun|editar 		= Editar
@@ -37,9 +38,15 @@
 	menutop|alabanzas04	= Artistas
 	menutop|captura01	= Nuevos
 	menutop|captura02	= Capturar
-	menutop|captura03	= Canto
-	menutop|captura04	= Album
-	menutop|captura05	= Artista
+	menutop|captura03	= Cantos
+	menutop|captura04	= Albums
+	menutop|captura05	= Artistas
+	menutop|captura06	= Catálogos
+	menutop|captura07	= Categorías
+	menutop|captura08	= Ritmos
+	menutop|captura09	= Compases
+	menutop|captura10	= Escalas
+	menutop|captura11	= Notas
 	menutop|iglesia01	= Mahanaim Tlalpan
 	menutop|iglesia02	= Iglesia
 	menutop|iglesia03	= Contacto
@@ -49,6 +56,10 @@
 	menutop|iglesia07	= Youtube
 	menutop|pmiel01		= Palabra Miel
 	menutop|pmiel02		= Red Palabra Miel
+	menutop|admin01		= Administración
+	menutop|admin02		= Accesos
+	menutop|admin03		= Usuarios
+	menutop|admin04		= Perfiles
 
 # Menú Lateral
 	menulateral|submenu01 = Opcion1
@@ -71,6 +82,29 @@
 
 #Captura
 	captura|listado_titulo 		= Listado
+	captura|categorias_titulo 	= Captura de Categorías
+	captura|compases_titulo 	= Captura de Compáses
+	captura|escalas_titulo 		= Captura de Escalas
+	captura|notas_titulo 		= Captura de Notas
+	captura|ritmos_titulo 		= Captura de Ritmos
+	captura|albums_titulo  		= Captura de Albums
+	captura|artistas_titulo 	= Captura de Artistas
+	captura|cantos_titulo 		= Captura de Cantos
+
+	#Cantos
+	captura|cantos_txt_form 		= Agregar nuevo
+	captura|cantos_txt_titulo 		= Titulo
+	captura|cantos_txt_nombre 		= Nombre
+	captura|cantos_txt_alias 		= Alias
+	captura|cantos_txt_escala 		= Escala
+	captura|cantos_txt_canto 		= Canto
+	captura|cantos_txt_album 		= Album
+	captura|cantos_txt_artista 		= Artista
+	captura|cantos_txt_escala 		= Escala
+	captura|cantos_txt_nota 		= Nota
+	captura|cantos_txt_compas 		= Compás
+	captura|cantos_txt_ritmo 		= Ritmo
+	captura|cantos_txt_categoria 	= Categoría
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia
@@ -84,3 +118,25 @@
 #Tooltips
 	#Login
 	tooltips|tooltip_usuario	= Ingrese su usuario
+
+	#Listas
+	tooltips|lst_escalas		= Seleccione una escala
+	tooltips|lst_notas			= Seleccione las notas
+	tooltips|lst_ritmos			= Seleccione un ritmo
+	tooltips|lst_compases		= Seleccione un compás
+	tooltips|lst_albums 		= Seleccione un album
+	tooltips|lst_artista		= Seleccione un artista
+	tooltips|lst_canto			= Seleccione un canto
+	tooltips|lst_categoria		= Seleccione las categorias
+
+	#Captura|Cantos
+	tooltips|captura_nombre		= Ingrese el nombre del canto
+	tooltips|captura_alias		= Ingrese el alias del canto
+	tooltips|captura_canto		= Canto
+	tooltips|captura_album		= Album
+	tooltips|captura_artista	= Artista
+	tooltips|captura_escala		= Escala
+	tooltips|captura_nota		= Nota
+	tooltips|captura_compas		= Compás
+	tooltips|captura_ritmo		= Ritmo
+	tooltips|captura_categoria	= Categoría

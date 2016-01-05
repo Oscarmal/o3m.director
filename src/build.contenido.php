@@ -4,6 +4,7 @@
 * 
 */
 require_once($Path[src].'dao.perfiles.php');
+require_once($Path[src].'captura/dao.catalogos.php');
 require_once($Path[src].'captura/build.contenido.captura.php');
 //**FUNCIONES GENERALES******************************************************************
 function build_grid_paginado($arrayData=array(), $arrayHeaders=array()){
@@ -19,18 +20,18 @@ function build_grid_paginado($arrayData=array(), $arrayHeaders=array()){
 	return $tbl->paginar($tableData,$arrayHeaders);
 }
 function drop_down_select($params = array()){
-	$data   	= (isset($params['data']))?$params['data']:'';
-	$name   	= (isset($params['name']))?$params['name']:'';
-	$event   	= (isset($params['event']))?$params['event']:'';
-	$selected   = (isset($params['selected']))?$params['selected']:'';
-	$value      = (isset($params['value']))?$params['value']:false;
-	$text   	= (isset($params['text']))?$params['text']:'';
-	$class      = (isset($params['class']))?$params['class']:'';
-	$disabled   = (isset($params['disabled']))?$params['disabled']:'';
-	$requerido  = (isset($params['requerido']))?$params['requerido']:'';
-	$multiple   = (isset($params['multiple']))?$params['multiple']:'';
-	$title   	= (isset($params['title']))?$params['title']:'';
-	$width 		= (isset($params['width']))?'style="width:'.$params['width'].'px;"':'';
+	$data   	= ($params['data'])?$params['data']:'';
+	$name   	= ($params['name'])?$params['name']:'';
+	$event   	= ($params['event'])?$params['event']:'';
+	$selected   = ($params['selected'])?$params['selected']:'';
+	$value      = ($params['value'])?$params['value']:false;
+	$text   	= ($params['text'])?$params['text']:'';
+	$class      = ($params['class'])?$params['class']:'';
+	$disabled   = ($params['disabled'])?$params['disabled']:'';
+	$requerido  = ($params['requerido'])?'data-required="true"':'';
+	$multiple   = ($params['multiple'])?$params['multiple']:'';
+	$title   	= ($params['title'])?$params['title']:'';
+	$width 		= ($params['width'])?'style="width:'.$params['width'].'px;"':'';
 
     $leyenda    = (array_key_exists('leyenda' ,$params))?$params['leyenda']: '-----';
     if(is_array($data)){
@@ -43,15 +44,16 @@ function drop_down_select($params = array()){
     		}
     		$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
 	    }
-	    $opc='<select name="'.$name.'" id="'.$name.'" '.$multiple.' class="chosen-select '.$class.' '.$requerido.'" onchange="'.$event.'" data-campo="'.$name.'" title="'.$title.'" '.$width.'>
-	            <option value="0">'.$leyenda.'</option>
+	    $opc='<select name="'.$name.'" id="'.$name.'" '.$multiple.' class="chosen-select '.$class.'" onchange="'.$event.'" data-campo="'.$name.'" '.$requerido.' title="'.$title.'" '.$width.'>
+	            <option value="">'.$leyenda.'</option>
 	            '.$select.'
 	          </select>';
     }else{
     	$opc='<select name="'.$name.'" id="'.$name.'" class="chosen-select '.$class.'" onchange="'.$event.'">
-	            <option value="0">Sin contenido</option>
+	            <option value="">Sin contenido</option>
 	          </select>';
     }
+    // dump_var($opc);
     return $opc;
 }
 function strtoupper_sting($string){
@@ -91,42 +93,6 @@ function ico_imprimir($id=false,$onclick=false){
 	global $dic;
 	return '<span id="'.$id.'" class="ico imprimir" title="'.$dic[ico][imprimir].'" onclick="'.$onclick.'" ><i class="fa fa-print"></i></span>';
 }
-function ico_visita($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico visita" title="'.$dic[ico][visita].'" onclick="'.$onclick.'" ><i class="fa fa-male"></i></span>';
-}
-function ico_llamada($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico llamada" title="'.$dic[ico][llamada].'" onclick="'.$onclick.'" ><i class="fa fa-phone"></i></span>';
-}
-function ico_propuesta($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico propuesta" title="'.$dic[ico][propuesta].'" onclick="'.$onclick.'" ><i class="fa fa-line-chart"></i></span>';
-}
-function ico_cierre($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico cierre" title="'.$dic[ico][cierre].'" onclick="'.$onclick.'" ><i class="fa fa-thumbs-o-up"></i></span>';
-}
-function ico_contactos($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico contactos" title="'.$dic[ico][contactos].'" onclick="'.$onclick.'" ><i class="fa fa-users"></i></span>';
-}
-function ico_empresas($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico empresas" title="'.$dic[ico][empresas].'" onclick="'.$onclick.'" ><i class="fa fa-hospital-o"></i></span>';
-}
-function ico_ejecutivos($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico ejecutivos" title="'.$dic[ico][ejecutivos].'" onclick="'.$onclick.'" ><i class="fa fa-user-secret"></i></span>';
-}
-function ico_asignar_contacto($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico asignar" title="'.$dic[ico][asignar].'" onclick="'.$onclick.'" ><i class="fa fa-user-plus"></i></span>';
-}
-function ico_deasignar_contacto($id=false,$onclick=false){
-	global $dic;
-	return '<span id="'.$id.'" class="ico deasignar" title="'.$dic[ico][deasignar].'" onclick="'.$onclick.'" ><i class="fa fa-user-times"></i></span>';
-}
 function ico_borrar($id=false,$onclick=false){
 	global $dic;
 	return '<span id="'.$id.'" class="ico borrar" title="'.$dic[ico][baja].'" onclick="'.$onclick.'" ><i class="fa fa-trash-o"></i></span>';
@@ -153,4 +119,147 @@ function create_list($dataArray=false, $class=false){
 	return $listHTML;
 }
 /*FIN GENERALES*/
+function dropdown_escalas($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_escalas();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_escalas',
+				'value' 	=> 'id_escala',
+				'text'  	=> 'escala',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_escalas]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_notas($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_notas();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_notas',
+				'value' 	=> 'id_nota',
+				'text'  	=> 'nota',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_notas]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_compases($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_compases();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_compases',
+				'value' 	=> 'id_compas',
+				'text'  	=> 'compas',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_compases]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_ritmos($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_ritmos();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_ritmos',
+				'value' 	=> 'id_ritmo',
+				'text'  	=> 'ritmo',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_ritmo]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_albums($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_albums();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_albums',
+				'value' 	=> 'id_album',
+				'text'  	=> 'album',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_albums]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_artistas($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_artistas();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_artistas',
+				'value' 	=> 'id_artista',
+				'text'  	=> 'artista',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_artistas]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_cantos($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_cantos();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_cantos',
+				'value' 	=> 'id_canto',
+				'text'  	=> 'cantos',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_cantos]
+			);
+	return drop_down_select($dataDropdown);
+}
+
+function dropdown_categorias($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$lst_data = select_categorias();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> 'lts_categorias',
+				'value' 	=> 'id_categoria',
+				'text'  	=> 'categorias',
+				'requerido' => $requerido,
+				'class' 	=> '',
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_categorias]
+			);
+	return drop_down_select($dataDropdown);
+}
 ?>

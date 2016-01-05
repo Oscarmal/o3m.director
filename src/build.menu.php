@@ -93,7 +93,7 @@ function build_ul_menu($array=array()){
 					$elemento[grupos] = $grupos;
 					$html.= '<li>';
 					$html.= '<a href="#" class="auto">';
-					$html.='<span class="pull-right text-muted"> 
+					$html.= '<span class="pull-right text-muted"> 
 		                        <i class="fa fa-angle-left text"></i> 
 		                        <i class="fa fa-angle-down text-active"></i> 
 		                    </span>';
