@@ -250,10 +250,11 @@ function formData(selector, template){
     *               <script> var objData = formData('#formulario'); </script>
     * @author:      Oscar Maldonado - O3M
     */
-    var data = template ? template : {}; // Valores predeterminados - Opcional
-    var c, f, r, v, m, $e, $elements = jQuery(selector).find("input, select, textarea");
+    // var data = template ? template : {}; // Valores predeterminados - Opcional
+    var data = '';
+    var c, f, r, v, m, $e, $elements = $(selector).find("input, select, textarea");
     for (var i = 0; i < $elements.length; i++){
-        $e = jQuery($elements[i]);
+        $e = $($elements[i]);
         // alert($elements[i]['id']);  
         f = $e.data("campo");
         r = $e.attr("required") ? true: false;  
@@ -277,9 +278,9 @@ function formData(selector, template){
                     if ($e.prop("checked"))
                         v = $e.val();
                 }
-                else if ($e.datepicker){
-                    v = $e.datepicker("getDate");
-                }
+                // else if ($e.datepicker){
+                //     v = $e.datepicker("getDate");
+                // }
                 else{
                     v = jQuery.trim($e.val());
                 }
@@ -291,16 +292,17 @@ function formData(selector, template){
         // Guarda el valor en el objeto
         if (r && (v == undefined || v == "")){
             m = $e.data("mensaje");
-            if (m)
+            if(m){
                 alert(m);
-            else
+            } else{
                 alert("Es necesario especificar un valor para el campo \"" + f + "\".");
+            }
             $e.focus();
             return null;
-        }
-        else if (v != undefined)            
+        }else if(v != undefined){           
             data[i] = v;  
             data[f] = v; 
+        }
     }// next  
     return data;
 }
