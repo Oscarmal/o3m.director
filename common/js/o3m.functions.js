@@ -241,7 +241,7 @@ function goto(ruta){
     location.href=ruta;
 }
 
-function formData(selector, template){
+function formData(selector, template){    
     /**
     * Descripcion:  Crea un objeto recuperando los valores ingresados en los campos INPUT
     * Comentario:   Los elementos html deben estar dentro de un mismo <div> y tiene que 
@@ -250,8 +250,7 @@ function formData(selector, template){
     *               <script> var objData = formData('#formulario'); </script>
     * @author:      Oscar Maldonado - O3M
     */
-    // var data = template ? template : {}; // Valores predeterminados - Opcional
-    var data = '';
+    var data = template ? template : {}; // Valores predeterminados - Opcional
     var c, f, r, v, m, $e, $elements = $(selector).find("input, select, textarea");
     for (var i = 0; i < $elements.length; i++){
         $e = $($elements[i]);
