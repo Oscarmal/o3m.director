@@ -26,7 +26,8 @@ function parseFormSanitizer($g,$p){
 	for($i=0;$i<$tvars;$i++){
 		if($vnames[$i]=='cmd'){$cmd=$vvalues[$i];}
 		// $svalue = @sanitizerSpace($vvalues[$i]);
-		$ins[$vnames[$i]]=@sanitizerUrl($vvalues[$i]);
+		// $ins[$vnames[$i]]=@sanitizerUrl($vvalues[$i]);
+		$ins[$vnames[$i]]=@sanitizerData($vvalues[$i]);
 	}
 }
 
@@ -51,7 +52,8 @@ function parseForm($g,$p){
 
 function sanitizerUrl($param) {
 #Sanitizes a url param
-    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "[", "{", "]","}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;","â€”", "â€“", ",", "<", ".", ">", "/", "?");
+    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "{", "]","}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;","â€”", "â€“", ",", "<", ".", ">", "/", "?");
+    // $strip = array("~", "`", "^", "\\", "\"", "/");
     $clean = trim(str_replace($strip, "", strip_tags($param)));
 	return $clean;
 }
@@ -66,6 +68,20 @@ function sanitizerSpace($param, $revert=false) {
 	    $clean = str_replace($strip, " ", strip_tags($param));
 	}
 	return $clean;
+}
+
+function sanitizerData($data=false,$type=true){
+// Sanitiza valores de query
+	if($data){
+		if(is_array($data)){
+			foreach($data as $field => $value){
+				$cleanData[$field] = ($type)?addslashes($value):stripslashes($value);
+			}
+		}else{
+			$cleanData = ($type)?addslashes($data):stripslashes($data);
+		}
+		return $cleanData;
+	}else{return false;}
 }
 
 function limpiarTmp($dir='',$extension=array(), $segundos=120){
