@@ -661,3 +661,13 @@ a.editable-click.editable-disabled:hover {
   margin-left: -5px;
   margin-right: -5px;
 }
+
+.editable-form {
+    display: block;
+    margin-bottom: 5px;  
+}
+
+.editable-form span {
+    width: 70px;  
+    display: inline-block;
+}
