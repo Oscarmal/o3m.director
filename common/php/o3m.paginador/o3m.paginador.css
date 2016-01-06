@@ -196,9 +196,9 @@
 }
 .searchbox input#searchbox{
   width: 150px;
-  height: 32px;
+  height: 40px;
   background: #eee;
-  border: none;
+  border: 1px solid #ddd;
   font-size: 10pt;
   float: left;
   color: #63717f;
