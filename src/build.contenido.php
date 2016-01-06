@@ -4,8 +4,8 @@
 * 
 */
 require_once($Path[src].'dao.perfiles.php');
-require_once($Path[src].'captura/dao.catalogos.php');
-require_once($Path[src].'captura/build.contenido.captura.php');
+require_once($Path[src].'catalogos/dao.catalogos.php');
+require_once($Path[src].'catalogos/build.contenido.catalogos.php');
 //**FUNCIONES GENERALES******************************************************************
 function build_grid_paginado($arrayData=array(), $arrayHeaders=array()){
 // Construye un listado paginado con el arreglo recibido
@@ -85,9 +85,9 @@ function ico_reactivar($id=false,$onclick=false){
 	global $dic;
 	return '<span id="'.$id.'" class="ico reactivar" title="'.$dic[ico][reactivar].'" onclick="'.$onclick.'" ><i class="fa fa-check"></i></span>';
 }
-function ico_editar($id=false,$onclick=false){
+function ico_editar($id=false,$onclick=false,$idData=false){
 	global $dic;
-	return '<span id="'.$id.'" class="ico editar" title="'.$dic[ico][editar].'" onclick="'.$onclick.'" ><i class="fa fa-pencil-square-o"></i></span>';
+	return '<span id="'.$id.'" data-pk="'.$idData.'" class="ico editar" title="'.$dic[ico][editar].'" onclick="'.$onclick.'" ><i class="fa fa-pencil-square-o"></i></span>';
 }
 function ico_imprimir($id=false,$onclick=false){
 	global $dic;

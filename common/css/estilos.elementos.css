@@ -60,7 +60,9 @@ input:focus, textarea:focus, select:focus{
 
 .borde { border: 1px solid #ccc;}
 
-/*Tooltips*/
+.editar{cursor: pointer;}
+
+/*Tooltips*//*
 .ui-tooltip, .arrow:after {
     background: black;
     border: 2px solid white;
@@ -74,7 +76,6 @@ input:focus, textarea:focus, select:focus{
     padding: 5px 10px;
     color: white;
     border-radius: 20px;
-    /*font:  .6em "Helvetica Neue", Sans-Serif;*/
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: .6em;
@@ -114,15 +115,15 @@ input:focus, textarea:focus, select:focus{
   }
 
 .transparent_class {
-    /* IE 8 */
+    /* IE 8 *//*
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    /* IE 5-7 */
+    /* IE 5-7 *//*
     filter: alpha(opacity=50);
-    /* Netscape */
+    /* Netscape *//*
     -moz-opacity: 0.5;
-    /* Safari 1.x */
+    /* Safari 1.x *//*
     -khtml-opacity: 0.5;
-    /* Good browsers */
+    /* Good browsers *//*
     opacity: 0.5;
 }
 /*Fin tooltip*/
@@ -133,5 +134,9 @@ input:focus, textarea:focus, select:focus{
     text-align: center;
     vertical-align: middle;
     color: #bbb;
+}
+
+.title-color{
+    color: #36B0C8;
 }
 /*O3M*/

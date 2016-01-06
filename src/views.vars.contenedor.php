@@ -4,7 +4,7 @@
 * 
 */
 require_once('views.vars.error.php');
-require_once($Path[src].'build.menu_lateral.php');
+// require_once($Path[src].'build.menu_lateral.php');
 // Modulo Padre
 #Modulos
 	$contenedor = array(
@@ -22,6 +22,7 @@ require_once($Path[src].'build.menu_lateral.php');
 				,CAPTURA		=> 'views.vars.captura.php'
 				,IGLESIA		=> 'views.vars.iglesia.php'
 				,PMIEL			=> 'views.vars.pmiel.php'
+				,CATALOGOS		=> 'views.vars.catalogos.php'
 				,ADMIN			=> 'views.vars.admin.php'
 			);
 	$idmenus = array(
@@ -31,7 +32,8 @@ require_once($Path[src].'build.menu_lateral.php');
 				,CAPTURA		=> 3
 				,IGLESIA		=> 4
 				,PMIEL			=> 5
-				,ADMIN			=> 6
+				,CATALOGOS		=> 6
+				,ADMIN			=> 7
 			);
 	// $visitas = MODULO => SECCIONES
 	$frm_vistas = array(
@@ -44,11 +46,6 @@ require_once($Path[src].'build.menu_lateral.php');
 				,CAPTURA => 
 					array(
 						 LISTADO 		=> 'listado.html'
-						,CATEGORIAS 	=> 'categorias.html'
-						,COMPASES 		=> 'compases.html'
-						,ESCALAS 		=> 'escalas.html'
-						,NOTAS 			=> 'notas.html'
-						,RITMOS 		=> 'ritmos.html'
 						,ALBUMS 		=> 'albums.html'
 						,ARTISTAS 		=> 'artistas.html'
 						,CANTOS 		=> 'cantos.html'
@@ -61,7 +58,19 @@ require_once($Path[src].'build.menu_lateral.php');
 						,FACEBOOK 		=> 'facebook.html'
 						,TWITTER 		=> 'twitter.html'
 						,YOUTUBE 		=> 'youtube.html'
-						)
+					)
+				,CATALOGOS => 
+					array(
+						 LISTADO 		=> 'listado.html'
+						,CATEGORIAS 	=> 'categorias.html'
+						,COMPASES 		=> 'compases.html'
+						,ESCALAS 		=> 'escalas.html'
+						,NOTAS 			=> 'notas.html'
+						,RITMOS 		=> 'ritmos.html'
+						,ALBUMS 		=> 'albums.html'
+						,ARTISTAS 		=> 'artistas.html'
+						,CANTOS 		=> 'cantos.html'
+					)
 				,ERROR  => 'error.html'
 			);
 
@@ -167,7 +176,7 @@ require_once($Path[src].'build.menu_lateral.php');
 						,FRM_MENU 			=> $MENU
 						,FRM_CONTENIDO		=> $CONTENIDO
 						,FRM_FOOTER			=> $FOOTER
-						,FRM_MENU_LATERAL	=> $MENU_LATERAL
+						// ,FRM_MENU_LATERAL	=> $MENU_LATERAL
 					);
 			$texto = array(
 						 salir 			=> $dic[general][salir]

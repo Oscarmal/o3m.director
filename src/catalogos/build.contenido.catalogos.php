@@ -3,7 +3,7 @@
 * Crea el contenido HTLM y envia los datos a AJAX
 * 
 */
-require_once($Path[src].'captura/dao.captura.php');
+require_once($Path[src].'catalogos/dao.catalogos.php');
 function tooltips(){
 	global $dic;
 	$tooltips = array(
@@ -41,7 +41,7 @@ function txt_labels(){
 	return $labels;
 }
 
-function build_formulario(){
+function build_formulario_cantos(){
 // Construye formulario
 	$labels 	= txt_labels();
 	$tooltips	= tooltips();
@@ -54,4 +54,44 @@ function build_formulario(){
 	return $html;
 }
 
+function build_formulario_categorias(){
+// Construye formulario
+	$labels 	= txt_labels();
+	$tooltips	= tooltips();
+	$data		= array( GRID 	=> build_listado_categorias() );
+	$html = array_merge($labels, $tooltips, $data);
+	return $html;
+}
+
+function build_listado_categorias(){
+// Grid de categorias
+	global $ins, $dic;
+	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
+	$sqlData = select_categorias($searchbox);
+	$y=0;
+	if($sqlData){
+		foreach ($sqlData as $row) {
+			$tblData[$y] = $row;
+			$tblData[$y][categoria] = '<span class="editar campo-categoria" data-pk="'.$row[id_categoria].'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[categoria].'</span>';
+			$y++;
+		}
+	}
+	return build_grid_paginado($tblData,$titulos);
+}
+
+function build_listado_cantos(){
+// Grid de cantos
+	global $ins;
+	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
+	$sqlData = select_cantos($searchbox);
+	$y=0;
+	if($sqlData){
+		foreach ($sqlData as $row) {
+			$tblData[$y] = $row;
+			$tblData[$y][acciones] = ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');');
+			$y++;
+		}
+	}
+	return build_grid_paginado($tblData,$titulos);
+}
 ?>
