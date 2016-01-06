@@ -96,11 +96,9 @@ function vars_categorias($seccion, $urlParams){
 	$data_contenido = build_formulario_categorias();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
-				 					  // .incJs($Path[js].'jquery.jeditable.js')
-				 						.incJs($Path[js].'jquery-ui-1.11.1/jquery-ui.min.js')
-				 						.incCss($Path[js].'jqueryui-editable-1.5.1/jqueryui-editable/css/jqueryui-editable.css')
-				 						.incJs($Path[js].'jqueryui-editable-1.5.1/jqueryui-editable/js/jqueryui-editable.js')
+				 MORE 				=>  include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/categorias.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

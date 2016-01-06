@@ -673,5 +673,18 @@ function o3mcontrolador($controlador=false, $params=array()){
 	}
 	echo $result;
 }
+
+function include_editable($tipo=1){
+	global $Path;
+	if($tipo==1){
+    	$includes = incJs($Path[js].'jquery-ui-1.11.1/jquery-ui.min.js')
+			    .incCss($Path[js].'jqueryui-editable-1.5.1/jqueryui-editable/css/jqueryui-editable.css')
+			    .incJs($Path[js].'jqueryui-editable-1.5.1/jqueryui-editable/js/jqueryui-editable.js');
+	}else{
+		$include = incJs($Path[js].'jquery-ui-1.11.1/jquery-ui.min.js')
+			  		.incJs($Path[js].'jquery.jeditable.js');
+	}
+    return $includes;
+}
 /*O3M*/
 ?>

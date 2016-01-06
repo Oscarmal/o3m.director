@@ -62,68 +62,30 @@ input:focus, textarea:focus, select:focus{
 
 .editar{cursor: pointer;}
 
-/*Tooltips*//*
-.ui-tooltip, .arrow:after {
-    background: black;
-    border: 2px solid white;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    filter: alpha(opacity=80);
-    -moz-opacity: 0.8;
-    -khtml-opacity: 0.8;
-    opacity: 0.8;
-}
-  .ui-tooltip {
+/*Tooltips*/
+.custom-tooltips {
+    background: #F8F7DC;
     padding: 5px 10px;
-    color: white;
-    border-radius: 20px;
-    text-transform: uppercase;
+    color: #36B0C8;
+    text-transform: capitalize;
     letter-spacing: 1px;
-    font-size: .6em;
-    box-shadow: 0 0 7px black;
-  }
-  .arrow {
-    width: 50px;
-    height: 16px;
-    overflow: hidden;
-    position: absolute;
-    left: 50%;
-    margin-left: -35px;
-    bottom: -16px;
-  }
-  .arrow.top {
-    top: -16px;
-    bottom: auto;
-  }
-  .arrow.left {
-    left: 20%;
-  }
-  .arrow:after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    top: -20px;
-    width: 25px;
-    height: 25px;
-    box-shadow: 6px 5px 9px -9px black;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .arrow.top:after {
-    bottom: -20px;
-    top: auto;
-  }
-
+    font-size: .8em;
+    border: 1px solid #F8F7DC;
+    border-radius: 4px;
+    box-shadow: 0 0 7px #F8F7DC;
+    -moz-box-shadow: 0 0 7px  #9F9F9F;
+    -webkit-box-shadow: 0 0 7px  #9F9F9F;
+}
 .transparent_class {
-    /* IE 8 *//*
+    /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     /* IE 5-7 *//*
     filter: alpha(opacity=50);
-    /* Netscape *//*
+    /* Netscape */
     -moz-opacity: 0.5;
-    /* Safari 1.x *//*
+    /* Safari 1.x */
     -khtml-opacity: 0.5;
-    /* Good browsers *//*
+    /* Good browsers */
     opacity: 0.5;
 }
 /*Fin tooltip*/

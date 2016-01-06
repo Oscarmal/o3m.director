@@ -79,7 +79,7 @@ function ico_detalle($id=false,$onclick=false){
 }
 function ico_eliminar($id=false,$onclick=false){
 	global $dic;
-	return '<span id="'.$id.'" class="ico eliminar" title="'.$dic[ico][baja].'" onclick="'.$onclick.'" ><i class="fa fa-times"></i></span>';
+	return '<span id="ico-eliminar_'.$id.'" class="ico eliminar" title="'.$dic[ico][baja].'" onclick="'.$onclick.'" ><i class="fa fa-times"></i></span>';
 }
 function ico_reactivar($id=false,$onclick=false){
 	global $dic;

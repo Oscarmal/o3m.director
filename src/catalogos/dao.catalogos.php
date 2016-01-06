@@ -128,5 +128,15 @@ function update_categorias($data=array()){
 	$resultado = (SQLDo($sql))?true:false;
 	return $resultado;
 }
+
+function activate_categorias($data=array()){
+	global $db;
+	$sql="UPDATE $db[tbl_categorias]
+			SET activo = '$data[activo]' 
+			WHERE id_categoria='$data[id_categoria]'
+			LIMIT 1;";
+	$resultado = (SQLDo($sql))?true:false;
+	return $resultado;
+}
 /*O3M*/
 ?>

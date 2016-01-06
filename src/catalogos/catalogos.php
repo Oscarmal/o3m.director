@@ -19,10 +19,23 @@ function insert_catalogos_categorias($in){
 }
 function update_catalogos_categorias($in){
 	global $dic;
-	if($success = update_categorias(array(id_categoria =>$in[pk], categoria => strtoupper($in[value])))){
-		$data = array(success => true, message => 'El registro con ID: '.$in[pk].' ha sido actualizado.');
+	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
+	$valor 	= (!$in[value])?$in[objData][categoria]:$in[value];
+	if($success = update_categorias(array(id_categoria =>$id, categoria => strtoupper($valor)))){
+		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
-		$data = array(success => false, message => 'ERROR al actualizar datos.');
+		$data = array(success => false, id => $id, message => 'ERROR al actualizar datos.');
+	}
+	return json_encode($data);
+}
+function activate_catalogos_categorias($in){
+	global $dic;
+	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
+	$activo = ($in[objData][activo])?1:0;
+	if($success = activate_categorias(array(id_categoria =>$id, activo => $activo)) ){
+		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido desactivado.');
+	}else{
+		$data = array(success => false, id => $id, message => 'ERROR al desactivar registro.');
 	}
 	return json_encode($data);
 }

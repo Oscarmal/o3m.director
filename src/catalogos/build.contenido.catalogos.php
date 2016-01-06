@@ -72,7 +72,8 @@ function build_listado_categorias(){
 	if($sqlData){
 		foreach ($sqlData as $row) {
 			$tblData[$y] = $row;
-			$tblData[$y][categoria] = '<span class="editar campo-categoria" data-pk="'.$row[id_categoria].'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[categoria].'</span>';
+			$tblData[$y][categoria] = '<span class="editar campo-categoria" data-pk="'.$row[id_categoria].'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[categoria].'</span> <span id="frm-msj_'.$row[id_categoria].'"></span>';
+			$tblData[$y][quitar] = ico_eliminar($row[id_categoria],"activate('frm-captura-categorias','categorias',".$row[id_categoria].');');
 			$y++;
 		}
 	}
