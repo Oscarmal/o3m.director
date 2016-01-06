@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-01-04 18:44:32
+Date: 2016-01-05 18:57:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `cat_categorias` (
   PRIMARY KEY (`id_categoria`),
   UNIQUE KEY `i_categoria` (`categoria`),
   KEY `i_activo` (`activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of cat_categorias
@@ -47,6 +47,7 @@ INSERT INTO `cat_categorias` VALUES ('13', 'ESPOSA', '1');
 INSERT INTO `cat_categorias` VALUES ('14', 'GUERRA', '1');
 INSERT INTO `cat_categorias` VALUES ('15', 'EXCLAMACIÓN', '1');
 INSERT INTO `cat_categorias` VALUES ('16', 'DANZA', '1');
+INSERT INTO `cat_categorias` VALUES ('17', 'AVIVAMIENTO', '1');
 
 -- ----------------------------
 -- Table structure for cat_compases
@@ -405,7 +406,7 @@ CREATE TABLE `sis_logs` (
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_log`),
   KEY `id_usuario` (`id_usuario`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=248 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=280 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of sis_logs
@@ -657,6 +658,38 @@ INSERT INTO `sis_logs` VALUES ('244', 'tbl_contactos\r\n			set', '0', 'UPDATE', 
 INSERT INTO `sis_logs` VALUES ('245', 'tbl_contactos\r\n			set', '0', 'UPDATE', 'UPDATE tbl_contactos\r\n			SET activo = 1\r\n			WHERE id_contacto = 1;', '', null, '2015-12-22 12:50:27', '2');
 INSERT INTO `sis_logs` VALUES ('246', 'tbl_operaciones', '52', 'INSERT', 'INSERT INTO tbl_operaciones SET \r\n				id_cliente			= \'12994\',\r\n				id_operacion_tipo	= \'1\',\r\n				fecha				= \'\',\r\n				hora				= \'\',\r\n				detalle				= \'\',\r\n				id_servicios		= \'\',\r\n				id_contactos		= \'\',\r\n				id_personal			= \'2\',\r\n				id_usuario			= \'\',\r\n				comentarios			= \'\',\r\n				timestamp 		 	= \'2015-12-22 13:00:00\'\r\n			;', '', null, '2015-12-22 13:00:00', '2');
 INSERT INTO `sis_logs` VALUES ('247', 'tbl_operaciones', '53', 'INSERT', 'INSERT INTO tbl_operaciones SET \r\n				id_cliente			= \'12998\',\r\n				id_operacion_tipo	= \'2\',\r\n				fecha				= \'2015-03-17 13:00:55\',\r\n				hora				= \'13:00\',\r\n				detalle				= \'ACERCAMIENTO\',\r\n				id_servicios		= \'1\',\r\n				id_contactos		= \'\',\r\n				id_personal			= \'2\',\r\n				id_usuario			= \'\',\r\n				comentarios			= \'\',\r\n				timestamp 		 	= \'2015-12-22 13:00:55\'\r\n			;', '', null, '2015-12-22 13:00:55', '2');
+INSERT INTO `sis_logs` VALUES ('248', 'cat_categorias\r\n			set', '17', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'\' ;', '', null, '2016-01-05 13:36:14', '2');
+INSERT INTO `sis_logs` VALUES ('249', 'cat_categorias\r\n			set', '18', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'\' ;', '', null, '2016-01-05 13:39:07', '2');
+INSERT INTO `sis_logs` VALUES ('250', 'cat_categorias\r\n			set', '19', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'\' ;', '', null, '2016-01-05 15:35:23', '2');
+INSERT INTO `sis_logs` VALUES ('251', 'cat_categorias\r\n			set', '20', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'NUEVA\' ;', '', null, '2016-01-05 15:36:39', '2');
+INSERT INTO `sis_logs` VALUES ('252', 'cat_categorias\r\n			set', '35', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'NUEVA CATEGORíA CON Ñ /\' ;', '', null, '2016-01-05 15:54:26', '2');
+INSERT INTO `sis_logs` VALUES ('253', 'cat_categorias\r\n			set', '36', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'OTRA MáS\' ;', '', null, '2016-01-05 15:56:44', '2');
+INSERT INTO `sis_logs` VALUES ('254', 'cat_categorias\r\n			set', '37', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'CATEGORIA FINAL\' ;', '', null, '2016-01-05 15:57:39', '2');
+INSERT INTO `sis_logs` VALUES ('255', 'cat_categorias\r\n			set', '38', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'TYUYJFGHDFGDS\' ;', '', null, '2016-01-05 15:58:29', '2');
+INSERT INTO `sis_logs` VALUES ('256', 'cat_categorias\r\n			set', '39', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'OLUYJHRTFGED\' ;', '', null, '2016-01-05 15:59:05', '2');
+INSERT INTO `sis_logs` VALUES ('257', 'cat_categorias\r\n			set', '40', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'REFGDVC\' ;', '', null, '2016-01-05 15:59:39', '2');
+INSERT INTO `sis_logs` VALUES ('258', 'cat_categorias\r\n			set', '41', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'8Y9HUIJKRFD\' ;', '', null, '2016-01-05 16:00:17', '2');
+INSERT INTO `sis_logs` VALUES ('259', 'cat_categorias\r\n			set', '43', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'FGHFGHFGHFGHFH5ERDGFBV4ERTFG\' ;', '', null, '2016-01-05 16:00:57', '2');
+INSERT INTO `sis_logs` VALUES ('260', 'cat_categorias\r\n			set', '44', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'RTFGVB4ER\' ;', '', null, '2016-01-05 16:01:29', '2');
+INSERT INTO `sis_logs` VALUES ('261', 'cat_categorias\r\n			set', '45', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'FS4ERF\' ;', '', null, '2016-01-05 16:01:52', '2');
+INSERT INTO `sis_logs` VALUES ('262', 'cat_categorias\r\n			set', '46', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'7TYGHBV\' ;', '', null, '2016-01-05 16:02:06', '2');
+INSERT INTO `sis_logs` VALUES ('263', 'cat_categorias\r\n			set', '47', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'REDFCV\' ;', '', null, '2016-01-05 16:02:21', '2');
+INSERT INTO `sis_logs` VALUES ('264', 'cat_categorias\r\n			set', '48', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'KDFNGJDNF\' ;', '', null, '2016-01-05 16:02:34', '2');
+INSERT INTO `sis_logs` VALUES ('265', 'cat_categorias\r\n			set', '49', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'FSDFS4RE423WERDF\' ;', '', null, '2016-01-05 16:03:20', '2');
+INSERT INTO `sis_logs` VALUES ('266', 'cat_categorias\r\n			set', '50', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'654YRTHFGB\' ;', '', null, '2016-01-05 16:03:59', '2');
+INSERT INTO `sis_logs` VALUES ('267', 'cat_categorias\r\n			set', '51', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'F67UTHFG\' ;', '', null, '2016-01-05 16:04:58', '2');
+INSERT INTO `sis_logs` VALUES ('268', 'cat_categorias\r\n			set', '52', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'DFGDFGDFG6U7687UJYTGRF\' ;', '', null, '2016-01-05 16:05:15', '2');
+INSERT INTO `sis_logs` VALUES ('269', 'cat_categorias\r\n			set', '53', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'98IUJTFG\' ;', '', null, '2016-01-05 16:05:30', '2');
+INSERT INTO `sis_logs` VALUES ('270', 'cat_categorias\r\n			set', '54', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'\' ;', '', null, '2016-01-05 16:06:31', '2');
+INSERT INTO `sis_logs` VALUES ('271', 'cat_categorias\r\n			set', '58', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ñÑóéáíúü OSCAR\\\'S (2015) [SLOW] - MIX 123_1234\' ;', '', null, '2016-01-05 16:24:05', '2');
+INSERT INTO `sis_logs` VALUES ('272', 'cat_categorias\r\n			set', '59', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ñÑóé\\\"\\\"\\\'\\\'áíúü OSCAR\\\'S (2015) [SLOW] - MIX 123_1234\' ;', '', null, '2016-01-05 16:28:12', '2');
+INSERT INTO `sis_logs` VALUES ('273', 'cat_categorias\r\n			set', '60', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ñ()/(\\\\\\\"#3Ñóé\\\\\\\"\\\\\\\"\\\\\\\'\\\\\\\'áíúü OSCAR\\\\\\\'S (2015) [SLOW] - MIX 123_1234\' ;', '', null, '2016-01-05 16:39:55', '2');
+INSERT INTO `sis_logs` VALUES ('274', 'cat_categorias\r\n			set', '61', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ñ%Ñóé\\\"\\\"\\\'\\\'áí)(/&/()\\\\\\\\\\\\úü OSCAR\\\'S (2015) [SLOW] - MIX 123_1234\' ;', '', null, '2016-01-05 16:41:09', '2');
+INSERT INTO `sis_logs` VALUES ('275', 'cat_categorias\r\n			set', '62', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ASDFV\' ;', '', null, '2016-01-05 16:42:27', '2');
+INSERT INTO `sis_logs` VALUES ('276', 'cat_categorias\r\n			set', '66', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ñ()/(\\\\\\\"#3Ñóé\\\\\\\"\\\\\\\'\\\\\\\'áíúü OSCAR\\\\\\\'S (2015) [SLOW] -\' ;', '', null, '2016-01-05 16:43:25', '2');
+INSERT INTO `sis_logs` VALUES ('277', 'cat_categorias\r\n			set', '17', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'AVIVAMIENTO\' ;', '', null, '2016-01-05 16:44:54', '2');
+INSERT INTO `sis_logs` VALUES ('278', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'ALEGRÍAS\' \r\n			WHERE id_categoria=\'8\'\r\n			LIMIT 1;', '', null, '2016-01-05 18:54:59', '2');
+INSERT INTO `sis_logs` VALUES ('279', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'ALEGRÍA\' \r\n			WHERE id_categoria=\'8\'\r\n			LIMIT 1;', '', null, '2016-01-05 18:55:31', '2');
 
 -- ----------------------------
 -- Table structure for sis_menu
@@ -699,12 +732,12 @@ INSERT INTO `sis_menu` VALUES ('30', '25', '25', '1', 'IGLESIA-01-5', 'icon-soci
 INSERT INTO `sis_menu` VALUES ('31', '25', '25', '1', 'IGLESIA-01-6', 'icon-social-youtube icon text-info-dker', '6', 'IGLESIA/YOUTUBE', 'iglesia07', null, '1');
 INSERT INTO `sis_menu` VALUES ('32', '32', '32', '0', 'PMIEL-01', '', '1', null, 'pmiel01', null, '1');
 INSERT INTO `sis_menu` VALUES ('33', '32', '32', '1', 'PMIEL-01-1', 'icon-globe icon text-success-lter', '1', 'PMIEL/RED', 'pmiel02', null, '1');
-INSERT INTO `sis_menu` VALUES ('34', '6', '6', '2', 'CAPTURA-01-1-4', 'icon-folder', '4', null, 'captura06', null, '1');
-INSERT INTO `sis_menu` VALUES ('35', '6', '34', '3', 'CAPTURA-01-1-4-1', 'icon-settings', '1', 'CAPTURA/CATEGORIAS', 'captura07', null, '1');
-INSERT INTO `sis_menu` VALUES ('36', '6', '34', '3', 'CAPTURA-01-1-4-2', 'icon-settings', '2', 'CAPTURA/RITMOS', 'captura08', null, '1');
-INSERT INTO `sis_menu` VALUES ('37', '6', '34', '3', 'CAPTURA-01-1-4-3', 'icon-settings', '3', 'CAPTURA/COMPASES', 'captura09', null, '1');
-INSERT INTO `sis_menu` VALUES ('38', '6', '34', '3', 'CAPTURA-01-1-4-4', 'icon-settings', '4', 'CAPTURA/ESCALAS', 'captura10', null, '1');
-INSERT INTO `sis_menu` VALUES ('39', '6', '34', '3', 'CAPTURA-01-1-4-5', 'icon-settings', '5', 'CAPTURA/NOTAS', 'captura11', null, '1');
+INSERT INTO `sis_menu` VALUES ('34', '6', '6', '2', 'CATALOGOS-01-1-4', 'icon-folder', '4', null, 'captura06', null, '1');
+INSERT INTO `sis_menu` VALUES ('35', '6', '34', '3', 'CATALOGOS-01-1-4-1', 'icon-settings', '1', 'CATALOGOS/CATEGORIAS', 'captura07', null, '1');
+INSERT INTO `sis_menu` VALUES ('36', '6', '34', '3', 'CATALOGOS-01-1-4-2', 'icon-settings', '2', 'CATALOGOS/RITMOS', 'captura08', null, '1');
+INSERT INTO `sis_menu` VALUES ('37', '6', '34', '3', 'CATALOGOS-01-1-4-3', 'icon-settings', '3', 'CATALOGOS/COMPASES', 'captura09', null, '1');
+INSERT INTO `sis_menu` VALUES ('38', '6', '34', '3', 'CATALOGOS-01-1-4-4', 'icon-settings', '4', 'CATALOGOS/ESCALAS', 'captura10', null, '1');
+INSERT INTO `sis_menu` VALUES ('39', '6', '34', '3', 'CATALOGOS-01-1-4-5', 'icon-settings', '5', 'CATALOGOS/NOTAS', 'captura11', null, '1');
 INSERT INTO `sis_menu` VALUES ('40', '40', '40', '0', 'ADMIN-01', null, '1', '', 'admin01', null, '1');
 INSERT INTO `sis_menu` VALUES ('41', '40', '40', '1', 'ADMIN-02', ' icon-wrench text-danger', '1', '', 'admin02', null, '1');
 INSERT INTO `sis_menu` VALUES ('42', '41', '41', '2', 'ADMIN-03', 'fa fa-users ', '1', 'ADMIN/USUARIOS', 'admin03', null, '1');
@@ -780,7 +813,7 @@ CREATE TABLE `sis_online` (
 -- ----------------------------
 -- Records of sis_online
 -- ----------------------------
-INSERT INTO `sis_online` VALUES ('1', '2', '1451954589');
+INSERT INTO `sis_online` VALUES ('1', '2', '1452041758');
 INSERT INTO `sis_online` VALUES ('2', '0', '1448641146');
 INSERT INTO `sis_online` VALUES ('3', '8', '1444853002');
 INSERT INTO `sis_online` VALUES ('4', '3', '1450882810');
