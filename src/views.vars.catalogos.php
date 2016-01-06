@@ -98,7 +98,6 @@ function vars_categorias($seccion, $urlParams){
 	$negocio = array(
 				 MORE 				=>  include_editable()
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
-				 					   .incJs($Path[srcjs].strtolower(MODULO).'/categorias.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -116,10 +115,11 @@ function vars_compases($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][compases_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = build_formulario_compases();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 MORE 				=>  include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -137,10 +137,11 @@ function vars_escalas($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][escalas_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = build_formulario_escalas();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 MORE 				=>  include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -158,10 +159,13 @@ function vars_notas($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][notas_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = build_formulario_notas();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 MORE 				=>  include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/notas.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/notas-editable.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -179,10 +183,11 @@ function vars_ritmos($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][ritmos_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = build_formulario_ritmos();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 MORE 				=>  include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

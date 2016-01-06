@@ -101,4 +101,19 @@ input:focus, textarea:focus, select:focus{
 .title-color{
     color: #36B0C8;
 }
+
+/*Editable*/
+.editable-container{
+  width: 100%;
+}
+.editable-form {
+    display: block;
+    margin-bottom: 5px;  
+}
+.editable-form span {
+    width: 120px;  
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}
 /*O3M*/

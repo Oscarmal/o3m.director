@@ -101,10 +101,12 @@
 	captura|cantos_txt_album 		= Album
 	captura|cantos_txt_artista 		= Artista
 	captura|cantos_txt_escala 		= Escala
-	captura|cantos_txt_nota 		= Nota
 	captura|cantos_txt_compas 		= Compás
 	captura|cantos_txt_ritmo 		= Ritmo
 	captura|cantos_txt_categoria 	= Categoría
+	captura|cantos_txt_nota_es 		= Nota (Español)
+	captura|cantos_txt_nota_en 		= Nota (Inglés)
+	captura|cantos_txt_alteracion	= Alteración
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia
@@ -136,7 +138,9 @@
 	tooltips|captura_album		= Album
 	tooltips|captura_artista	= Artista
 	tooltips|captura_escala		= Escala
-	tooltips|captura_nota		= Nota
+	tooltips|captura_nota_es	= Notación española
+	tooltips|captura_nota_en	= Notación inglesa
+	tooltips|captura_alteracion	= Alteración de la nota
 	tooltips|captura_compas		= Compás
 	tooltips|captura_ritmo		= Ritmo
 	tooltips|captura_categoria	= Categoría

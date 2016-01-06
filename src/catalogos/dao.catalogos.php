@@ -19,6 +19,33 @@ function select_escalas($searchbox=false){
 	return $resultado;
 }
 
+function insert_escalas($data=array()){
+	global $db;
+	$sql="INSERT INTO $db[tbl_escalas]
+			SET escala = '$data[escala]' ;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_escalas($data=array()){
+	global $db;	
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_escalas]
+				SET  $updateFields
+				WHERE id_escala='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
 // NOTAS
 function select_notas($searchbox=false){
 	global $db, $usuario;	
@@ -32,30 +59,115 @@ function select_notas($searchbox=false){
 	return $resultado;
 }
 
+function insert_notas($data=array()){
+	global $db;
+	$sql="INSERT INTO $db[tbl_notas]
+		  	SET 
+				nota_es 	= '$data[nota_es]',
+				nota_en 	= '$data[nota_en]' ,
+				alteracion 	= '$data[alteracion]' 
+			;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_notas($data=array()){
+	global $db;	
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_notas]
+				SET  $updateFields
+				WHERE id_nota='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
 // COMPASES
 function select_compases($searchbox=false){
 	global $db, $usuario;	
 	$filtro .= ($searchbox)?"AND (comp.compas LIKE '%$searchbox%')":'';
 	$sql = "SELECT comp.id_compas, comp.compas
 			FROM $db[tbl_compases] comp 
-			WHERE 1 AND nota.activo = 1 $filtro
+			WHERE 1 AND comp.activo = 1 $filtro
 			GROUP BY comp.compas ;";
 	$resultado = SQLQuery($sql,1);
 	$resultado = ($resultado) ? $resultado : false ;
 	return $resultado;
 }
 
-// RITMOS
+function insert_compases($data=array()){
+	global $db;
+	$sql="INSERT INTO $db[tbl_compases]
+			SET compas = '$data[compas]' ;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_compases($data=array()){
+	global $db;	
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_compases]
+				SET  $updateFields
+				WHERE id_compas='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
+//---- RITMOS
 function select_ritmos($searchbox=false){
 	global $db, $usuario;	
 	$filtro .= ($searchbox)?"AND (ritm.ritmo LIKE '%$searchbox%')":'';
-	$sql = "SELECT ritm.id_rimo, ritm.ritmo
+	$sql = "SELECT ritm.id_ritmo, ritm.ritmo
 			FROM $db[tbl_ritmos] ritm 
 			WHERE 1 AND ritm.activo = 1 $filtro
 			GROUP BY ritm.ritmo ;";
 	$resultado = SQLQuery($sql,1);
 	$resultado = ($resultado) ? $resultado : false ;
 	return $resultado;
+}
+
+function insert_ritmos($data=array()){
+	global $db;
+	$sql="INSERT INTO $db[tbl_ritmos]
+			SET ritmo = '$data[ritmo]' ;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_ritmos($data=array()){
+	global $db;	
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_ritmos]
+				SET  $updateFields
+				WHERE id_ritmo='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
 }
 
 // ALBUMS
@@ -121,22 +233,20 @@ function insert_categorias($data=array()){
 
 function update_categorias($data=array()){
 	global $db;
-	$sql="UPDATE $db[tbl_categorias]
-			SET categoria = '$data[categoria]' 
-			WHERE id_categoria='$data[id_categoria]'
-			LIMIT 1;";
-	$resultado = (SQLDo($sql))?true:false;
-	return $resultado;
-}
-
-function activate_categorias($data=array()){
-	global $db;
-	$sql="UPDATE $db[tbl_categorias]
-			SET activo = '$data[activo]' 
-			WHERE id_categoria='$data[id_categoria]'
-			LIMIT 1;";
-	$resultado = (SQLDo($sql))?true:false;
-	return $resultado;
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_categorias]
+				SET  $updateFields
+				WHERE id_categoria='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
 }
 /*O3M*/
 ?>
