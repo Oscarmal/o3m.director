@@ -7,6 +7,13 @@ $(document).ready(function(){
     // reloj('txtReloj'); 
     // Contador 
     var timer = ($('#sec').val()!='login')?contador(parseInt($('#tm-out').val())+1):'';
+    // Tooltips
+    // $(document).tooltip();
+    $('#div-contenedor').tooltip({
+      tooltipClass: "custom-tooltips",
+      show: { effect: "fadeIn", delay: 150 },
+      position: { my: "left top", at: "right+10 top-5" }
+    });
 });
 
 function changeCss(archivo) {
@@ -305,5 +312,4 @@ function formData(selector, template){
     }// next  
     return data;
 }
-
 //O3M//
