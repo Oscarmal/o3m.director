@@ -6,6 +6,7 @@
 require_once($Path[src].'dao.perfiles.php');
 require_once($Path[src].'catalogos/dao.catalogos.php');
 require_once($Path[src].'catalogos/build.contenido.catalogos.php');
+require_once($Path[src].'captura/build.contenido.captura.php');
 //**FUNCIONES GENERALES******************************************************************
 function build_grid_paginado($arrayData=array(), $arrayHeaders=array()){
 // Construye un listado paginado con el arreglo recibido

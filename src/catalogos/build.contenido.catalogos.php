@@ -4,7 +4,7 @@
 * 
 */
 require_once($Path[src].'catalogos/dao.catalogos.php');
-function tooltips(){
+function tooltips_catalogos(){
 	global $dic;
 	$tooltips = array(
 		 tooltip_nombre 	=> $dic[tooltips][captura_nombre]
@@ -23,7 +23,7 @@ function tooltips(){
 	return $tooltips;
 }
 
-function txt_labels(){
+function txt_labels_catalogos(){
 	global $dic;
 	$labels = array(
 		 txt_form 			=> $dic[captura][cantos_txt_form]
@@ -49,8 +49,8 @@ function txt_labels(){
 // CATEGORIAS
 function build_formulario_categorias(){
 // Construye formulario
-	$labels 	= txt_labels();
-	$tooltips	= tooltips();
+	$labels 	= txt_labels_catalogos();
+	$tooltips	= tooltips_catalogos();
 	$data		= array( GRID 	=> build_listado_categorias() );
 	$html = array_merge($labels, $tooltips, $data);
 	return $html;

@@ -57,7 +57,7 @@ function vars_listado($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][listado_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = array(CONTENIDO => build_acordes());
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
