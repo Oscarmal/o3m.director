@@ -45,14 +45,19 @@ function txt_labels_catalogos(){
 	return $labels;
 }
 
+function textos(){
+	$labels 	= txt_labels_catalogos();
+	$tooltips	= tooltips_catalogos();
+	$textos = array_merge($labels, $tooltips);
+	return $textos;
+}
+
 
 // CATEGORIAS
 function build_formulario_categorias(){
 // Construye formulario
-	$labels 	= txt_labels_catalogos();
-	$tooltips	= tooltips_catalogos();
 	$data		= array( GRID 	=> build_listado_categorias() );
-	$html = array_merge($labels, $tooltips, $data);
+	$html = array_merge(textos(), $data);
 	return $html;
 }
 
@@ -79,10 +84,8 @@ function build_listado_categorias(){
 // RITMOS
 function build_formulario_ritmos(){
 // Construye formulario
-	$labels 	= txt_labels();
-	$tooltips	= tooltips();
-	$data		= array( GRID 	=> build_listado_ritmos() );
-	$html = array_merge($labels, $tooltips, $data);
+	$data = array( GRID 	=> build_listado_ritmos() );
+	$html = array_merge(textos(), $data);
 	return $html;
 }
 function build_listado_ritmos(){
@@ -108,10 +111,8 @@ function build_listado_ritmos(){
 // COMPASES
 function build_formulario_compases(){
 // Construye formulario
-	$labels 	= txt_labels();
-	$tooltips	= tooltips();
-	$data		= array( GRID 	=> build_listado_compases() );
-	$html = array_merge($labels, $tooltips, $data);
+	$data = array( GRID 	=> build_listado_compases() );
+	$html = array_merge(textos(), $data);
 	return $html;
 }
 function build_listado_compases(){
@@ -137,10 +138,8 @@ function build_listado_compases(){
 // ESCALAS
 function build_formulario_escalas(){
 // Construye formulario
-	$labels 	= txt_labels();
-	$tooltips	= tooltips();
-	$data		= array( GRID 	=> build_listado_escalas() );
-	$html = array_merge($labels, $tooltips, $data);
+	$data = array( GRID 	=> build_listado_escalas() );
+	$html = array_merge(textos(), $data);
 	return $html;
 }
 function build_listado_escalas(){
@@ -166,10 +165,8 @@ function build_listado_escalas(){
 // NOTAS
 function build_formulario_notas(){
 // Construye formulario
-	$labels 	= txt_labels();
-	$tooltips	= tooltips();
-	$data		= array( GRID 	=> build_listado_notas() );
-	$html = array_merge($labels, $tooltips, $data);
+	$data = array( GRID 	=> build_listado_notas() );
+	$html = array_merge(textos(), $data);
 	return $html;
 }
 function build_listado_notas(){
@@ -195,14 +192,12 @@ function build_listado_notas(){
 // CANTOS
 function build_formulario_cantos(){
 // Construye formulario
-	$labels 	= txt_labels();
-	$tooltips	= tooltips();
 	$data		= array(
 					 lst_albums 	=> dropdown_albums(array(requerido => true))
 					,lst_escalas 	=> dropdown_escalas(array(requerido => true))
 					,GRID 			=> build_listado_cantos()
 				);
-	$html = array_merge($labels, $tooltips, $data);
+	$html = array_merge(textos(), $data);
 	return $html;
 }
 function build_listado_cantos(){

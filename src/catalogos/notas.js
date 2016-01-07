@@ -15,36 +15,15 @@ function editar_nota(accion){
 	$.fn.editable.defaults.ajaxOptions = {type: 'POST', dataType: 'json'};
 	// Campos
 	$('.campo-editable').editable({
-		type: "text", 
-		url: ajax_url,
-		params:{
-        	modulo : modulo,
-			seccion : seccion,
-			accion : 'update_catalogos_'+accion
-        }
-		// ,value: {
-  //           nota_es: "Moscow", 
-  //           nota_en: "Lenina", 
-  //           alteracion: "12"
-  //       }
-        ,validate: function(value) {
-            if(value.nota_es == '') return 'Nota Español es requerida!'; 
-            if(value.nota_en == '') return 'Nota Inglés es requerida!'; 
-            if(value.alteracion == '') return 'Alteración es requerida!'; 
-        }
-        ,display: function(value) {
-            if(!value) {
-                $(this).empty();
-                return; 
-            }
-            var html = '<b>' 
-            			+ $('<div>').text(value.nota_es).html() + '</b> ' 
-            			+ $('<div>').text(value.nota_en).html() 
-            			+ $('<div>').text(value.alteracion).html();
-            $(this).html(html); 
-        }         
-        ,success: function(respuesta) {
-        	var div_msj = 'frm-msj_'+respuesta.id;
+    type: "text", 
+    url: ajax_url,
+    params:{
+        modulo : modulo,
+    		seccion : seccion,
+    		accion : 'update_catalogos_'+accion
+    }         
+    ,success: function(respuesta) {
+    	var div_msj = 'frm-msj_'+respuesta.id;
 			if(respuesta.success){							 	
 				ico = '<i class="fa fa-thumbs-up"></i> ';
 				msj = build_mensaje(ico+' La información ha sido guardada correctamente.','success');
@@ -56,32 +35,6 @@ function editar_nota(accion){
 				$("#"+div_msj).slideDown("fast").html(msj);
 				setTimeout(function(){$("#"+div_msj).slideUp(500);}, 1000);
 			}
-	    }
+   }
 	});
-
-	 // $('.campo-nota').editable({
-  //       url: '/post',
-  //       value: {
-  //           nota_es: "Moscow", 
-  //           nota_en: "Lenina", 
-  //           alteracion: "12"
-  //       },
-  //       validate: function(value) {
-  //           if(value.nota_es == '') return 'Nota Español es requerida!'; 
-  //           if(value.nota_en == '') return 'Nota Inglés es requerida!'; 
-  //           if(value.alteracion == '') return 'Alteración es requerida!'; 
-  //       },
-  //       display: function(value) {
-  //           if(!value) {
-  //               $(this).empty();
-  //               return; 
-  //           }
-  //           var html = '<b>' 
-  //           			+ $('<div>').text(value.nota_es).html() + '</b> ' 
-  //           			+ $('<div>').text(value.nota_en).html() 
-  //           			+ $('<div>').text(value.alteracion).html();
-  //           $(this).html(html); 
-  //       }         
-  //   });  
-
 }

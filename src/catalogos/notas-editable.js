@@ -4,6 +4,8 @@
         this.init('datos', options, customForm.defaults);
     };
 
+    // Custom Vars
+    var separador = ' | ';
     //inherit from Abstract input
     $.fn.editableutils.inherit(customForm, $.fn.editabletypes.abstractinput);
 
@@ -11,18 +13,19 @@
         render: function() {
            this.$input = this.$tpl.find('input');
         },
-        
+
         /**
         Default method to show value in element. Can be overwritten by display option.        
         @method value2html(value, element) 
         **/
         value2html: function(value, element) {
             if(!value) {
-                $(element).empty();
+                $(element).empty();                
                 return; 
             }
-            var html =  $('<div>').text(value.nota_es).html() 
-                      + $('<div>').text(value.nota_en).html() 
+            if(!value.nota_es && !value.nota_en) separador='';
+            var html =  $('<div>').text(value.nota_es+separador).html() 
+                      + $('<div>').text(value.nota_en+separador).html() 
                       + $('<div>').text(value.alteracion).html();
             $(element).html(html); 
         },
@@ -32,8 +35,7 @@
         @method html2value(html) 
         **/        
         html2value: function(html) {  
-          // var inData = html.split('|');
-          this.$entrada = html.split('|');
+          this.$entrada = html.split(separador);
           return this.$entrada;  
         },
       
@@ -69,9 +71,9 @@
            if(!value) {
              return;
            }
-           this.$input.filter('[name="nota_es"]').val(this.$entrada[0].replace(/^\s+/,''));
-           this.$input.filter('[name="nota_en"]').val(this.$entrada[1].replace(/^\s+/,''));
-           this.$input.filter('[name="alteracion"]').val(this.$entrada[2].replace(/^\s+/,''));
+           this.$input.filter('[name="nota_es"]').val(this.$entrada[0]);
+           this.$input.filter('[name="nota_en"]').val(this.$entrada[1]);
+           this.$input.filter('[name="alteracion"]').val(this.$entrada[2]);
        },       
        
        /**
@@ -80,9 +82,9 @@
        **/          
        input2value: function() { 
            return {
-              city      : this.$input.filter('[name="nota_es"]').val(), 
-              street    : this.$input.filter('[name="nota_en"]').val(), 
-              building  : this.$input.filter('[name="alteracion"]').val()
+              nota_es     : this.$input.filter('[name="nota_es"]').val(), 
+              nota_en     : this.$input.filter('[name="nota_en"]').val(), 
+              alteracion  : this.$input.filter('[name="alteracion"]').val()
            };
        },        
        
@@ -91,7 +93,7 @@
         @method activate() 
        **/        
        activate: function() {
-            this.$input.filter('[name="nota_es"]').focus();
+            this.$input.filter('[name="nota_en"]').focus();
        },  
        
        /**
@@ -108,8 +110,8 @@
     });
 
     customForm.defaults = $.extend({}, $.fn.editabletypes.abstractinput.defaults, {
-        tpl: '<div class="editable-form"><label><span>Nota (Español): </span><input type="text" name="nota_es" class="input-small"></label></div>'+
-             '<div class="editable-form"><label><span>Nota (Inglés): </span><input type="text" name="nota_en" class="input-small"></label></div>'+
+        tpl: '<div class="editable-form"><label><span>Nota (Inglés): </span><input type="text" name="nota_en" class="input-small"></label></div>'+
+             '<div class="editable-form"><label><span>Nota (Español): </span><input type="text" name="nota_es" class="input-small"></label></div>'+
              '<div class="editable-form"><label><span>Alteración: </span><input type="text" name="alteracion" class="input-mini"></label></div>',
              
         inputclass: ''

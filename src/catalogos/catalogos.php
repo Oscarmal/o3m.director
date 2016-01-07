@@ -156,12 +156,22 @@ function insert_catalogos_notas($in){
 function update_catalogos_notas($in){
 	global $dic;
 	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
-	$valor 	= (!$in[value])?$in[objData][nota_es]:$in[value];
-	if($success = update_notas(array(id =>$id, 
-				nota_es 	=> $in[objData][nota_es],
-				nota_en 	=> $in[objData][nota_en],
-				alteracion 	=> strtoupper($in[objData][alteracion])
-			))){
+	if($in[pk]){
+		$nota_es 	= $in[value][nota_es];
+		$nota_en 	= $in[value][nota_en];
+		$alteracion = $in[value][alteracion];
+	}else{
+		$nota_es 	= $in[objData][nota_es];
+		$nota_en 	= $in[objData][nota_en];
+		$alteracion = $in[objData][alteracion];
+	}
+	$arrData = array(
+				id 			=> $id, 
+				nota_es 	=> $nota_es,
+				nota_en 	=> $nota_en,
+				alteracion 	=> $alteracion
+			);
+	if($success = update_notas($arrData)){
 		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
 		$data = array(success => false, id => $id, message => 'ERROR al actualizar datos.');
