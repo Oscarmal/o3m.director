@@ -19,6 +19,7 @@ function tooltips_catalogos(){
 		,tooltip_compas		=> $dic[tooltips][captura_compas]
 		,tooltip_ritmo		=> $dic[tooltips][captura_ritmo]
 		,tooltip_categoria	=> $dic[tooltips][captura_categoria]
+		,tooltip_armadura	=> $dic[tooltips][captura_armadura]
 		);
 	return $tooltips;
 }
@@ -39,6 +40,15 @@ function txt_labels_catalogos(){
 		,txt_nota_es		=> $dic[captura][cantos_txt_nota_es]
 		,txt_nota_en		=> $dic[captura][cantos_txt_nota_en]
 		,txt_alteracion		=> $dic[captura][cantos_txt_alteracion]
+		,txt_grado1			=> $dic[captura][cantos_txt_grado1]
+		,txt_grado2			=> $dic[captura][cantos_txt_grado2]
+		,txt_grado3			=> $dic[captura][cantos_txt_grado3]
+		,txt_grado4			=> $dic[captura][cantos_txt_grado4]
+		,txt_grado5			=> $dic[captura][cantos_txt_grado5]
+		,txt_grado6			=> $dic[captura][cantos_txt_grado6]
+		,txt_grado7			=> $dic[captura][cantos_txt_grado7]
+		,txt_armadura		=> $dic[captura][cantos_txt_armadura]
+
 		,txt_guardar 		=> $dic[comun][guardar]
 		,txt_agregar 		=> $dic[comun][agregar]
 		);
@@ -138,7 +148,16 @@ function build_listado_compases(){
 // ESCALAS
 function build_formulario_escalas(){
 // Construye formulario
-	$data = array( GRID 	=> build_listado_escalas() );
+	$data = array( 
+				 GRID 		=> build_listado_escalas() 
+				,lst_grado1 => dropdown_notas(array(name=>grado1, value=>'nota_en', requerido=>true))
+				,lst_grado2 => dropdown_notas(array(name=>grado2, value=>'nota_en'))
+				,lst_grado3 => dropdown_notas(array(name=>grado3, value=>'nota_en'))
+				,lst_grado4 => dropdown_notas(array(name=>grado4, value=>'nota_en'))
+				,lst_grado5 => dropdown_notas(array(name=>grado5, value=>'nota_en'))
+				,lst_grado6 => dropdown_notas(array(name=>grado6, value=>'nota_en'))
+				,lst_grado7 => dropdown_notas(array(name=>grado7, value=>'nota_en'))
+			);
 	$html = array_merge(textos(), $data);
 	return $html;
 }
@@ -154,7 +173,16 @@ function build_listado_escalas(){
 			$id 		= $row[id_escala];
 			$valor 		= $row[escala];
 			$tblData[$y] = $row;
-			$tblData[$y][escala] = '<span class="editar campo-editable" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][escala] = '<span class="editar campo-editable" data-name="escala" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[escala].'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][categoria] = '<span class="editar campo-editable" data-name="categoria" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[categoria];
+			$tblData[$y][grado1] = '<span class="editar campo-editable" data-name="grado1" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado1];
+			$tblData[$y][grado2] = '<span class="editar campo-editable" data-name="grado2" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado2];
+			$tblData[$y][grado3] = '<span class="editar campo-editable" data-name="grado3" data-name="escala" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado3];
+			$tblData[$y][grado4] = '<span class="editar campo-editable" data-name="grado4" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado4];
+			$tblData[$y][grado5] = '<span class="editar campo-editable" data-name="grado5" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado5];
+			$tblData[$y][grado6] = '<span class="editar campo-editable" data-name="grado6" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado6];
+			$tblData[$y][grado7] = '<span class="editar campo-editable" data-name="grado7" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado7];
+			$tblData[$y][armadura] = '<span class="editar campo-editable" data-name="armadura" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[armadura];
 			$tblData[$y][quitar] = ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
 		}

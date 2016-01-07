@@ -164,7 +164,6 @@ function vars_notas($seccion, $urlParams){
 	$negocio = array(
 				 MORE 				=>  include_editable()
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
-				 					   .incJs($Path[srcjs].strtolower(MODULO).'/notas.js')
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/notas-editable.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			

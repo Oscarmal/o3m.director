@@ -107,6 +107,14 @@
 	captura|cantos_txt_nota_es 		= Nota (Español)
 	captura|cantos_txt_nota_en 		= Nota (Inglés)
 	captura|cantos_txt_alteracion	= Alteración
+	captura|cantos_txt_grado1		= Grado I
+	captura|cantos_txt_grado2		= Grado II
+	captura|cantos_txt_grado3		= Grado III
+	captura|cantos_txt_grado4		= Grado IV
+	captura|cantos_txt_grado5		= Grado V
+	captura|cantos_txt_grado6		= Grado VI
+	captura|cantos_txt_grado7		= Grado VII
+	captura|cantos_txt_armadura		= Armadura
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia
@@ -123,7 +131,7 @@
 
 	#Listas
 	tooltips|lst_escalas		= Seleccione una escala
-	tooltips|lst_notas			= Seleccione las notas
+	tooltips|lst_notas			= Seleccione la nota
 	tooltips|lst_ritmos			= Seleccione un ritmo
 	tooltips|lst_compases		= Seleccione un compás
 	tooltips|lst_albums 		= Seleccione un album
@@ -144,3 +152,4 @@
 	tooltips|captura_compas		= Compás
 	tooltips|captura_ritmo		= Ritmo
 	tooltips|captura_categoria	= Categoría
+	tooltips|captura_armadura		= Ingrese el nombre de la armadura

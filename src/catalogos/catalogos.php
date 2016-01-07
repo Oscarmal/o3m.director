@@ -109,18 +109,29 @@ function activate_catalogos_compases($in){
 // ESCALAS
 function insert_catalogos_escalas($in){
 	global $dic;	
-	if($success = insert_escalas(array(escala => strtoupper($in[objData][escala])))){
+	$arrData = array(
+				 categoria 		=> $in[objData][categoria]
+				,escala 		=> $in[objData][escala]
+				,grado1 		=> $in[objData][grado1]
+				,grado2 		=> $in[objData][grado2]
+				,grado3 		=> $in[objData][grado3]
+				,grado4 		=> $in[objData][grado4]
+				,grado5 		=> $in[objData][grado5]
+				,grado6 		=> $in[objData][grado6]
+				,grado7 		=> $in[objData][grado7]
+				,armadura 		=> $in[objData][armadura]
+			);
+	if($success = insert_escalas($arrData)){
 		$data = array(success => $success, message => 'El registro con ID: '.$success.' ha sido agregado.');
 	}else{
 		$data = array(success => false, message => 'ERROR al insertar datos.');
 	}
 	return json_encode($data);
 }
-function update_catalogos_escalas($in){
+function update_catalogos_escalas($in){	
 	global $dic;
 	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
-	$valor 	= (!$in[value])?$in[objData][escala]:$in[value];
-	if($success = update_escalas(array(id =>$id, escala => strtoupper($valor)))){
+	if($success = update_escalas(array(id =>$id, $in[name] => $in[value]))){
 		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
 		$data = array(success => false, id => $id, message => 'ERROR al actualizar datos.');

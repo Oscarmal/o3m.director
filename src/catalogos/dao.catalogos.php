@@ -10,7 +10,16 @@
 function select_escalas($searchbox=false){
 	global $db, $usuario;	
 	$filtro .= ($searchbox)?"AND (CONCAT(esc.grado1,' - ', esc.escala) LIKE '%$searchbox%')":'';
-	$sql = "SELECT esc.id_escala, CONCAT(esc.grado1,' - ', esc.escala) as escala
+	$sql = "SELECT esc.id_escala, esc.escala
+						,esc.categoria
+						,esc.grado1
+						,esc.grado2
+						,esc.grado3
+						,esc.grado4
+						,esc.grado5
+						,esc.grado6
+						,esc.grado7
+						,esc.armadura
 			FROM $db[tbl_escalas] esc 
 			WHERE 1 AND esc.activo = 1 $filtro
 			GROUP BY esc.grado1 ;";
@@ -22,7 +31,18 @@ function select_escalas($searchbox=false){
 function insert_escalas($data=array()){
 	global $db;
 	$sql="INSERT INTO $db[tbl_escalas]
-			SET escala = '$data[escala]' ;";
+			SET 
+				escala 		= '$data[categoria]',
+				categoria 	= '$data[escala]',
+				grado1 		= '$data[grado1]',
+				grado2 		= '$data[grado2]',
+				grado3 		= '$data[grado3]',
+				grado4 		= '$data[grado4]',
+				grado5 		= '$data[grado5]',
+				grado6 		= '$data[grado6]',
+				grado7 		= '$data[grado7]',
+				armadura 	= '$data[armadura]'
+			;";
 	$id = (SQLDo($sql))?true:false;
 	$resultado = ($id)?$id:false;
 	return $resultado;
@@ -56,7 +76,7 @@ function select_notas($searchbox=false){
 							 IF(nota.nota_en!='',CONCAT(nota.nota_en,' | '),'')
 							,IF(nota.nota_es!='',CONCAT(nota.nota_es,' | '),'')
 							,nota.alteracion
-						) as nota
+						) as nota, nota.nota_en, nota.nota_es
 			FROM $db[tbl_notas] nota 
 			WHERE 1 AND nota.activo = 1 $filtro
 			GROUP BY nota.nota_en ;";
