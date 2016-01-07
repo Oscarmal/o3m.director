@@ -31,8 +31,10 @@
         Gets value from element's html        
         @method html2value(html) 
         **/        
-        html2value: function(html) {        
-          return null;  
+        html2value: function(html) {  
+          // var inData = html.split('|');
+          this.$entrada = html.split('|');
+          return this.$entrada;  
         },
       
        /**
@@ -67,9 +69,9 @@
            if(!value) {
              return;
            }
-           this.$input.filter('[name="nota_es"]').val(value.nota_es);
-           this.$input.filter('[name="nota_en"]').val(value.nota_en);
-           this.$input.filter('[name="alteracion"]').val(value.alteracion);
+           this.$input.filter('[name="nota_es"]').val(this.$entrada[0].replace(/^\s+/,''));
+           this.$input.filter('[name="nota_en"]').val(this.$entrada[1].replace(/^\s+/,''));
+           this.$input.filter('[name="alteracion"]').val(this.$entrada[2].replace(/^\s+/,''));
        },       
        
        /**

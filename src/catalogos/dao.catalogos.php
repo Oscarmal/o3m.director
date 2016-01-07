@@ -49,8 +49,8 @@ function update_escalas($data=array()){
 // NOTAS
 function select_notas($searchbox=false){
 	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (CONCAT(nota.nota_en,' -> ', nota.nota_es) LIKE '%$searchbox%')":'';
-	$sql = "SELECT nota.id_nota, CONCAT(nota.nota_en,' -> ', nota.nota_es) as nota
+	$filtro .= ($searchbox)?"AND (CONCAT(nota.nota_en,' | ', nota.nota_es) LIKE '%$searchbox%')":'';
+	$sql = "SELECT nota.id_nota, CONCAT(nota.nota_en,' | ', nota.nota_es) as nota
 			FROM $db[tbl_notas] nota 
 			WHERE 1 AND nota.activo = 1 $filtro
 			GROUP BY nota.nota_en ;";
