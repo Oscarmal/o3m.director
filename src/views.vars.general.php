@@ -70,7 +70,8 @@ function vars_login($urlParams){
 	$negocio = array(
 				 MORE 		=> incJs($Path[srcjs].$modulo.'login.js')
 				,MODULE 	=> strtolower(MODULO)
-				,SECTION 	=> strtolower($seccion)			
+				,SECTION 	=> strtolower($seccion)	
+				,FOLDER 	=> $cfg[app_folder]		
 			);
 	$texto = array(
 				 APP_TITLE 			=> $cfg[app_title]

@@ -1,0 +1,31 @@
+		<div id="div-contenedor"> 
+		<form id="frm-captura-categorias" class="form-horizontal" method="post" data-validate="parsley">	
+		<!-- Inicio de contenedor -->			
+			<section class="panel panel-default">
+	            <header class="panel-heading font-bold"> {txt_form} </header>
+	            <div class="panel-body">
+	                
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_categoria}:</label>
+	                        <div class="col-sm-9">
+	                            <input type="text" id="categoria" data-campo="categoria" class="form-control" placeholder="{txt_categoria}" title="{tooltip_categoria}" data-required="true"> 
+	                        </div>
+	                    </div>	                   
+
+	                    <!-- Botón -->
+	                    <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button id="btnSubmit" type="button" class="btn btn-primary" onclick="insert('frm-captura-categorias','categorias');">{txt_agregar}</button>
+                            </div>
+                        </div> 
+                        <div class="col-sm-9 col-sm-offset-2" id="mensajes"></div>
+	            </div>
+	        </section>
+	        <section class="panel panel-default">
+		        <div class="panel-body">
+		        	{GRID}
+		        </div>
+	        </section>
+		<!-- Fin de contenedor -->
+		</form>
+		</div>

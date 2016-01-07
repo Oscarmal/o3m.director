@@ -7,16 +7,10 @@
 define(MODULO, 'CAPTURA');
 global $vistas, $contenidos, $icono;
 $icono = $var[ico_03];
-require_once($Path[src].strtolower(MODULO).'/dao.'.strtolower(MODULO).'.php');
 require_once($Path[src].'build.contenido.php');
 # Vistas
 $vistas = array(
 			 LISTADO 		=> 'listado.html'
-			,CATEGORIAS 	=> 'categorias.html'
-			,COMPASES 		=> 'compases.html'
-			,ESCALAS 		=> 'escalas.html'
-			,NOTAS 			=> 'notas.html'
-			,RITMOS 		=> 'ritmos.html'
 			,ALBUMS 		=> 'albums.html'
 			,ARTISTAS 		=> 'artistas.html'
 			,CANTOS 		=> 'cantos.html'
@@ -42,20 +36,13 @@ function tpl_vars($cmd, $urlParams=array()){
 	$cmd = strtoupper(enArray($cmd,$vistas));
 	if($cmd == 'LISTADO'){
 		$vars = vars_listado($cmd, $urlParams);
-	}elseif($cmd == 'NUEVO'){
-		$vars = vars_nuevo($cmd,$urlParams);
-	}elseif($cmd == 'PROSPECTOS'){
-		$vars = vars_prospectos($cmd,$urlParams);
-	}elseif($cmd == 'CLIENTES'){
-		$vars = vars_clientes($cmd,$urlParams);
-	}elseif($cmd == 'DETALLE'){
-		$vars = vars_detalle($cmd,$urlParams);
-	}elseif($cmd == 'EDITAR'){
-		$vars = vars_editar($cmd,$urlParams);
-	}elseif($cmd == 'CONTACTOS'){
-		$vars = vars_contactos($cmd,$urlParams);
-	}
-	else{
+	}elseif($cmd == 'ALBUMS'){
+		$vars = vars_albums($cmd,$urlParams);
+	}elseif($cmd == 'ARTISTAS'){
+		$vars = vars_artistas($cmd,$urlParams);
+	}elseif($cmd == 'CANTOS'){
+		$vars = vars_cantos($cmd,$urlParams);
+	}else{
 		$vars = vars_error($cmd);
 	}
 	return $vars;
@@ -64,36 +51,16 @@ function tpl_vars($cmd, $urlParams=array()){
 #############
 // Funciones para asignar variables a cada vista
 // $negocio => Logica de negocio; $texto => Mensajes de interfaz
-
 function vars_listado($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins;
-	define(SECCION, $seccion);
-	## Logica de negocio ##
-	$titulo 	= $dic[captura][listado_titulo];
-	$contenido = build_acordes();
-	## Envio de valores ##
-	$negocio = array(
-				 MORE 		=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')		
-				,MODULE 	=> strtolower(MODULO)
-				,SECTION 	=> $seccion			
-				,ICONO 		=> $icono
-				,TITULO		=> $titulo
-				,CONTENIDO 	=> $contenido
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);
-	return $data;
-}
-function vars_nuevo($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins,$vistas;
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
 	define(SECCION, $seccion);	 
 	## Logica de negocio ##
-	$titulo 	= $dic[empresas][nuevo_titulo];
+	$titulo 	= $dic[captura][listado_titulo];
 	## Envio de valores ##
-	$data_contenido = build_nueva_empresa();
+	$data_contenido = array(CONTENIDO => '');
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/empresas.js')
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -101,111 +68,73 @@ function vars_nuevo($seccion, $urlParams){
 				,CONTENIDO 			=> $contenido				
 			);
 	$texto = array();
-	$data = array_merge($negocio, $texto);
-	
+	$data = array_merge($negocio, $texto);	
 	return $data;
 }
-function vars_prospectos($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins;
-	define(SECCION, $seccion);
+
+function vars_albums($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
 	## Logica de negocio ##
-	$titulo 	= $dic[empresas][prospectos_titulo];
-	$contenido = build_listado_prospectos();
+	$titulo 	= $dic[captura][albums_titulo];
 	## Envio de valores ##
+	$data_contenido = array(CONTENIDO => '');
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 		=> incJs($Path[srcjs].strtolower(MODULO).'/empresas.listado.js')	
-				,MODULE 	=> strtolower(MODULO)
-				,SECTION 	=> $seccion			
-				,ICONO 		=> $icono
-				,TITULO		=> $titulo
-				,CONTENIDO 	=> $contenido
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);
-	return $data;
-}
-function vars_clientes($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins;
-	define(SECCION, $seccion);
-	## Logica de negocio ##
-	$titulo 	= $dic[empresas][clientes_titulo];
-	$contenido = build_listado_clientes();
-	## Envio de valores ##
-	$negocio = array(
-				 MORE 		=> incJs($Path[srcjs].strtolower(MODULO).'/empresas.listado.js')
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
 				,TITULO				=> $titulo
-				,CONTENIDO 			=> $contenido
+				,CONTENIDO 			=> $contenido				
 			);
 	$texto = array();
-	$data = array_merge($negocio, $texto);
+	$data = array_merge($negocio, $texto);	
 	return $data;
 }
-function vars_detalle($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
-	define(SECCION, $seccion);
-	## Logica de negocio ##
-	$titulo 	= $dic[empresas][detalle_titulo];
-	$data_contenido = build_detalle_empresas();
-	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
-	## Envio de valores ##
-	$negocio = array(
-				 MORE 		=> incJs($Path[srcjs].strtolower(MODULO).'/empresas.listado.js')
-				,MODULE 	=> strtolower(MODULO)
-				,SECTION 	=> $seccion			
-				,ICONO 		=> $icono
-				,TITULO		=> $titulo
-				,CONTENIDO 	=> $contenido
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);
-	return $data;
-}
-function vars_editar($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins,$vistas;
-	define(SECCION, $seccion);
-	 //dump_var($seccion);
-	## Logica de negocio ##
-	$titulo 	= $dic[empresas][editar_titulo];
 
-	$data_contenido = build_editar_empresa();
-
-	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
-	## Envio de valores ##
-	$negocio = array(
-				 MORE 		=> incJs($Path[srcjs].strtolower(MODULO).'/empresas.js')		
-				,MODULE 	=> strtolower(MODULO)
-				,SECTION 	=> $seccion			
-				,ICONO 		=> $icono
-				,TITULO		=> $titulo
-				,CONTENIDO 	=> $contenido
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);
-	return $data;
-}
-function vars_contactos($seccion, $urlParams){
+function vars_artistas($seccion, $urlParams){
 	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
-	define(SECCION, $seccion);
+	define(SECCION, $seccion);	 
 	## Logica de negocio ##
-	$titulo 	= $dic[empresas][contactos_titulo];
-	$data_contenido = build_detalle_empresas_contactos();
-	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$titulo 	= $dic[captura][artistas_titulo];
 	## Envio de valores ##
+	$data_contenido = array(CONTENIDO => '');
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 		=> incJs($Path[srcjs].strtolower(MODULO).'/empresas.contactos.js')	
-				,MODULE 	=> strtolower(MODULO)
-				,SECTION 	=> $seccion			
-				,ICONO 		=> $icono
-				,TITULO		=> $titulo
-				,CONTENIDO 	=> $contenido
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido				
 			);
 	$texto = array();
-	$data = array_merge($negocio, $texto);
+	$data = array_merge($negocio, $texto);	
 	return $data;
 }
+
+function vars_cantos($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][cantos_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_cantos();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido								
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
 function vars_error($cmd){
 	global $dic;
 	## Envio de valores ##

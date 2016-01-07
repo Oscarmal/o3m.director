@@ -3,7 +3,7 @@
 #grid-paginado{
 	position: relative;
 	float: left;
-	font-size: .8em;	
+	font-size: .9em;	
 	width: 100%;
 }
 /*Tabla*/
@@ -34,7 +34,7 @@
 .paginacion a{
 	/*color: #08c;*/
 	/*color: #59ACAC;*/
-	color: #409995;
+	color: #36b0c8;
 	text-decoration: none;
 }
 .paginacion a:hover{
@@ -76,10 +76,10 @@
 	border-left-width: 1;
 }
 .paginacion a:hover,.paginacion .active a,.paginacion .active span{
-	background-color: #f5f5f5;
+	background-color: #CAEAF0;
 }
 .paginacion .active a,.paginacion .active span{
-	color: #999;
+	color: #787878;
 	cursor: default;
 }
 .paginacion .disabled span,.paginacion .disabled a,.paginacion .disabled a:hover{
@@ -119,7 +119,7 @@
 }
 .table th{
 	text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.35);
-	background-color: #59ACAC;
+	background-color: #36b0c8;
 	color: #fff;
 	font-weight: bold;
 	text-align: center;
@@ -196,9 +196,9 @@
 }
 .searchbox input#searchbox{
   width: 150px;
-  height: 32px;
+  height: 40px;
   background: #eee;
-  border: none;
+  border: 1px solid #ddd;
   font-size: 10pt;
   float: left;
   color: #63717f;
@@ -236,7 +236,7 @@
   right: -1px;
   background: #eee;
   z-index: 1;
-  color: #4f5b66;
+  color: #36b0c8;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -248,7 +248,7 @@
   transition: background .55s ease;
 }
 .searchbox .icon:hover{
-	background-color: #59ACAC;
+	background-color: #B7DBFF;
 }
 
 .searchbox .search_reset{

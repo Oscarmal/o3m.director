@@ -17,7 +17,7 @@ if(!class_exists('Paginador')){
         public $id_get;
         public function __construct(){
             global $Path;
-            $this->por_pagina           = 5; #Resultados por página
+            $this->por_pagina           = 20; #Resultados por página
             $this->tpages               = 1; #Total de paginas
             $this->adjacents            = 2; #Cantidad de indices de paginas a mostrar
             $this->page                 = (!$_GET['p'])?1:$_GET['p'];

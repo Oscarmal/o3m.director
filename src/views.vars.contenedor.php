@@ -4,7 +4,7 @@
 * 
 */
 require_once('views.vars.error.php');
-require_once($Path[src].'build.menu_lateral.php');
+// require_once($Path[src].'build.menu_lateral.php');
 // Modulo Padre
 #Modulos
 	$contenedor = array(
@@ -18,14 +18,22 @@ require_once($Path[src].'build.menu_lateral.php');
 
 	$modulos = array(
 				 GENERAL		=> 'views.vars.general.php'
+				,ALABANZAS		=> 'views.vars.alabanzas.php'
 				,CAPTURA		=> 'views.vars.captura.php'
 				,IGLESIA		=> 'views.vars.iglesia.php'
+				,PMIEL			=> 'views.vars.pmiel.php'
+				,CATALOGOS		=> 'views.vars.catalogos.php'
+				,ADMIN			=> 'views.vars.admin.php'
 			);
 	$idmenus = array(
 	// ID's de tabla sis_menu_lateral
 				 GENERAL		=> 1				
-				,CAPTURA		=> 2
-				,IGLESIA		=> 3
+				,ALABANZAS		=> 2
+				,CAPTURA		=> 3
+				,IGLESIA		=> 4
+				,PMIEL			=> 5
+				,CATALOGOS		=> 6
+				,ADMIN			=> 7
 			);
 	// $visitas = MODULO => SECCIONES
 	$frm_vistas = array(
@@ -38,11 +46,6 @@ require_once($Path[src].'build.menu_lateral.php');
 				,CAPTURA => 
 					array(
 						 LISTADO 		=> 'listado.html'
-						,CATEGORIAS 	=> 'categorias.html'
-						,COMPASES 		=> 'compases.html'
-						,ESCALAS 		=> 'escalas.html'
-						,NOTAS 			=> 'notas.html'
-						,RITMOS 		=> 'ritmos.html'
 						,ALBUMS 		=> 'albums.html'
 						,ARTISTAS 		=> 'artistas.html'
 						,CANTOS 		=> 'cantos.html'
@@ -55,7 +58,19 @@ require_once($Path[src].'build.menu_lateral.php');
 						,FACEBOOK 		=> 'facebook.html'
 						,TWITTER 		=> 'twitter.html'
 						,YOUTUBE 		=> 'youtube.html'
-						)
+					)
+				,CATALOGOS => 
+					array(
+						 LISTADO 		=> 'listado.html'
+						,CATEGORIAS 	=> 'categorias.html'
+						,COMPASES 		=> 'compases.html'
+						,ESCALAS 		=> 'escalas.html'
+						,NOTAS 			=> 'notas.html'
+						,RITMOS 		=> 'ritmos.html'
+						,ALBUMS 		=> 'albums.html'
+						,ARTISTAS 		=> 'artistas.html'
+						,CANTOS 		=> 'cantos.html'
+					)
 				,ERROR  => 'error.html'
 			);
 
@@ -119,6 +134,9 @@ require_once($Path[src].'build.menu_lateral.php');
 								,bienvenida => $dic[general][barra].$cfg['breadcrums_char']
 								,modulo 	=> $bc_modulo
 								,seccion 	=> $bc_seccion
+								,MODULE 	=> strtolower($modulo)
+								,SECTION 	=> $seccion
+								,FOLDER 	=> $cfg[app_folder]
 								,USUARIO	=> ucwords(strtolower(utf8_encode($usuario[nombre])))
 								,EMAIL 		=> utf8_encode($usuario[email])
 								,GRUPO 		=> ucwords(strtolower(utf8_encode($usuario[grupo])))
@@ -128,19 +146,19 @@ require_once($Path[src].'build.menu_lateral.php');
 			$MENU 		= contenidoHtml($contenedor[FRM_MENU], $menu_opc);
 			// --	
 			// FRM_MENU_LEFT						
-			if($idmenus[strtoupper($modulo)]){
-				$menu_lateral = buildMenuLateral($idmenus[strtoupper($modulo)]);
-				$menu_lateral_opc = array( MENU => $menu_lateral);
-				$MENU_LATERAL 	= contenidoHtml($contenedor[FRM_MENU_LATERAL],$menu_lateral_opc);
-			}
-			else{
-				//MOSTRAR MENU DE BIENVENIDA VACIO
-				$menu_lateral_opc = array(
-						 MENU 			=> ""	
-					);
+			// if($idmenus[strtoupper($modulo)]){
+			// 	$menu_lateral = buildMenuLateral($idmenus[strtoupper($modulo)]);
+			// 	$menu_lateral_opc = array( MENU => $menu_lateral);
+			// 	$MENU_LATERAL 	= contenidoHtml($contenedor[FRM_MENU_LATERAL],$menu_lateral_opc);
+			// }
+			// else{
+			// 	//MOSTRAR MENU DE BIENVENIDA VACIO
+			// 	$menu_lateral_opc = array(
+			// 			 MENU 			=> ""	
+			// 		);
 				
-				$MENU_LATERAL 	= contenidoHtml($contenedor[FRM_MENU_LATERAL],$menu_lateral_opc);
-			}
+			// 	$MENU_LATERAL 	= contenidoHtml($contenedor[FRM_MENU_LATERAL],$menu_lateral_opc);
+			// }
 			// --	
 			// FRM_CONTENIDO
 			$vista_new 	= $contenedor[FRM_CONTENT];
@@ -158,7 +176,7 @@ require_once($Path[src].'build.menu_lateral.php');
 						,FRM_MENU 			=> $MENU
 						,FRM_CONTENIDO		=> $CONTENIDO
 						,FRM_FOOTER			=> $FOOTER
-						,FRM_MENU_LATERAL	=> $MENU_LATERAL
+						// ,FRM_MENU_LATERAL	=> $MENU_LATERAL
 					);
 			$texto = array(
 						 salir 			=> $dic[general][salir]

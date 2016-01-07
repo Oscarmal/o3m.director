@@ -4,93 +4,8 @@
                         <section class="w-f-md scrollable">
                             <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
                                 <!-- nav -->
-                                <nav class="nav-primary hidden-xs">
-                                    <ul class="nav bg clearfix">
-                                        <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> Menú </li>
-                                        <li>
-                                            <a href="{LINK_ACORDES}">
-                                                <i class="icon-music-tone-alt text-info"></i>
-                                                <span class="font-bold">Cantos</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{LINK_ACORDES}">
-                                                <i class="icon-disc text-success"></i> 
-                                                <span class="font-bold">Albums</span> 
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{LINK_ACORDES}"> 
-                                                <i class="fa fa-users text-primary-lter"></i> 
-                                                <!-- <b class="badge bg-primary pull-right">6</b> -->
-                                                <span class="font-bold">Artistas</span>
-                                            </a>
-                                        </li>
-                                        <li class="m-b hidden-nav-xs"></li>
-                                    </ul>
-                                    <ul class="nav" data-ride="collapse">
-                                        <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> Captura </li>
-                                        <li>
-                                            <a href="#" class="auto"> 
-                                                <span class="pull-right text-muted"> 
-                                                    <i class="fa fa-angle-left text"></i> 
-                                                    <i class="fa fa-angle-down text-active"></i> 
-                                                </span>                                                 
-                                                <i class="icon-playlist icon text-info-dker"></i> 
-                                                <b class="badge bg-success dker pull-right">9</b>
-                                                <span>Nuevos</span> 
-                                            </a>
-                                            <ul class="nav dk text-sm">
-                                                <li>
-                                                    <a href="{LINK_ACORDES}" class="auto"> 
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <b class="badge bg-info pull-right">1</b>
-                                                    <i class=" icon-music-tone icon"></i> 
-                                                    <span>Cantos</span> </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{LINK_ACORDES}" class="auto"> 
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <i class="icon-disc icon"></i> 
-                                                    <span>Albums</span> </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{LINK_ACORDES}" class="auto"> 
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <i class="fa fa-users icon"></i> 
-                                                    <span>Artistas</span> </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="nav text-sm">
-                                        <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> Mahanaim Tlalpan </li>
-                                        <li>
-                                            <a href="{URL}iglesia/iglesia"> <i class="icon-home icon"></i> <span>Iglesia</span> </a>
-                                        </li>
-                                        <li>
-                                            <a href="{URL}iglesia/contacto"> <i class="icon-bubbles icon"></i> 
-                                            <span>Contacto</span> </a>
-                                        </li>
-                                        <li>
-                                            <a href="{URL}iglesia/ubicacion"> <i class="icon-pointer icon"></i> 
-                                            <span>Ubicación</span> </a>
-                                        </li>
-                                        <li>
-                                            <a href="{URL}iglesia/facebook"> <i class=" icon-social-facebook icon text-info-dker"></i> 
-                                            <span>Facebook</span> </a>
-                                        </li>
-                                        <li>
-                                            <a href="{URL}iglesia/twitter"> <i class="icon-social-twitter icon text-info-dker"></i><span>Twitter</span> </a>
-                                        </li>
-                                        <li>
-                                            <a href="{URL}iglesia/youtube"> <i class="icon-social-youtube icon text-info-dker"></i><span>Youtube</span> </a>
-                                        </li>
-                                        <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> Palabra Miel </li>
-                                        <li>
-                                            <a href="#"> <i class="icon-globe icon text-success-lter"></i><span>Red Palabra Miel</span> </a>
-                                        </li>
-                                    </ul>
+                                <nav class="nav-primary hidden-xs" >
+                                    {MENU}
                                 </nav>
                                 <!-- / nav -->
                             </div>
@@ -116,3 +31,6 @@
                     </section>
                 </aside>
                 <!-- /.aside -->
+                <input type="hidden" id="mod" name="mod" value="{MODULE}" />
+                <input type="hidden" id="sec" name="sec" value="{SECTION}" />
+                <input type="hidden" id="app-fol" name="app-fol" value="{FOLDER}" />

@@ -6,9 +6,15 @@ $(document).ready(function(){
     });
     // reloj('txtReloj'); 
     // Contador 
-    var timer = contador(parseInt($('#tm-out').val())-1);     
+    var timer = ($('#sec').val()!='login')?contador(parseInt($('#tm-out').val())+1):'';
+    // Tooltips
+    // $(document).tooltip();
+    $('#div-contenedor').tooltip({
+      tooltipClass: "custom-tooltips",
+      show: { effect: "fadeIn", delay: 150 },
+      position: { my: "left top", at: "right+10 top-5" }
+    });
 });
-
 
 function changeCss(archivo) {
     var raiz = raizPath();
@@ -107,17 +113,17 @@ function scriptJs_Enter(Folder){
     });
 }
 
-function raizPath(Folder){
+function raizPath(){
 // Obtiene Carpeta raiz
-    if(!Folder){Folder='/';}
-    Folder = Folder;
+    // Folder = (!Folder)?'/':Folder;
+    var Folder = $('#app-fol').val();
     var dominio = document.domain;
     var raiz = window.location.pathname.split(Folder);
-    // var ruta = raiz[0] + Folder;
-    var ruta = '';
-    for(var i=0; i<=raiz.length-4; i++){
-        ruta +=  raiz[i]+'/';
-    }
+    var ruta = 'http://'+dominio+raiz[0] + Folder + '/';
+    // var ruta = '';
+    // for(var i=0; i<=raiz.length-4; i++){
+    //     ruta +=  raiz[i]+'/';
+    // }
     return ruta;
 }
 
@@ -242,7 +248,7 @@ function goto(ruta){
     location.href=ruta;
 }
 
-function formData(selector, template){
+function formData(selector, template){    
     /**
     * Descripcion:  Crea un objeto recuperando los valores ingresados en los campos INPUT
     * Comentario:   Los elementos html deben estar dentro de un mismo <div> y tiene que 
@@ -252,9 +258,9 @@ function formData(selector, template){
     * @author:      Oscar Maldonado - O3M
     */
     var data = template ? template : {}; // Valores predeterminados - Opcional
-    var c, f, r, v, m, $e, $elements = jQuery(selector).find("input, select, textarea");
+    var c, f, r, v, m, $e, $elements = $(selector).find("input, select, textarea");
     for (var i = 0; i < $elements.length; i++){
-        $e = jQuery($elements[i]);
+        $e = $($elements[i]);
         // alert($elements[i]['id']);  
         f = $e.data("campo");
         r = $e.attr("required") ? true: false;  
@@ -278,9 +284,9 @@ function formData(selector, template){
                     if ($e.prop("checked"))
                         v = $e.val();
                 }
-                else if ($e.datepicker){
-                    v = $e.datepicker("getDate");
-                }
+                // else if ($e.datepicker){
+                //     v = $e.datepicker("getDate");
+                // }
                 else{
                     v = jQuery.trim($e.val());
                 }
@@ -292,93 +298,18 @@ function formData(selector, template){
         // Guarda el valor en el objeto
         if (r && (v == undefined || v == "")){
             m = $e.data("mensaje");
-            if (m)
+            if(m){
                 alert(m);
-            else
+            } else{
                 alert("Es necesario especificar un valor para el campo \"" + f + "\".");
+            }
             $e.focus();
             return null;
-        }
-        else if (v != undefined)            
+        }else if(v != undefined){           
             data[i] = v;  
             data[f] = v; 
+        }
     }// next  
     return data;
 }
-
-function contador(duration) {
-// Cuenta regresiva
-/* Uso:
-    jQuery(function ($) {
-        var Duracion = 60 * 5
-        contador(Duracion);
-    });
-*/
-    var timer = duration, minutes, seconds;
-    var display = 'timeout';
-    var ciclos = setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        // display.text(minutes + ":" + seconds);
-
-        if (--timer < 0) { timer = duration;  }
-        if(minutes==0 && seconds==0){
-            var titulo      = 'Sesión terminada!';
-            var contenido   = 'Su sesión se ha terminado por inactividad. Por favor, vuelva a ingresar sus credenciales. <h3><span id="timeout"></span></h3>';
-            build_modal('modal', titulo, contenido, true, false, false, 'Login', 'location.reload();');
-            clearInterval(ciclos);
-        }else{
-            if(display){$('#'+display).html(minutes + ":" + seconds);}
-        }
-    }, 1000);
-}
-
-function build_modal(tipo, titulo, contenido, botones, txt_cerrar, link_cerrar, txt_si, link_si, txt_no, link_no){
-// Construye un modal para el template (bootstrap)
-    titulo      = (!titulo)?'TITULO':titulo;
-    contenido   = (!contenido)?'Contenido':contenido;
-    tipo        = (!tipo)?'modal_wait':tipo;
-    link_cerrar = (!link_cerrar)?false:link_cerrar;
-    link_si     = (!link_si)?'#':link_si;
-    link_no     = (!link_no)?'#':link_no;
-    txt_cerrar  = (!txt_cerrar)?'':txt_cerrar;
-    txt_si      = (!txt_si)?'':txt_si;
-    txt_no      = (!txt_no)?'':txt_no;
-    botones     = (!botones)?false:true;
-    var raiz = raizPath();
-    var ajax_url = raiz+"src/modal/modal.php";
-    $.ajax({
-        type: 'POST',
-        url: ajax_url,
-        dataType: "html",
-        data: {      
-         auth : 1,
-         accion     : tipo,
-         titulo     : titulo,
-         contenido  : contenido,
-         link_cerrar: link_cerrar,
-         link_si    : link_si,
-         link_no    : link_no,
-         txt_cerrar : txt_cerrar,
-         txt_si     : txt_si,
-         txt_no     : txt_no,
-         botones    : botones
-        }
-        ,beforeSend: function(){
-            $('#ajaxModal').empty();
-        }
-        ,success: function(respuesta){             
-         $('#ajaxModal').html(respuesta);
-         $('#ajaxModal').modal({backdrop: 'static', keyboard: false, closable: false}); //Desactiva click fuera de ventana
-         $('#ajaxModal').modal('show');
-        }
-        ,complete: function(){              
-             // location.reload();
-         }
-    });
-}
-
 //O3M//

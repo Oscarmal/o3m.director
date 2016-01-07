@@ -1,0 +1,9 @@
+.editable-form {
+    display: block;
+    margin-bottom: 5px;  
+}
+
+.editable-form span {
+    width: 70px;  
+    display: inline-block;
+}

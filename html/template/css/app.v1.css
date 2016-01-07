@@ -3781,7 +3781,7 @@ a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active{
 	border: 1px solid transparent;
 	border-radius: 4px;
 	margin-bottom: 20px;
-	padding: 15px;
+	padding: 8px;
 }
 .alert h4{
 	color: inherit;
@@ -9888,7 +9888,8 @@ body.container{
 	background-color: #15a25a !important;
 }
 .bg-info{
-	background-color: #5a6a7a;
+	background-color: #37424D;
+	/*background-color: #181f24;*/
 	color: #eaf6f9;
 }
 .bg-info.lt,.bg-info .lt{

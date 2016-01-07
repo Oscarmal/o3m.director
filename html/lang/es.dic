@@ -6,6 +6,7 @@
 	comun|entrar 		= Entrar
 	comun|regresar 		= Regresar
 	comun|guardar 		= Guardar
+	comun|agregar 		= Agregar
 	comun|cancelar 		= Cancelar
 	comun|cerrar 		= Cerrar
 	comun|editar 		= Editar
@@ -17,16 +18,7 @@
 	ico|baja			= 		Baja
 	ico|editar			= 		Editar
 	ico|imprimir		= 		Imprimir
-	ico|visita			= 		Visita
-	ico|llamada			= 		Llamada
-	ico|propuesta		= 		Propuesta
-	ico|cierre 			= 		Cierre
 	ico|requerido		= 		Requerido
-	ico|contactos		= 		Asignar Contactos
-	ico|empresas		= 		Asignar Empresas
-	ico|ejecutivos		= 		Asignar Ejecutivos
-	ico|asignar			= 		Asignar
-	ico|deasignar		= 		Quitar Contacto
 	ico|reactivar		= 		Reactivar
 #Modal 
 	modal|txt_si 		= 		Si
@@ -40,43 +32,38 @@
 	login|msj_noauth=Sin autorización para accesar
 	login|msj_salir=Sesión Cerrada
 # Menú Top
-	menutop|mod01=Inicio
-	menutop|mod02=Empresas
-	menutop|mod03=Contactos
-	menutop|mod04=Ejecutivos
-	menutop|mod05=Operación
-	menutop|mod06=Reportes
-	menutop|mod07=Catálogos
+	menutop|alabanzas01 = Alabanzas
+	menutop|alabanzas02	= Cantos
+	menutop|alabanzas03	= Albums	
+	menutop|alabanzas04	= Artistas
+	menutop|captura01	= Nuevos
+	menutop|captura02	= Capturar
+	menutop|captura03	= Cantos
+	menutop|captura04	= Albums
+	menutop|captura05	= Artistas
+	menutop|captura06	= Catálogos
+	menutop|captura07	= Categorías
+	menutop|captura08	= Ritmos
+	menutop|captura09	= Compases
+	menutop|captura10	= Escalas
+	menutop|captura11	= Notas
+	menutop|iglesia01	= Mahanaim Tlalpan
+	menutop|iglesia02	= Iglesia
+	menutop|iglesia03	= Contacto
+	menutop|iglesia04	= Ubicación
+	menutop|iglesia05	= Facebook
+	menutop|iglesia06	= Twitter
+	menutop|iglesia07	= Youtube
+	menutop|pmiel01		= Palabra Miel
+	menutop|pmiel02		= Red Palabra Miel
+	menutop|admin01		= Administración
+	menutop|admin02		= Accesos
+	menutop|admin03		= Usuarios
+	menutop|admin04		= Perfiles
+
 # Menú Lateral
-	menulateral|submenu01 = Listado General
-	menulateral|submenu02 = Prospectos
-	menulateral|submenu03 = Clientes
-	menulateral|submenu04 = Nueva Empresa
-	menulateral|submenu05 = Asignar
-	menulateral|submenu06 = Asignar Contactos
-	menulateral|submenu07 = Asignar Empresas
-	#Operaciones
-	menulateral|submenu08 = Listado Operaciones
-	menulateral|submenu09 = Nueva Visita
-	menulateral|submenu10 = Nueva Llamada
-	menulateral|submenu11 = Nueva Propuesta
-	menulateral|submenu12 = Nuevo Cierre
-	#Ejecutivos
-	menulateral|submenu13 = Asignar Empresas
-	menulateral|submenu16 = Supervisores
-	#Contactos
-	menulateral|submenu14 = Nuevo Contacto
-	menulateral|submenu15 = Nuevo Ejecutivo
-	#Catálogos
-	menulateral|submenu17 = Servicios
-	menulateral|submenu18 = Zonas
-	menulateral|submenu19 = Sectores
-	menulateral|submenu20 = Usuarios
-	menulateral|submenu21 = Perfiles
-	#Reportes
-	menulateral|submenu22 = General
-	menulateral|submenu23 = Por Cliente
-	menulateral|submenu24 = Por Ejecutivo
+	menulateral|submenu01 = Opcion1
+
 #Mensajes
 	msj|exito_insert = <strong>Exito!</strong><br>El registro se dio de alta correctamente;
 	msj|error_sql 	 = <strong>Error!</strong><br>El registro no se pudo dar de alta, intente mas tarde;
@@ -95,6 +82,31 @@
 
 #Captura
 	captura|listado_titulo 		= Listado
+	captura|categorias_titulo 	= Captura de Categorías
+	captura|compases_titulo 	= Captura de Compáses
+	captura|escalas_titulo 		= Captura de Escalas
+	captura|notas_titulo 		= Captura de Notas
+	captura|ritmos_titulo 		= Captura de Ritmos
+	captura|albums_titulo  		= Captura de Albums
+	captura|artistas_titulo 	= Captura de Artistas
+	captura|cantos_titulo 		= Captura de Cantos
+
+	#Cantos
+	captura|cantos_txt_form 		= Agregar nuevo
+	captura|cantos_txt_titulo 		= Titulo
+	captura|cantos_txt_nombre 		= Nombre
+	captura|cantos_txt_alias 		= Alias
+	captura|cantos_txt_escala 		= Escala
+	captura|cantos_txt_canto 		= Canto
+	captura|cantos_txt_album 		= Album
+	captura|cantos_txt_artista 		= Artista
+	captura|cantos_txt_escala 		= Escala
+	captura|cantos_txt_compas 		= Compás
+	captura|cantos_txt_ritmo 		= Ritmo
+	captura|cantos_txt_categoria 	= Categoría
+	captura|cantos_txt_nota_es 		= Nota (Español)
+	captura|cantos_txt_nota_en 		= Nota (Inglés)
+	captura|cantos_txt_alteracion	= Alteración
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia
@@ -108,3 +120,27 @@
 #Tooltips
 	#Login
 	tooltips|tooltip_usuario	= Ingrese su usuario
+
+	#Listas
+	tooltips|lst_escalas		= Seleccione una escala
+	tooltips|lst_notas			= Seleccione las notas
+	tooltips|lst_ritmos			= Seleccione un ritmo
+	tooltips|lst_compases		= Seleccione un compás
+	tooltips|lst_albums 		= Seleccione un album
+	tooltips|lst_artista		= Seleccione un artista
+	tooltips|lst_canto			= Seleccione un canto
+	tooltips|lst_categoria		= Seleccione las categorias
+
+	#Captura|Cantos
+	tooltips|captura_nombre		= Ingrese el nombre del canto
+	tooltips|captura_alias		= Ingrese el alias del canto
+	tooltips|captura_canto		= Canto
+	tooltips|captura_album		= Album
+	tooltips|captura_artista	= Artista
+	tooltips|captura_escala		= Escala
+	tooltips|captura_nota_es	= Notación española
+	tooltips|captura_nota_en	= Notación inglesa
+	tooltips|captura_alteracion	= Alteración de la nota
+	tooltips|captura_compas		= Compás
+	tooltips|captura_ritmo		= Ritmo
+	tooltips|captura_categoria	= Categoría
