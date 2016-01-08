@@ -5,7 +5,7 @@
 * Modulos => $in[m]; Secciones => $in[s];
 */
 // Valida parametro URL
-if(!$in[m] || !isset($in[m])){header('location: '.$Raiz[url]);}
+if(!$in[m] || !isset($in[m]) ){header('location: '.$Raiz[url]);}
 // Modulos
 define(MOD_GENERAL, 'views.vars.general.php');
 define(MOD_CONTENEDOR, 'views.vars.contenedor.php');
@@ -16,19 +16,21 @@ if($cfg[encrypt_onoff]){
 	$modulo = strtoupper($in[m]);
 	$seccion = strtoupper($in[s]);
 }
+if(function_exists('enArray')){
 // Distingue entre Login y Contendor
-if(enArray($seccion,array(LOGIN=>''))){
-	require_once($Path[src].MOD_GENERAL);	
-	$vista 		= vistas($seccion);
-	$tpl_data 	= tpl_vars($seccion,$ins);
-	print(contenidoHtml($vista, $tpl_data));
-	// Cierra sesión de usuario
-	unset($_SESSION[user]['id_usuario']);
-}else{
-	require_once($Path[src].MOD_CONTENEDOR);
-	$vista 		= frm_vistas('CONTENEDOR');
-	$tpl_data 	= frm_vars($modulo, $seccion,$ins);
-	print(contenedorHtml($vista, $tpl_data));
-}
+	if(enArray($seccion,array(LOGIN=>''))){
+		require_once($Path[src].MOD_GENERAL);	
+		$vista 		= vistas($seccion);
+		$tpl_data 	= tpl_vars($seccion,$ins);
+		print(contenidoHtml($vista, $tpl_data));
+		// Cierra sesión de usuario
+		unset($_SESSION[user]['id_usuario']);
+	}else{
+		require_once($Path[src].MOD_CONTENEDOR);
+		$vista 		= frm_vistas('CONTENEDOR');
+		$tpl_data 	= frm_vars($modulo, $seccion,$ins);
+		print(contenedorHtml($vista, $tpl_data));
+	}
+}else{include_once('../common/php/inc.header.php');}
 /*O3M*/
 ?>
