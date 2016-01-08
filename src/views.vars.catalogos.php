@@ -16,9 +16,6 @@ $vistas = array(
 			,ESCALAS 		=> 'escalas.html'
 			,NOTAS 			=> 'notas.html'
 			,RITMOS 		=> 'ritmos.html'
-			,ALBUMS 		=> 'albums.html'
-			,ARTISTAS 		=> 'artistas.html'
-			,CANTOS 		=> 'cantos.html'
 			,ERROR 			=> 'error.html'
 			);
 
@@ -51,12 +48,6 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_notas($cmd,$urlParams);
 	}elseif($cmd == 'RITMOS'){
 		$vars = vars_ritmos($cmd,$urlParams);
-	}elseif($cmd == 'ALBUMS'){
-		$vars = vars_albums($cmd,$urlParams);
-	}elseif($cmd == 'ARTISTAS'){
-		$vars = vars_artistas($cmd,$urlParams);
-	}elseif($cmd == 'CANTOS'){
-		$vars = vars_cantos($cmd,$urlParams);
 	}else{
 		$vars = vars_error($cmd);
 	}
@@ -192,69 +183,6 @@ function vars_ritmos($seccion, $urlParams){
 				,ICONO 				=> $icono
 				,TITULO				=> $titulo
 				,CONTENIDO 			=> $contenido				
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);	
-	return $data;
-}
-
-function vars_albums($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
-	define(SECCION, $seccion);	 
-	## Logica de negocio ##
-	$titulo 	= $dic[captura][albums_titulo];
-	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
-	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
-	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
-				,MODULE 			=> strtolower(MODULO)
-				,SECTION 			=> $seccion			
-				,ICONO 				=> $icono
-				,TITULO				=> $titulo
-				,CONTENIDO 			=> $contenido				
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);	
-	return $data;
-}
-
-function vars_artistas($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
-	define(SECCION, $seccion);	 
-	## Logica de negocio ##
-	$titulo 	= $dic[captura][artistas_titulo];
-	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
-	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
-	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
-				,MODULE 			=> strtolower(MODULO)
-				,SECTION 			=> $seccion			
-				,ICONO 				=> $icono
-				,TITULO				=> $titulo
-				,CONTENIDO 			=> $contenido				
-			);
-	$texto = array();
-	$data = array_merge($negocio, $texto);	
-	return $data;
-}
-
-function vars_cantos($seccion, $urlParams){
-	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
-	define(SECCION, $seccion);	 
-	## Logica de negocio ##
-	$titulo 	= $dic[captura][cantos_titulo];
-	## Envio de valores ##
-	$data_contenido = build_formulario_cantos();
-	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
-	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
-				,MODULE 			=> strtolower(MODULO)
-				,SECTION 			=> $seccion			
-				,ICONO 				=> $icono
-				,TITULO				=> $titulo
-				,CONTENIDO 			=> $contenido								
 			);
 	$texto = array();
 	$data = array_merge($negocio, $texto);	

@@ -43,4 +43,56 @@ function build_acordes(){
 	$cifrado = '<div style="margin-left:auto; margin-right:auto; width:70%;">'.$chord->html(1).$chord->txt().'</div>';
 	return $cifrado;
 }
+
+
+// CANTOS
+function build_formulario_cantos(){
+// Construye formulario
+	$data		= array(
+					 lst_albums 	=> dropdown_albums(array(requerido => true))
+					,lst_escalas 	=> dropdown_escalas(array(requerido => true, text=>'combo'))
+					,GRID 			=> build_listado_cantos()
+				);
+	$html = array_merge(textos(), $data);
+	return $html;
+}
+function build_listado_cantos(){
+// Grid de cantos
+	global $ins;
+	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
+	$sqlData = select_cantos($searchbox);
+	$y=0;
+	if($sqlData){
+		foreach ($sqlData as $row) {
+			$tblData[$y] = $row;
+			$tblData[$y][acciones] = ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');');
+			$y++;
+		}
+	}
+	return build_grid_paginado($tblData,$titulos);
+}
+
+// ARTISTAS
+function build_formulario_artistas(){
+// Construye formulario
+	$data = array(GRID => build_listado_artistas());
+	$html = array_merge(textos(), $data);
+	return $html;
+}
+function build_listado_artistas(){
+// Grid de artistas
+	global $ins;
+	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
+	$sqlData = select_artistas($searchbox);
+	$y=0;
+	if($sqlData){
+		foreach ($sqlData as $row) {
+			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
+			$tblData[$y][acciones] = ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');');
+			$y++;
+		}
+	}
+	return build_grid_paginado($tblData,$titulos);
+}
 ?>

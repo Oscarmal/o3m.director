@@ -99,7 +99,7 @@ function vars_artistas($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][artistas_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = build_formulario_artistas();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')

@@ -83,6 +83,7 @@ function build_listado_categorias(){
 			$id 		= $row[id_categoria];
 			$valor 		= $row[categoria];
 			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
 			$tblData[$y][categoria] = '<span class="editar campo-editable" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][quitar] = ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
@@ -110,6 +111,7 @@ function build_listado_ritmos(){
 			$id 		= $row[id_ritmo];
 			$valor 		= $row[ritmo];
 			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
 			$tblData[$y][ritmo] = '<span class="editar campo-editable" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][quitar] = ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
@@ -137,6 +139,7 @@ function build_listado_compases(){
 			$id 		= $row[id_compas];
 			$valor 		= $row[compas];
 			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
 			$tblData[$y][compas] = '<span class="editar campo-editable" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][quitar] = ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
@@ -173,6 +176,7 @@ function build_listado_escalas(){
 			$id 		= $row[id_escala];
 			$valor 		= $row[escala];
 			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
 			$tblData[$y][escala] = '<span class="editar campo-editable" data-name="escala" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[escala].'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][categoria] = '<span class="editar campo-editable" data-name="categoria" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[categoria];
 			$tblData[$y][grado1] = '<span class="editar campo-editable" data-name="grado1" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[grado1];
@@ -209,6 +213,9 @@ function build_listado_notas(){
 			$id 		= $row[id_nota];
 			$valor 		= $row[nota];
 			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
+			unset($tblData[$y][nota_es]);
+			unset($tblData[$y][nota_en]);
 			$tblData[$y][nota] = '<span class="editar campo-editable" data-type="datos" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][quitar] = ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
@@ -217,30 +224,4 @@ function build_listado_notas(){
 	return build_grid_paginado($tblData,$titulos);
 }
 
-// CANTOS
-function build_formulario_cantos(){
-// Construye formulario
-	$data		= array(
-					 lst_albums 	=> dropdown_albums(array(requerido => true))
-					,lst_escalas 	=> dropdown_escalas(array(requerido => true))
-					,GRID 			=> build_listado_cantos()
-				);
-	$html = array_merge(textos(), $data);
-	return $html;
-}
-function build_listado_cantos(){
-// Grid de cantos
-	global $ins;
-	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
-	$sqlData = select_cantos($searchbox);
-	$y=0;
-	if($sqlData){
-		foreach ($sqlData as $row) {
-			$tblData[$y] = $row;
-			$tblData[$y][acciones] = ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');');
-			$y++;
-		}
-	}
-	return build_grid_paginado($tblData,$titulos);
-}
 ?>

@@ -9,8 +9,19 @@
 // ESCALAS
 function select_escalas($searchbox=false){
 	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (CONCAT(esc.grado1,' - ', esc.escala) LIKE '%$searchbox%')":'';
-	$sql = "SELECT esc.id_escala, esc.escala
+	$filtro .= ($searchbox)?"AND (esc.categoria LIKE '%$searchbox%'
+								OR esc.escala LIKE '%$searchbox%'
+								OR esc.grado1 LIKE '%$searchbox%'
+								OR esc.grado2 LIKE '%$searchbox%'
+								OR esc.grado3 LIKE '%$searchbox%'
+								OR esc.grado4 LIKE '%$searchbox%'
+								OR esc.grado5 LIKE '%$searchbox%'
+								OR esc.grado6 LIKE '%$searchbox%'
+								OR esc.grado7 LIKE '%$searchbox%'
+								OR esc.armadura LIKE '%$searchbox%'
+							)":'';
+	$sql = "SELECT esc.id_escala, CONCAT(esc.grado1,' - ', esc.escala) as combo
+						,esc.escala
 						,esc.categoria
 						,esc.grado1
 						,esc.grado2
@@ -194,45 +205,6 @@ function update_ritmos($data=array()){
 		$resultado = (SQLDo($sql))?true:false;
 		return $resultado;
 	}else{return false;}
-}
-
-// ALBUMS
-function select_albums($searchbox=false){
-	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (alb.album LIKE '%$searchbox%')":'';
-	$sql = "SELECT alb.id_album, alb.album 
-			FROM $db[tbl_albums] alb 
-			WHERE 1 AND alb.activo = 1 $filtro
-			GROUP BY alb.album ;";
-	$resultado = SQLQuery($sql,1);
-	$resultado = ($resultado) ? $resultado : false ;
-	return $resultado;
-}
-
-// ARTISTAS
-function select_artistas($searchbox=false){
-	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (CONCAT(art.artista,' - ',art.iglesia,' - ',art.ministerio,' - ',art.pais) LIKE '%$searchbox%')":'';
-	$sql = "SELECT art.id_artista, CONCAT(art.artista,' - ',art.iglesia,' - ',art.ministerio,' - ',art.pais) as artista 
-			FROM $db[tbl_artistas] art 
-			WHERE 1 AND art.activo = 1 $filtro
-			GROUP BY art.artista, art.iglesia, art.ministerio, art.pais;";
-	$resultado = SQLQuery($sql,1);
-	$resultado = ($resultado) ? $resultado : false ;
-	return $resultado;
-}
-
-// CANTOS
-function select_cantos($searchbox=false){
-	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (CONCAT(IFNULL(cant.canto,''),' - ',IFNULL(cant.autor,'')) LIKE '%$searchbox%')":'';
-	$sql = "SELECT cant.id_canto, CONCAT(IFNULL(cant.canto,''),' - ',IFNULL(cant.autor,'')) as canto
-			FROM $db[tbl_cantos] cant 
-			WHERE 1 AND cant.activo = 1 $filtro
-			GROUP BY cant.canto, cant.autor ;";
-	$resultado = SQLQuery($sql,1);
-	$resultado = ($resultado) ? $resultado : false ;
-	return $resultado;
 }
 
 // CATEGORIAS
