@@ -7,12 +7,7 @@ require_once($Path[src].'catalogos/dao.catalogos.php');
 function tooltips_catalogos(){
 	global $dic;
 	$tooltips = array(
-		 tooltip_nombre 	=> $dic[tooltips][captura_nombre]
-		,tooltip_alias 		=> $dic[tooltips][captura_alias]
-		,tooltip_canto		=> $dic[tooltips][captura_canto]
-		,tooltip_album		=> $dic[tooltips][captura_album]
-		,tooltip_artista	=> $dic[tooltips][captura_artista]
-		,tooltip_escala		=> $dic[tooltips][captura_escala]
+		 tooltip_escala		=> $dic[tooltips][captura_escala]
 		,tooltip_nota_es	=> $dic[tooltips][captura_nota_es]
 		,tooltip_nota_en	=> $dic[tooltips][captura_nota_en]
 		,tooltip_alteracion	=> $dic[tooltips][captura_alteracion]
@@ -27,12 +22,7 @@ function tooltips_catalogos(){
 function txt_labels_catalogos(){
 	global $dic;
 	$labels = array(
-		 txt_form 			=> $dic[captura][cantos_txt_form]
-		,txt_nombre 		=> $dic[captura][cantos_txt_nombre]
-		,txt_alias 			=> $dic[captura][cantos_txt_alias]
-		,txt_canto 			=> $dic[captura][cantos_txt_canto]
-		,txt_album 			=> $dic[captura][cantos_txt_album]
-		,txt_artista 		=> $dic[captura][cantos_txt_artista]
+		 txt_form 			=> $dic[captura][cantos_txt_form]		
 		,txt_escala 		=> $dic[captura][cantos_txt_escala]
 		,txt_compas 		=> $dic[captura][cantos_txt_compas]
 		,txt_ritmo 			=> $dic[captura][cantos_txt_ritmo]

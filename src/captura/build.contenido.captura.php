@@ -7,20 +7,42 @@ require_once($Path[src].'captura/dao.captura.php');
 function tooltips_captura(){
 	global $dic;
 	$tooltips = array(
-		 tooltips_nombre 	=> $dic[tooltips][nombre_comercial]
-		,tooltips_razon		=> $dic[tooltips][razon]
-		,tooltips_rfc 		=> $dic[tooltips][rfc]
-		,tooltips_direccion	=> $dic[tooltips][direccion]
-		,tooltips_pais		=> $dic[tooltips][pais]
-		,tooltips_entidad 	=> $dic[tooltips][entidad]
-		,tooltips_municipio => $dic[tooltips][municipio]
-		,tooltips_colonia 	=> $dic[tooltips][colonia]
-		,tooltips_zona 		=> $dic[tooltips][zona]
-		,tooltips_sector 	=> $dic[tooltips][sector]
-		,tooltips_telefono 	=> $dic[tooltips][telefono]
-		,tooltips_sitioweb 	=> $dic[tooltips][sitioweb]
+		 tooltip_nombre 	=> $dic[tooltips][captura_nombre]
+		,tooltip_alias 		=> $dic[tooltips][captura_alias]
+		,tooltip_canto		=> $dic[tooltips][captura_canto]
+		,tooltip_album		=> $dic[tooltips][captura_album]
+		,tooltip_artista	=> $dic[tooltips][captura_artista]
+		,tooltip_iglesia	=> $dic[tooltips][captura_iglesia]
+		,tooltip_ministerio	=> $dic[tooltips][captura_ministerio]
+		,tooltip_pais 		=> $dic[tooltips][captura_pais]
 		);
 	return $tooltips;
+}
+
+function txt_labels_captura(){
+	global $dic;
+	$labels = array(
+		 txt_form 			=> $dic[captura][cantos_txt_form]
+		,txt_nombre 		=> $dic[captura][cantos_txt_nombre]
+		,txt_alias 			=> $dic[captura][cantos_txt_alias]
+		,txt_canto 			=> $dic[captura][cantos_txt_canto]
+		,txt_album 			=> $dic[captura][cantos_txt_album]
+		,txt_artista 		=> $dic[captura][cantos_txt_artista]
+		,txt_iglesia 		=> $dic[captura][cantos_txt_iglesia]
+		,txt_ministerio 	=> $dic[captura][cantos_txt_ministerio]
+		,txt_pais 			=> $dic[captura][cantos_txt_pais]
+
+		,txt_guardar 		=> $dic[comun][guardar]
+		,txt_agregar 		=> $dic[comun][agregar]
+		);
+	return $labels;
+}
+
+function textos_captura(){
+	$labels 	= txt_labels_captura();
+	$tooltips	= tooltips_captura();
+	$textos = array_merge($labels, $tooltips);
+	return $textos;
 }
 
 function build_acordes(){
@@ -53,7 +75,7 @@ function build_formulario_cantos(){
 					,lst_escalas 	=> dropdown_escalas(array(requerido => true, text=>'combo'))
 					,GRID 			=> build_listado_cantos()
 				);
-	$html = array_merge(textos(), $data);
+	$html = array_merge(textos_captura(), $data);
 	return $html;
 }
 function build_listado_cantos(){
@@ -76,7 +98,7 @@ function build_listado_cantos(){
 function build_formulario_artistas(){
 // Construye formulario
 	$data = array(GRID => build_listado_artistas());
-	$html = array_merge(textos(), $data);
+	$html = array_merge(textos_captura(), $data);
 	return $html;
 }
 function build_listado_artistas(){
@@ -87,9 +109,16 @@ function build_listado_artistas(){
 	$y=0;
 	if($sqlData){
 		foreach ($sqlData as $row) {
+			$seccion 	= 'artistas';
+			$id 		= $row[id_artista];
+			$valor 		= $row[artista];
 			$tblData[$y] = $row;
 			unset($tblData[$y][combo]);
-			$tblData[$y][acciones] = ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');');
+			$tblData[$y][artista] 		= '<span class="editar campo-editable" data-name="artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][iglesia] 		= '<span class="editar campo-editable" data-name="iglesia" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[iglesia];
+			$tblData[$y][ministerio] 	= '<span class="editar campo-editable" data-name="ministerio" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[ministerio];
+			$tblData[$y][pais] 			= '<span class="editar campo-editable" data-name="pais" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[pais];
+			$tblData[$y][quitar] 		= ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
 		}
 	}

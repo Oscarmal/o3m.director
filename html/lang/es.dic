@@ -115,6 +115,9 @@
 	captura|cantos_txt_grado6		= Grado VI
 	captura|cantos_txt_grado7		= Grado VII
 	captura|cantos_txt_armadura		= Armadura
+	captura|cantos_txt_iglesia		= Iglesia
+	captura|cantos_txt_ministerio	= Ministerio
+	captura|cantos_txt_pais			= Pais
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia

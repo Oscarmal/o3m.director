@@ -36,6 +36,42 @@ function select_artistas($searchbox=false){
 	return $resultado;
 }
 
+function insert_artistas($data=array()){
+	global $db, $usuario;
+	$timestamp = timestamp();
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	$sql="INSERT INTO $db[tbl_artistas]	SET  $updateFields ;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_artistas($data=array()){
+	global $db, $usuario;	
+	$timestamp = timestamp();
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_artistas]
+				SET  $updateFields
+				WHERE id_artista='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
 // CANTOS
 function select_cantos($searchbox=false){
 	global $db, $usuario;	
