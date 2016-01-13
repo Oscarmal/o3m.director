@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-01-05 18:57:55
+Date: 2016-01-12 18:22:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,13 +26,13 @@ CREATE TABLE `cat_categorias` (
   PRIMARY KEY (`id_categoria`),
   UNIQUE KEY `i_categoria` (`categoria`),
   KEY `i_activo` (`activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of cat_categorias
 -- ----------------------------
 INSERT INTO `cat_categorias` VALUES ('1', 'ADORACIÓN', '1');
-INSERT INTO `cat_categorias` VALUES ('2', 'GRATITUD', '1');
+INSERT INTO `cat_categorias` VALUES ('2', '1232RU', '1');
 INSERT INTO `cat_categorias` VALUES ('3', 'AMOR', '1');
 INSERT INTO `cat_categorias` VALUES ('4', 'CLAMOR', '1');
 INSERT INTO `cat_categorias` VALUES ('5', 'PRESENCIA', '1');
@@ -48,6 +48,10 @@ INSERT INTO `cat_categorias` VALUES ('14', 'GUERRA', '1');
 INSERT INTO `cat_categorias` VALUES ('15', 'EXCLAMACIÓN', '1');
 INSERT INTO `cat_categorias` VALUES ('16', 'DANZA', '1');
 INSERT INTO `cat_categorias` VALUES ('17', 'AVIVAMIENTO', '1');
+INSERT INTO `cat_categorias` VALUES ('18', 'NUEVO', '1');
+INSERT INTO `cat_categorias` VALUES ('19', 'SDFSDFS', '1');
+INSERT INTO `cat_categorias` VALUES ('20', 'FDFDFD', '1');
+INSERT INTO `cat_categorias` VALUES ('21', 'UIKJHGF', '1');
 
 -- ----------------------------
 -- Table structure for cat_compases
@@ -95,7 +99,7 @@ CREATE TABLE `cat_escalas` (
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_escala`),
   KEY `i_activo` (`activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of cat_escalas
@@ -133,6 +137,7 @@ INSERT INTO `cat_escalas` VALUES ('30', 'Bemoles', 'Sol bemol', 'Gb', 'Abm', 'Bb
 INSERT INTO `cat_escalas` VALUES ('31', 'Bemoles', 'Mi bemol menor', 'Ebm', 'F°', 'Gb', 'Abm', 'Bbm', 'Cb', 'Db', 'Cb', '1');
 INSERT INTO `cat_escalas` VALUES ('32', 'Bemoles', 'Do bemol', 'Cb', 'Dbm', 'Ebm', 'Fb', 'Gb', 'Abm', 'Bb°', 'Fb', '1');
 INSERT INTO `cat_escalas` VALUES ('33', 'Bemoles', 'La bemol menor', 'Abm', 'Bb°', 'Cb', 'Dbm', 'Ebm', 'Fb', 'Gb', 'Fb', '1');
+INSERT INTO `cat_escalas` VALUES ('34', ' ', null, null, 'fdf', '', 'fd', 'rerer', 'f', null, null, '1');
 
 -- ----------------------------
 -- Table structure for cat_notas
@@ -143,159 +148,161 @@ CREATE TABLE `cat_notas` (
   `nota_es` varchar(8) COLLATE utf8_spanish_ci DEFAULT NULL,
   `nota_en` varchar(6) COLLATE utf8_spanish_ci DEFAULT NULL,
   `alteracion` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
-  PRIMARY KEY (`id_nota`)
+  `activo` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id_nota`),
+  KEY `i_activo` (`activo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of cat_notas
 -- ----------------------------
-INSERT INTO `cat_notas` VALUES ('1', 'Do', 'C', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('2', 'Re', 'D', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('3', 'Mi', 'E', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('4', 'Fa', 'F', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('5', 'Sol', 'G', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('6', 'La', 'A', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('7', 'Si', 'B', 'Mayores');
-INSERT INTO `cat_notas` VALUES ('8', 'Dom', 'Cm', 'Menores');
-INSERT INTO `cat_notas` VALUES ('9', 'Rem', 'Dm', 'Menores');
-INSERT INTO `cat_notas` VALUES ('10', 'Mim', 'Em', 'Menores');
-INSERT INTO `cat_notas` VALUES ('11', 'Fam', 'Fm', 'Menores');
-INSERT INTO `cat_notas` VALUES ('12', 'Solm', 'Gm', 'Menores');
-INSERT INTO `cat_notas` VALUES ('13', 'Lam', 'Am', 'Menores');
-INSERT INTO `cat_notas` VALUES ('14', 'Sim', 'Bm', 'Menores');
-INSERT INTO `cat_notas` VALUES ('15', 'Do7', 'C7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('16', 'Re7', 'D7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('17', 'Mi7', 'E7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('18', 'Fa7', 'F7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('19', 'Sol7', 'G7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('20', 'La7', 'A7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('21', 'Si7', 'B7', 'Séptimas');
-INSERT INTO `cat_notas` VALUES ('22', 'Dom7', 'Cm7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('23', 'Rem7', 'Dm7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('24', 'Mim7', 'Em7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('25', 'Fam7', 'Fm7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('26', 'Solm7', 'Gm7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('27', 'Lam7', 'Am7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('28', 'Sim7', 'Bm7', 'Séptimas Menores');
-INSERT INTO `cat_notas` VALUES ('29', 'Doaug', 'Caug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('30', 'Reaug', 'Daug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('31', 'Miaug', 'Eaug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('32', 'Faaug', 'Faug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('33', 'Solaug', 'Gaug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('34', 'Laaug', 'Aaug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('35', 'Siaug', 'Baug', 'Aumentadas');
-INSERT INTO `cat_notas` VALUES ('36', 'Dodim', 'Cdim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('37', 'Redim', 'Ddim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('38', 'Midim', 'Edim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('39', 'Fadim', 'Fdim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('40', 'Soldim', 'Gdim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('41', 'Ladim', 'Adim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('42', 'Sidim', 'Bdim', 'Disminuciones');
-INSERT INTO `cat_notas` VALUES ('43', 'DoMaj7', 'CMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('44', 'ReMaj7', 'DMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('45', 'MiMaj7', 'EMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('46', 'FaMaj7', 'FMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('47', 'SolMaj7', 'GMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('48', 'LaMaj7', 'AMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('49', 'SiMaj7', 'BMaj7', 'Septimas Mayores');
-INSERT INTO `cat_notas` VALUES ('50', 'Dob', 'Cb', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('51', 'Reb', 'Db', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('52', 'Mib', 'Eb', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('53', 'Fab', 'Fb', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('54', 'Solb', 'Gb', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('55', 'Lab', 'Ab', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('56', 'Sib', 'Bb', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('57', 'Dobm', 'Cbm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('58', 'Rebm', 'Dbm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('59', 'Mibm', 'Ebm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('60', 'Fabm', 'Fbm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('61', 'Solbm', 'Gbm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('62', 'Labm', 'Abm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('63', 'Sibm', 'Bbm', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('64', 'Dob7', 'Cb7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('65', 'Reb7', 'Db7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('66', 'Mib7', 'Eb7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('67', 'Fab7', 'Fb7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('68', 'Solb7', 'Gb7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('69', 'Lab7', 'Ab7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('70', 'Sib7', 'Bb7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('71', 'Dobm7', 'Cbm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('72', 'Rebm7', 'Dbm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('73', 'Mibm7', 'Ebm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('74', 'Fabm7', 'Fbm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('75', 'Solbm7', 'Gbm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('76', 'Labm7', 'Abm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('77', 'Sibm7', 'Bbm7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('78', 'Dobaug', 'Cbaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('79', 'Rebaug', 'Dbaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('80', 'Mibaug', 'Ebaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('81', 'Fabaug', 'Fbaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('82', 'Solbaug', 'Gbaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('83', 'Labaug', 'Abaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('84', 'Sibaug', 'Bbaug', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('85', 'Dobdim', 'Cbdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('86', 'Rebdim', 'Dbdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('87', 'Mibdim', 'Ebdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('88', 'Fabdim', 'Fbdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('89', 'Solbdim', 'Gbdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('90', 'Labdim', 'Abdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('91', 'Sibdim', 'Bbdim', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('92', 'DobMaj7', 'CbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('93', 'RebMaj7', 'DbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('94', 'MibMaj7', 'EbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('95', 'FabMaj7', 'FbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('96', 'SolbMaj7', 'GbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('97', 'LabMaj7', 'AbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('98', 'SibMaj7', 'BbMaj7', 'Bemoles (b)');
-INSERT INTO `cat_notas` VALUES ('99', 'Do#', 'C#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('100', 'Re#', 'D#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('101', 'Mi#', 'E#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('102', 'Fa#', 'F#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('103', 'Sol#', 'G#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('104', 'La#', 'A#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('105', 'Si#', 'B#', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('106', 'Do#m', 'C#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('107', 'Re#m', 'D#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('108', 'Mi#m', 'E#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('109', 'Fa#m', 'F#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('110', 'Sol#m', 'G#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('111', 'La#m', 'A#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('112', 'Si#m', 'B#m', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('113', 'Do#7', 'C#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('114', 'Re#7', 'D#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('115', 'Mi#7', 'E#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('116', 'Fa#7', 'F#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('117', 'Sol#7', 'G#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('118', 'La#7', 'A#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('119', 'Si#7', 'B#7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('120', 'Do#m7', 'C#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('121', 'Re#m7', 'D#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('122', 'Mi#m7', 'E#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('123', 'Fa#m7', 'F#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('124', 'Sol#m7', 'G#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('125', 'La#m7', 'A#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('126', 'Si#m7', 'B#m7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('127', 'Do#aug', 'C#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('128', 'Re#aug', 'D#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('129', 'Mi#aug', 'E#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('130', 'Fa#aug', 'F#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('131', 'Sol#aug', 'G#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('132', 'La#aug', 'A#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('133', 'Si#aug', 'B#aug', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('134', 'Do#dim', 'C#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('135', 'Re#dim', 'D#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('136', 'Mi#dim', 'E#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('137', 'Fa#dim', 'F#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('138', 'Sol#dim', 'G#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('139', 'La#dim', 'A#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('140', 'Si#dim', 'B#dim', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('141', 'Do#Maj7', 'C#Maj7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('142', 'Re#Maj7', 'D#Maj7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('143', 'Mi#Maj7', 'E#Maj7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('144', 'Fa#Maj7', 'F#Maj7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('145', 'Sol#Maj7', 'G#Maj7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('146', 'La#Maj7', 'A#Maj7', 'Sostenidos (#)');
-INSERT INTO `cat_notas` VALUES ('147', 'Si#Maj7', 'B#Maj7', 'Sostenidos (#)');
+INSERT INTO `cat_notas` VALUES ('1', 'Do', 'C', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('2', 'Re', 'D', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('3', 'Mi', 'E', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('4', 'Fa', 'F', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('5', 'Sol', 'G', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('6', 'La', 'A', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('7', 'Si', 'B', 'Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('8', 'Dom', 'Cm', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('9', 'Rem', 'Dm', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('10', 'Mim', 'Em', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('11', 'Fam', 'Fm', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('12', 'Solm', 'Gm', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('13', 'Lam', 'Am', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('14', 'Sim', 'Bm', 'Menores', '1');
+INSERT INTO `cat_notas` VALUES ('15', 'Do7', 'C7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('16', 'Re7', 'D7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('17', 'Mi7', 'E7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('18', 'Fa7', 'F7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('19', 'Sol7', 'G7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('20', 'La7', 'A7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('21', 'Si7', 'B7', 'Séptimas', '1');
+INSERT INTO `cat_notas` VALUES ('22', 'Dom7', 'Cm7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('23', 'Rem7', 'Dm7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('24', 'Mim7', 'Em7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('25', 'Fam7', 'Fm7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('26', 'Solm7', 'Gm7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('27', 'Lam7', 'Am7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('28', 'Sim7', 'Bm7', 'Séptimas Menores', '1');
+INSERT INTO `cat_notas` VALUES ('29', 'Doaug', 'Caug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('30', 'Reaug', 'Daug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('31', 'Miaug', 'Eaug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('32', 'Faaug', 'Faug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('33', 'Solaug', 'Gaug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('34', 'Laaug', 'Aaug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('35', 'Siaug', 'Baug', 'Aumentadas', '1');
+INSERT INTO `cat_notas` VALUES ('36', 'Dodim', 'Cdim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('37', 'Redim', 'Ddim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('38', 'Midim', 'Edim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('39', 'Fadim', 'Fdim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('40', 'Soldim', 'Gdim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('41', 'Ladim', 'Adim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('42', 'Sidim', 'Bdim', 'Disminuciones', '1');
+INSERT INTO `cat_notas` VALUES ('43', 'DoMaj7', 'CMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('44', 'ReMaj7', 'DMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('45', 'MiMaj7', 'EMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('46', 'FaMaj7', 'FMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('47', 'SolMaj7', 'GMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('48', 'LaMaj7', 'AMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('49', 'SiMaj7', 'BMaj7', 'Septimas Mayores', '1');
+INSERT INTO `cat_notas` VALUES ('50', 'Dob', 'Cb', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('51', 'Reb', 'Db', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('52', 'Mib', 'Eb', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('53', 'Fab', 'Fb', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('54', 'Solb', 'Gb', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('55', 'Lab', 'Ab', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('56', 'Sib', 'Bb', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('57', 'Dobm', 'Cbm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('58', 'Rebm', 'Dbm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('59', 'Mibm', 'Ebm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('60', 'Fabm', 'Fbm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('61', 'Solbm', 'Gbm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('62', 'Labm', 'Abm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('63', 'Sibm', 'Bbm', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('64', 'Dob7', 'Cb7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('65', 'Reb7', 'Db7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('66', 'Mib7', 'Eb7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('67', 'Fab7', 'Fb7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('68', 'Solb7', 'Gb7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('69', 'Lab7', 'Ab7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('70', 'Sib7', 'Bb7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('71', 'Dobm7', 'Cbm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('72', 'Rebm7', 'Dbm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('73', 'Mibm7', 'Ebm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('74', 'Fabm7', 'Fbm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('75', 'Solbm7', 'Gbm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('76', 'Labm7', 'Abm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('77', 'Sibm7', 'Bbm7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('78', 'Dobaug', 'Cbaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('79', 'Rebaug', 'Dbaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('80', 'Mibaug', 'Ebaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('81', 'Fabaug', 'Fbaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('82', 'Solbaug', 'Gbaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('83', 'Labaug', 'Abaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('84', 'Sibaug', 'Bbaug', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('85', 'Dobdim', 'Cbdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('86', 'Rebdim', 'Dbdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('87', 'Mibdim', 'Ebdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('88', 'Fabdim', 'Fbdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('89', 'Solbdim', 'Gbdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('90', 'Labdim', 'Abdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('91', 'Sibdim', 'Bbdim', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('92', 'DobMaj7', 'CbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('93', 'RebMaj7', 'DbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('94', 'MibMaj7', 'EbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('95', 'FabMaj7', 'FbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('96', 'SolbMaj7', 'GbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('97', 'LabMaj7', 'AbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('98', 'SibMaj7', 'BbMaj7', 'Bemoles (b)', '1');
+INSERT INTO `cat_notas` VALUES ('99', 'Do#', 'C#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('100', 'Re#', 'D#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('101', 'Mi#', 'E#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('102', 'Fa#', 'F#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('103', 'Sol#', 'G#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('104', 'La#', 'A#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('105', 'Si#', 'B#', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('106', 'Do#m', 'C#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('107', 'Re#m', 'D#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('108', 'Mi#m', 'E#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('109', 'Fa#m', 'F#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('110', 'Sol#m', 'G#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('111', 'La#m', 'A#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('112', 'Si#m', 'B#m', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('113', 'Do#7', 'C#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('114', 'Re#7', 'D#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('115', 'Mi#7', 'E#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('116', 'Fa#7', 'F#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('117', 'Sol#7', 'G#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('118', 'La#7', 'A#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('119', 'Si#7', 'B#7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('120', 'Do#m7', 'C#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('121', 'Re#m7', 'D#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('122', 'Mi#m7', 'E#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('123', 'Fa#m7', 'F#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('124', 'Sol#m7', 'G#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('125', 'La#m7', 'A#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('126', 'Si#m7', 'B#m7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('127', 'Do#aug', 'C#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('128', 'Re#aug', 'D#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('129', 'Mi#aug', 'E#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('130', 'Fa#aug', 'F#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('131', 'Sol#aug', 'G#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('132', 'La#aug', 'A#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('133', 'Si#aug', 'B#aug', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('134', 'Do#dim', 'C#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('135', 'Re#dim', 'D#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('136', 'Mi#dim', 'E#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('137', 'Fa#dim', 'F#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('138', 'Sol#dim', 'G#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('139', 'La#dim', 'A#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('140', 'Si#dim', 'B#dim', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('141', 'Do#Maj7', 'C#Maj7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('142', 'Re#Maj7', 'D#Maj7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('143', 'Mi#Maj7', 'E#Maj7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('144', 'Fa#Maj7', 'F#Maj7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('145', 'Sol#Maj7', 'G#Maj7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('146', 'La#Maj7', 'A#Maj7', 'Sostenidos (#)', '1');
+INSERT INTO `cat_notas` VALUES ('147', 'Si#Maj7', 'B#Maj7', 'Sostenidos (#)', '1');
 
 -- ----------------------------
 -- Table structure for cat_ritmos
@@ -406,7 +413,7 @@ CREATE TABLE `sis_logs` (
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_log`),
   KEY `id_usuario` (`id_usuario`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=280 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=457 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of sis_logs
@@ -690,6 +697,183 @@ INSERT INTO `sis_logs` VALUES ('276', 'cat_categorias\r\n			set', '66', 'INSERT'
 INSERT INTO `sis_logs` VALUES ('277', 'cat_categorias\r\n			set', '17', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'AVIVAMIENTO\' ;', '', null, '2016-01-05 16:44:54', '2');
 INSERT INTO `sis_logs` VALUES ('278', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'ALEGRÍAS\' \r\n			WHERE id_categoria=\'8\'\r\n			LIMIT 1;', '', null, '2016-01-05 18:54:59', '2');
 INSERT INTO `sis_logs` VALUES ('279', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'ALEGRÍA\' \r\n			WHERE id_categoria=\'8\'\r\n			LIMIT 1;', '', null, '2016-01-05 18:55:31', '2');
+INSERT INTO `sis_logs` VALUES ('280', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 10:00:42', '2');
+INSERT INTO `sis_logs` VALUES ('281', 'cat_categorias\r\n			set', '18', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'FSDFSDFSDFSDFSDSDFSDFSDFS\' ;', '', null, '2016-01-06 10:00:54', '2');
+INSERT INTO `sis_logs` VALUES ('282', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'NUEVO\' \r\n			WHERE id_categoria=\'18\'\r\n			LIMIT 1;', '', null, '2016-01-06 10:01:13', '2');
+INSERT INTO `sis_logs` VALUES ('283', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'134\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:01:11', '2');
+INSERT INTO `sis_logs` VALUES ('284', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:01:18', '2');
+INSERT INTO `sis_logs` VALUES ('285', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'323\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:01:33', '2');
+INSERT INTO `sis_logs` VALUES ('286', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'323F\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:02:08', '2');
+INSERT INTO `sis_logs` VALUES ('287', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'323\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:05:41', '2');
+INSERT INTO `sis_logs` VALUES ('288', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'323D\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:05:49', '2');
+INSERT INTO `sis_logs` VALUES ('289', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'323\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:06:07', '2');
+INSERT INTO `sis_logs` VALUES ('290', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'323E\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:07:04', '2');
+INSERT INTO `sis_logs` VALUES ('291', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'123\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:07:40', '2');
+INSERT INTO `sis_logs` VALUES ('292', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'1232\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:08:03', '2');
+INSERT INTO `sis_logs` VALUES ('293', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'123\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:10:13', '2');
+INSERT INTO `sis_logs` VALUES ('294', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'1232\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:11:09', '2');
+INSERT INTO `sis_logs` VALUES ('295', 'cat_categorias\r\n			set', '19', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'123\' ;', '', null, '2016-01-06 12:11:16', '2');
+INSERT INTO `sis_logs` VALUES ('296', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:11:35', '2');
+INSERT INTO `sis_logs` VALUES ('297', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'1\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:24:23', '2');
+INSERT INTO `sis_logs` VALUES ('298', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 12:24:28', '2');
+INSERT INTO `sis_logs` VALUES ('299', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'2\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:10:59', '2');
+INSERT INTO `sis_logs` VALUES ('300', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:11:25', '2');
+INSERT INTO `sis_logs` VALUES ('301', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:12:19', '2');
+INSERT INTO `sis_logs` VALUES ('302', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'1\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:12:29', '2');
+INSERT INTO `sis_logs` VALUES ('303', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'3\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:12:33', '2');
+INSERT INTO `sis_logs` VALUES ('304', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:13:16', '2');
+INSERT INTO `sis_logs` VALUES ('305', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:13:20', '2');
+INSERT INTO `sis_logs` VALUES ('306', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'8\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:13:35', '2');
+INSERT INTO `sis_logs` VALUES ('307', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'17\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:13:38', '2');
+INSERT INTO `sis_logs` VALUES ('308', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'1\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:18', '2');
+INSERT INTO `sis_logs` VALUES ('309', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'4\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:20', '2');
+INSERT INTO `sis_logs` VALUES ('310', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'13\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:23', '2');
+INSERT INTO `sis_logs` VALUES ('311', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:36', '2');
+INSERT INTO `sis_logs` VALUES ('312', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'1\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:39', '2');
+INSERT INTO `sis_logs` VALUES ('313', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'8\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:42', '2');
+INSERT INTO `sis_logs` VALUES ('314', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'3\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:14:49', '2');
+INSERT INTO `sis_logs` VALUES ('315', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:21:55', '2');
+INSERT INTO `sis_logs` VALUES ('316', 'cat_categorias\r\n			set', '20', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'OTRO\' ;', '', null, '2016-01-06 13:22:10', '2');
+INSERT INTO `sis_logs` VALUES ('317', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \' 1\' \r\n			WHERE id_categoria=\'20\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:22:28', '2');
+INSERT INTO `sis_logs` VALUES ('318', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'12\' \r\n			WHERE id_categoria=\'20\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:23:18', '2');
+INSERT INTO `sis_logs` VALUES ('319', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'1\' \r\n			WHERE id_categoria=\'20\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:27:23', '2');
+INSERT INTO `sis_logs` VALUES ('320', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'1232R\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:27:27', '2');
+INSERT INTO `sis_logs` VALUES ('321', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:27:41', '2');
+INSERT INTO `sis_logs` VALUES ('322', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'20\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:28:17', '2');
+INSERT INTO `sis_logs` VALUES ('323', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'17\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:28:20', '2');
+INSERT INTO `sis_logs` VALUES ('324', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'13\' \r\n			WHERE id_categoria=\'20\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:42:40', '2');
+INSERT INTO `sis_logs` VALUES ('325', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET activo = \'0\' \r\n			WHERE id_categoria=\'19\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:42:43', '2');
+INSERT INTO `sis_logs` VALUES ('326', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'312\' \r\n			WHERE id_categoria=\'20\'\r\n			LIMIT 1;', '', null, '2016-01-06 13:42:59', '2');
+INSERT INTO `sis_logs` VALUES ('327', 'cat_categorias\r\n			set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n			SET categoria = \'1232RU\' \r\n			WHERE id_categoria=\'2\'\r\n			LIMIT 1;', '', null, '2016-01-06 14:00:26', '2');
+INSERT INTO `sis_logs` VALUES ('328', 'cat_ritmos\r\n			set', '5', 'INSERT', 'INSERT INTO cat_ritmos\r\n			SET ritmo = \'ALLEGRO\' ;', '', null, '2016-01-06 15:39:29', '2');
+INSERT INTO `sis_logs` VALUES ('329', 'cat_ritmos\r\n				set', '0', 'UPDATE', 'UPDATE cat_ritmos\r\n				SET  ritmo=\'ALLEGROS\'\r\n				WHERE id_ritmo=\'5\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:48:42', '2');
+INSERT INTO `sis_logs` VALUES ('330', 'cat_ritmos\r\n				set', '0', 'UPDATE', 'UPDATE cat_ritmos\r\n				SET  ritmo=\'\'\r\n				WHERE id_ritmo=\'5\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:49:00', '2');
+INSERT INTO `sis_logs` VALUES ('331', 'cat_ritmos\r\n				set', '0', 'UPDATE', 'UPDATE cat_ritmos\r\n				SET  activo=\'0\'\r\n				WHERE id_ritmo=\'5\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:49:57', '2');
+INSERT INTO `sis_logs` VALUES ('332', 'cat_ritmos\r\n				set', '0', 'UPDATE', 'UPDATE cat_ritmos\r\n				SET  activo=\'0\'\r\n				WHERE id_ritmo=\'2\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:50:05', '2');
+INSERT INTO `sis_logs` VALUES ('333', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'F\'\r\n				WHERE id_categoria=\'19\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:52:07', '2');
+INSERT INTO `sis_logs` VALUES ('334', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'\'\r\n				WHERE id_categoria=\'19\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:52:15', '2');
+INSERT INTO `sis_logs` VALUES ('335', 'cat_categorias\r\n			set', '21', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'ZZZZZZZZZZZZZZZZZZZ\' ;', '', null, '2016-01-06 15:52:23', '2');
+INSERT INTO `sis_logs` VALUES ('336', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'112233\'\r\n				WHERE id_categoria=\'21\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:52:40', '2');
+INSERT INTO `sis_logs` VALUES ('337', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  activo=\'0\'\r\n				WHERE id_categoria=\'21\'\r\n				LIMIT 1;', '', null, '2016-01-06 15:53:18', '2');
+INSERT INTO `sis_logs` VALUES ('338', 'cat_compases\r\n			set', '11', 'INSERT', 'INSERT INTO cat_compases\r\n			SET compas = \'123/123\' ;', '', null, '2016-01-06 16:12:17', '2');
+INSERT INTO `sis_logs` VALUES ('339', 'cat_compases\r\n				set', '0', 'UPDATE', 'UPDATE cat_compases\r\n				SET  compas=\'\'\r\n				WHERE id_compas=\'11\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:12:30', '2');
+INSERT INTO `sis_logs` VALUES ('340', 'cat_compases\r\n				set', '0', 'UPDATE', 'UPDATE cat_compases\r\n				SET  activo=\'0\'\r\n				WHERE id_compas=\'11\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:12:34', '2');
+INSERT INTO `sis_logs` VALUES ('341', 'cat_compases\r\n				set', '0', 'UPDATE', 'UPDATE cat_compases\r\n				SET  activo=\'0\'\r\n				WHERE id_compas=\'11\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:12:49', '2');
+INSERT INTO `sis_logs` VALUES ('342', 'cat_escalas\r\n			set', '34', 'INSERT', 'INSERT INTO cat_escalas\r\n			SET escala = \'ZZZNEW\' ;', '', null, '2016-01-06 16:21:44', '2');
+INSERT INTO `sis_logs` VALUES ('343', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  activo=\'0\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:23:14', '2');
+INSERT INTO `sis_logs` VALUES ('344', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  escala=\'  D\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:23:30', '2');
+INSERT INTO `sis_logs` VALUES ('345', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'   DFF\'\r\n				WHERE id_categoria=\'19\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:24:37', '2');
+INSERT INTO `sis_logs` VALUES ('346', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'\'\r\n				WHERE id_categoria=\'19\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:24:42', '2');
+INSERT INTO `sis_logs` VALUES ('347', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'  FSD\'\r\n				WHERE id_categoria=\'19\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:25:18', '2');
+INSERT INTO `sis_logs` VALUES ('348', 'cat_categorias\r\n				set', '0', 'UPDATE', 'UPDATE cat_categorias\r\n				SET  categoria=\'\'\r\n				WHERE id_categoria=\'19\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:25:23', '2');
+INSERT INTO `sis_logs` VALUES ('349', 'cat_notas\r\n		', '148', 'INSERT', 'INSERT INTO cat_notas\r\n		  	SET \r\n				nota_es 	= \'NUEVA\',\r\n				nota_en 	= \'1234\' ,\r\n				alteracion 	= \'NA\' \r\n			;', '', null, '2016-01-06 16:46:40', '2');
+INSERT INTO `sis_logs` VALUES ('350', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  activo=\'0\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-06 16:48:10', '2');
+INSERT INTO `sis_logs` VALUES ('351', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'\',nota_en=\'\',alteracion=\'\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-06 17:52:10', '2');
+INSERT INTO `sis_logs` VALUES ('352', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'\',nota_en=\'\',alteracion=\'\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-06 18:14:01', '2');
+INSERT INTO `sis_logs` VALUES ('353', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'\',nota_en=\'\',alteracion=\'\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 12:33:08', '2');
+INSERT INTO `sis_logs` VALUES ('354', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'dsds\',nota_en=\'2332\',alteracion=\'SD\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:31:16', '2');
+INSERT INTO `sis_logs` VALUES ('355', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'2332\',nota_en=\'\',alteracion=\'\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:38:51', '2');
+INSERT INTO `sis_logs` VALUES ('356', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'12354\',nota_en=\'  ccd\',alteracion=\'G\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:46:53', '2');
+INSERT INTO `sis_logs` VALUES ('357', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'ccd\',nota_en=\'12354\',alteracion=\'GE\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:48:21', '2');
+INSERT INTO `sis_logs` VALUES ('358', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'12354\',nota_en=\'ccd\',alteracion=\'GEF\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:49:54', '2');
+INSERT INTO `sis_logs` VALUES ('359', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'   dfsd\',nota_en=\'12354\',alteracion=\'GEF33\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:50:56', '2');
+INSERT INTO `sis_logs` VALUES ('360', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'12354\',nota_en=\'   dfsd\',alteracion=\'GEF33D\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:51:47', '2');
+INSERT INTO `sis_logs` VALUES ('361', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'dfs\',nota_en=\'12354\',alteracion=\'GE\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:52:06', '2');
+INSERT INTO `sis_logs` VALUES ('362', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'12354\',nota_en=\'dfs\',alteracion=\'GEVV\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:53:07', '2');
+INSERT INTO `sis_logs` VALUES ('363', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'  dfs\',nota_en=\'12354\',alteracion=\'\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:55:41', '2');
+INSERT INTO `sis_logs` VALUES ('364', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'\',nota_en=\'\',alteracion=\'\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 15:55:54', '2');
+INSERT INTO `sis_logs` VALUES ('365', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'Ene # maj\',nota_en=\'N#maj\',alteracion=\'Inventada\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 16:24:14', '2');
+INSERT INTO `sis_logs` VALUES ('366', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  activo=\'0\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 16:26:07', '2');
+INSERT INTO `sis_logs` VALUES ('367', 'cat_escalas\r\n			set', '35', 'INSERT', 'INSERT INTO cat_escalas\r\n			SET escala = \'inventada\' ;', '', null, '2016-01-07 17:12:22', '2');
+INSERT INTO `sis_logs` VALUES ('368', 'cat_escalas\r\n			set', '36', 'INSERT', 'INSERT INTO cat_escalas\r\n			SET \r\n				escala 		= \'nueva\',\r\n				categoria 	= \'inventada\',\r\n				grado1 		= \'A#aug\',\r\n				grado2 		= \'D\',\r\n				grado3 		= \'C#aug\',\r\n				grado4 		= \'E#aug\',\r\n				grado5 		= \'F#dim\',\r\n				grado6 		= \'B#m\',\r\n				grado7 		= \'G#7\',\r\n				armadura 	= \'oscarina\'\r\n			;', '', null, '2016-01-07 17:15:57', '2');
+INSERT INTO `sis_logs` VALUES ('369', 'cat_notas\r\n				set', '0', 'UPDATE', 'UPDATE cat_notas\r\n				SET  nota_es=\'N#maj\',nota_en=\'Ene # ma\',alteracion=\'Inventada ed\'\r\n				WHERE id_nota=\'148\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:25:22', '2');
+INSERT INTO `sis_logs` VALUES ('370', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  categoria=\'f\',escala=\'f\',grado1=\'f\',grado2=\'f\',grado3=\'f\',grado4=\'f\',grado5=\'f\',grado6=\'f\',grado7=\'f\',armadura=\'f\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:42:58', '2');
+INSERT INTO `sis_logs` VALUES ('371', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  activo=\'0\'\r\n				WHERE id_escala=\'10\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:43:54', '2');
+INSERT INTO `sis_logs` VALUES ('372', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  categoria=\'\',escala=\'\',grado1=\'\',grado2=\'\',grado3=\'\',grado4=\'\',grado5=\'\',grado6=\'\',grado7=\'\',armadura=\'\'\r\n				WHERE id_escala=\'36\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:44:32', '2');
+INSERT INTO `sis_logs` VALUES ('373', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  categoria=\'4\',escala=\'4\',grado1=\'4\',grado2=\'4\',grado3=\'4\',grado4=\'4\',grado5=\'4\',grado6=\'4\',grado7=\'4\',armadura=\'4\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:46:13', '2');
+INSERT INTO `sis_logs` VALUES ('374', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  armadura=\'algo\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:55:05', '2');
+INSERT INTO `sis_logs` VALUES ('375', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  escala=\'nueva\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:55:18', '2');
+INSERT INTO `sis_logs` VALUES ('376', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  categoria=\'inventada\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:55:24', '2');
+INSERT INTO `sis_logs` VALUES ('377', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado1=\'priemr\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:55:53', '2');
+INSERT INTO `sis_logs` VALUES ('378', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  activo=\'0\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:56:04', '2');
+INSERT INTO `sis_logs` VALUES ('379', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  activo=\'0\'\r\n				WHERE id_escala=\'36\'\r\n				LIMIT 1;', '', null, '2016-01-07 17:56:10', '2');
+INSERT INTO `sis_logs` VALUES ('380', 'cat_categorias\r\n			set', '19', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'SDFSDFS\' ;', '', null, '2016-01-08 17:34:10', '2');
+INSERT INTO `sis_logs` VALUES ('381', 'cat_categorias\r\n			set', '20', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'FDFDFD\' ;', '', null, '2016-01-08 17:35:10', '2');
+INSERT INTO `sis_logs` VALUES ('382', 'cat_categorias\r\n			set', '21', 'INSERT', 'INSERT INTO cat_categorias\r\n			SET categoria = \'UIKJHGF\' ;', '', null, '2016-01-08 17:35:20', '2');
+INSERT INTO `sis_logs` VALUES ('383', 'tbl_artistas	set', '2', 'INSERT', 'INSERT INTO tbl_artistas	SET  artista=\'nuevo\',iglesia=\'iglesia\',ministerio=\'\',pais=\'México\',id_usuario = \'2\',timestamp 	= \'timestamp()\' ;', '', null, '2016-01-08 17:39:08', '2');
+INSERT INTO `sis_logs` VALUES ('384', 'tbl_artistas	set', '3', 'INSERT', 'INSERT INTO tbl_artistas	SET  artista=\'fsd\',iglesia=\'fsd\',ministerio=\'\',pais=\'sdfsd\',id_usuario = \'2\',timestamp 	= \'2016-01-08 17:40:22\' ;', '', null, '2016-01-08 17:40:22', '2');
+INSERT INTO `sis_logs` VALUES ('385', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  ministerio=\'1234\',id_usuario = \'\',timestamp 	= \'timestamp()\'\r\n				WHERE id_artista=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:50:39', '2');
+INSERT INTO `sis_logs` VALUES ('386', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  ministerio=\'DDF\',id_usuario = \'\',timestamp 	= \'timestamp()\'\r\n				WHERE id_artista=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:50:53', '2');
+INSERT INTO `sis_logs` VALUES ('387', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  ministerio=\'\',id_usuario = \'\',timestamp 	= \'timestamp()\'\r\n				WHERE id_artista=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:51:00', '2');
+INSERT INTO `sis_logs` VALUES ('388', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  activo=\'0\',id_usuario = \'\',timestamp 	= \'timestamp()\'\r\n				WHERE id_artista=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:51:15', '2');
+INSERT INTO `sis_logs` VALUES ('389', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  activo=\'0\',id_usuario = \'\',timestamp 	= \'timestamp()\'\r\n				WHERE id_artista=\'2\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:51:24', '2');
+INSERT INTO `sis_logs` VALUES ('390', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  activo=\'0\',id_usuario = \'\',timestamp 	= \'2016-01-08 17:52:26\'\r\n				WHERE id_artista=\'2\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:52:26', '2');
+INSERT INTO `sis_logs` VALUES ('391', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  activo=\'0\',id_usuario = \'\',timestamp 	= \'2016-01-08 17:52:33\'\r\n				WHERE id_artista=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:52:33', '2');
+INSERT INTO `sis_logs` VALUES ('392', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  activo=\'0\',id_usuario = \'2\',timestamp 	= \'2016-01-08 17:53:03\'\r\n				WHERE id_artista=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:53:03', '2');
+INSERT INTO `sis_logs` VALUES ('393', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  ministerio=\'MINISTERIO\',id_usuario = \'2\',timestamp 	= \'2016-01-08 17:53:11\'\r\n				WHERE id_artista=\'2\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:53:11', '2');
+INSERT INTO `sis_logs` VALUES ('394', 'tbl_artistas\r\n				set', '0', 'UPDATE', 'UPDATE tbl_artistas\r\n				SET  activo=\'0\',id_usuario = \'2\',timestamp 	= \'2016-01-08 17:53:20\'\r\n				WHERE id_artista=\'2\'\r\n				LIMIT 1;', '', null, '2016-01-08 17:53:20', '2');
+INSERT INTO `sis_logs` VALUES ('395', 'tbl_albums	set', '2', 'INSERT', 'INSERT INTO tbl_albums	SET  album=\'NUEVO\',subtitulo=\'SUTITULO\',id_artista=\'\',anio=\'2016\',pistas=\'10\',discos=\'1\',portada=\'portada\',id_usuario = \'2\',timestamp 	= \'2016-01-12 12:39:24\' ;', '', null, '2016-01-12 12:39:24', '2');
+INSERT INTO `sis_logs` VALUES ('396', 'tbl_albums	set', '3', 'INSERT', 'INSERT INTO tbl_albums	SET  album=\'NUEVO\',subtitulo=\'SUBTITULO\',id_artista=\'2\',anio=\'2016\',pistas=\'12\',discos=\'1\',portada=\'portada\',id_usuario = \'2\',timestamp 	= \'2016-01-12 12:43:50\' ;', '', null, '2016-01-12 12:43:50', '2');
+INSERT INTO `sis_logs` VALUES ('397', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'PORTADA1\',id_usuario = \'2\',timestamp 	= \'2016-01-12 12:46:11\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 12:46:11', '2');
+INSERT INTO `sis_logs` VALUES ('398', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  anio=\'2015\',id_usuario = \'2\',timestamp 	= \'2016-01-12 12:46:20\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 12:46:20', '2');
+INSERT INTO `sis_logs` VALUES ('399', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  discos=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-12 12:46:25\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 12:46:25', '2');
+INSERT INTO `sis_logs` VALUES ('400', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  discos=\'1\',id_usuario = \'2\',timestamp 	= \'2016-01-12 12:46:33\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 12:46:33', '2');
+INSERT INTO `sis_logs` VALUES ('401', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-12 13:02:38\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 13:02:38', '2');
+INSERT INTO `sis_logs` VALUES ('402', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 16:42:34\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 16:42:34', '2');
+INSERT INTO `sis_logs` VALUES ('403', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 16:48:26\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 16:48:26', '2');
+INSERT INTO `sis_logs` VALUES ('404', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:03:31\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:03:31', '2');
+INSERT INTO `sis_logs` VALUES ('405', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:08:46\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:08:46', '2');
+INSERT INTO `sis_logs` VALUES ('406', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:11:33\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:11:33', '2');
+INSERT INTO `sis_logs` VALUES ('407', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:15:19\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:15:19', '2');
+INSERT INTO `sis_logs` VALUES ('408', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:18:08\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:18:08', '2');
+INSERT INTO `sis_logs` VALUES ('409', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:18:48\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:18:48', '2');
+INSERT INTO `sis_logs` VALUES ('410', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:20:10\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:20:10', '2');
+INSERT INTO `sis_logs` VALUES ('411', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:21:55\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:21:55', '2');
+INSERT INTO `sis_logs` VALUES ('412', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:23:52\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:23:52', '2');
+INSERT INTO `sis_logs` VALUES ('413', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:24:14\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:24:14', '2');
+INSERT INTO `sis_logs` VALUES ('414', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado3=\'dfdf\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:27:27', '2');
+INSERT INTO `sis_logs` VALUES ('415', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado5=\'rerer\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:27:41', '2');
+INSERT INTO `sis_logs` VALUES ('416', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado4=\'fdfdf\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:27:59', '2');
+INSERT INTO `sis_logs` VALUES ('417', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado6=\'f\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:28:20', '2');
+INSERT INTO `sis_logs` VALUES ('418', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado2=\'fdf\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:29:11', '2');
+INSERT INTO `sis_logs` VALUES ('419', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado4=\'\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:29:21', '2');
+INSERT INTO `sis_logs` VALUES ('420', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado3=\'\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:29:25', '2');
+INSERT INTO `sis_logs` VALUES ('421', 'cat_escalas\r\n				set', '0', 'UPDATE', 'UPDATE cat_escalas\r\n				SET  grado4=\'fd\'\r\n				WHERE id_escala=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:29:31', '2');
+INSERT INTO `sis_logs` VALUES ('422', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:30:29\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:30:29', '2');
+INSERT INTO `sis_logs` VALUES ('423', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:31:12\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:31:12', '2');
+INSERT INTO `sis_logs` VALUES ('424', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:31:46\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:31:46', '2');
+INSERT INTO `sis_logs` VALUES ('425', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:33:27\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:33:27', '2');
+INSERT INTO `sis_logs` VALUES ('426', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:35:04\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:35:04', '2');
+INSERT INTO `sis_logs` VALUES ('427', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:36:12\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:36:12', '2');
+INSERT INTO `sis_logs` VALUES ('428', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:36:35\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:36:35', '2');
+INSERT INTO `sis_logs` VALUES ('429', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:37:16\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:37:16', '2');
+INSERT INTO `sis_logs` VALUES ('430', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:39:04\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:39:04', '2');
+INSERT INTO `sis_logs` VALUES ('431', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:39:25\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:39:25', '2');
+INSERT INTO `sis_logs` VALUES ('432', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:40:00\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:40:00', '2');
+INSERT INTO `sis_logs` VALUES ('433', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'c\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:41:11\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:41:11', '2');
+INSERT INTO `sis_logs` VALUES ('434', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:45:41\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:45:41', '2');
+INSERT INTO `sis_logs` VALUES ('435', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:48:03\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:48:04', '2');
+INSERT INTO `sis_logs` VALUES ('436', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:50:24\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:50:24', '2');
+INSERT INTO `sis_logs` VALUES ('437', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:51:19\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:51:19', '2');
+INSERT INTO `sis_logs` VALUES ('438', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:51:39\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:51:39', '2');
+INSERT INTO `sis_logs` VALUES ('439', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:52:49\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:52:49', '2');
+INSERT INTO `sis_logs` VALUES ('440', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:53:57\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:53:57', '2');
+INSERT INTO `sis_logs` VALUES ('441', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:55:33\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:55:33', '2');
+INSERT INTO `sis_logs` VALUES ('442', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:55:51\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:55:51', '2');
+INSERT INTO `sis_logs` VALUES ('443', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:56:24\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:56:24', '2');
+INSERT INTO `sis_logs` VALUES ('444', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:56:45\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:56:45', '2');
+INSERT INTO `sis_logs` VALUES ('445', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 17:59:17\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 17:59:17', '2');
+INSERT INTO `sis_logs` VALUES ('446', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:00:28\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:00:28', '2');
+INSERT INTO `sis_logs` VALUES ('447', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:03:57\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:03:57', '2');
+INSERT INTO `sis_logs` VALUES ('448', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:04:08\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:04:08', '2');
+INSERT INTO `sis_logs` VALUES ('449', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:04:52\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:04:52', '2');
+INSERT INTO `sis_logs` VALUES ('450', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:07:10\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:07:10', '2');
+INSERT INTO `sis_logs` VALUES ('451', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:08:23\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:08:23', '2');
+INSERT INTO `sis_logs` VALUES ('452', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:09:17\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:09:17', '2');
+INSERT INTO `sis_logs` VALUES ('453', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:11:50\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:11:50', '2');
+INSERT INTO `sis_logs` VALUES ('454', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:12:07\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:12:07', '2');
+INSERT INTO `sis_logs` VALUES ('455', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:12:44\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:12:44', '2');
+INSERT INTO `sis_logs` VALUES ('456', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:15:39\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:15:39', '2');
 
 -- ----------------------------
 -- Table structure for sis_menu
@@ -813,7 +997,7 @@ CREATE TABLE `sis_online` (
 -- ----------------------------
 -- Records of sis_online
 -- ----------------------------
-INSERT INTO `sis_online` VALUES ('1', '2', '1452041758');
+INSERT INTO `sis_online` VALUES ('1', '2', '1452644257');
 INSERT INTO `sis_online` VALUES ('2', '0', '1448641146');
 INSERT INTO `sis_online` VALUES ('3', '8', '1444853002');
 INSERT INTO `sis_online` VALUES ('4', '3', '1450882810');
@@ -972,9 +1156,9 @@ CREATE TABLE `tbl_albums` (
   `subtitulo` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_artista` int(11) DEFAULT NULL,
   `anio` mediumint(4) DEFAULT NULL,
-  `pistas_total` smallint(3) DEFAULT NULL,
-  `discos_total` tinyint(2) DEFAULT '1',
-  `portada` blob,
+  `pistas` smallint(3) DEFAULT NULL,
+  `discos` tinyint(2) DEFAULT '1',
+  `portada` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `timestamp` datetime DEFAULT NULL,
   `activo` tinyint(1) DEFAULT '1',
@@ -983,12 +1167,13 @@ CREATE TABLE `tbl_albums` (
   KEY `i_anio` (`anio`),
   KEY `i_id_usuario` (`id_usuario`),
   KEY `i_activo` (`activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of tbl_albums
 -- ----------------------------
-INSERT INTO `tbl_albums` VALUES ('1', 'DOMÍNIO PÚBLICO', '', '1', null, null, null, null, null, null, '1');
+INSERT INTO `tbl_albums` VALUES ('1', 'DOMÍNIO PÚBLICO', '', '1', null, null, null, 'cover_1.jpg', '2', '2016-01-12 18:15:39', '1');
+INSERT INTO `tbl_albums` VALUES ('3', 'NUEVO', 'SUBTITULO', '2', '2015', '12', '1', 'cover_3.jpg', '2', '2016-01-12 18:12:07', '1');
 
 -- ----------------------------
 -- Table structure for tbl_artistas
@@ -1006,12 +1191,14 @@ CREATE TABLE `tbl_artistas` (
   PRIMARY KEY (`id_artista`),
   KEY `i_id_usuario` (`id_usuario`),
   KEY `i_activo` (`activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of tbl_artistas
 -- ----------------------------
-INSERT INTO `tbl_artistas` VALUES ('1', 'DESCONOCIDO', null, null, null, null, null, '1');
+INSERT INTO `tbl_artistas` VALUES ('1', 'DESCONOCIDO', null, null, null, '0', null, '1');
+INSERT INTO `tbl_artistas` VALUES ('2', 'nuevo', 'iglesia', 'MINISTERIO', 'México', '2', '2016-01-08 17:53:20', '1');
+INSERT INTO `tbl_artistas` VALUES ('3', 'fsd', 'fsd', '1234', 'sdfsd', '2', '2016-01-08 17:53:03', '1');
 
 -- ----------------------------
 -- Table structure for tbl_cantos
