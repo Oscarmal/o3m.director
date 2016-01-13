@@ -687,5 +687,55 @@ function include_editable($tipo=1){
     return $includes;
 }
 
+function resize_image($imagen=false, $escala=false, $mime='jpg'){
+// Redimenciona el tamaño de una imagen
+	global $cfg;
+	if($imagen){
+		// Obtener los nuevos tamaños
+		list($ancho, $alto) = getimagesize($imagen);
+		if($escala){
+			$nuevo_ancho = $ancho * $escala;
+			$nuevo_alto = $alto * $escala;
+		}else{
+			$nuevo_ancho = $cfg[thumb_w];
+			$nuevo_alto = $cfg[thumb_h];
+		}
+
+		// Cargar
+		$thumb = imagecreatetruecolor($nuevo_ancho, $nuevo_alto);
+		switch ($mime) {
+			case 'jpg': $origen = imagecreatefromjpeg($imagen); break;
+			case 'png': $origen = imagecreatefrompng($imagen); break;
+			case 'gif': $origen = imagecreatefromgif($imagen); break;		
+			default: $origen = imagecreatefromjpeg($imagen); break;
+		}
+
+		// Cambiar el tamaño
+		imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+
+		// Imprimir
+		switch ($mime) {
+			case 'jpg':	$new_image = imagejpeg($thumb,$imagen);	break;
+			case 'png':	$new_image = imagepng($thumb,$imagen);	break;
+			case 'gif':	$new_image = imagegif($thumb,$imagen);	break;
+			default: $new_image = imagejpeg($thumb,$imagen); break;
+		}
+		// Limpia
+		imagedestroy($thumb);
+		// Resultado
+		return $new_image;
+	}else{return false;}
+}
+
+function create_file($data=false, $file=false){
+	if($data){
+		if(file_exists($file)) unlink($file);
+		$new = fopen($file, '+a');
+		fwrite($new, $data);
+		fclose($new);
+		return true;
+	}else{return false;}
+}
+
 /*O3M*/
 ?>
