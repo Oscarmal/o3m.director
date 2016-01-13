@@ -77,10 +77,14 @@ function editar(accion){
 	$('.campo-editable').editable({
 		type: "text", 
 		url: ajax_url,
-        params:{
-        	modulo : modulo,
-			seccion : seccion,
-			accion : 'update_captura_'+accion
+        params: function (params){
+   //      	modulo : modulo,
+			// seccion : seccion,
+			// accion : 'update_captura_'+accion
+			params.modulo 	= modulo;
+			params.seccion 	= seccion;
+			params.accion 	= 'update_captura_'+accion;
+   			return params;
         }
         ,success: function(respuesta) {
         	var div_msj = 'frm-msj_'+respuesta.id;

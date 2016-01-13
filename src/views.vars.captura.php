@@ -78,10 +78,12 @@ function vars_albums($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][albums_titulo];
 	## Envio de valores ##
-	$data_contenido = array(CONTENIDO => '');
+	$data_contenido = build_formulario_albums();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				 MORE 				=> include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/file-editable.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

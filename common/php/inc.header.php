@@ -34,6 +34,12 @@ $Path[html]		= $Raiz[local].$cfg[path_html];
 $Path[src]		= $Raiz[local].$cfg[path_src];
 $Path[srcjs]	= $Raiz[url].$cfg[path_src];
 $Path[site]		= $Raiz[local].$cfg[path_site];
+$Path[covers]	= $Path[docs].$cfg[path_covers];
+$Path[books]	= $Path[docs].$cfg[path_books];
+$Path[music]	= $Path[docs].$cfg[path_music];
+$Path[coversurl]= $Path[docsurl].$cfg[path_covers];
+$Path[booksurl]	= $Path[docsurl].$cfg[path_books];
+$Path[musicurl]	= $Path[docsurl].$cfg[path_music];
 // Crea variable de sesion con ruta de header
 if(!isset($_SESSION['header_path'])){$_SESSION['header_path'] = $Raiz[local].$cfg[php_header];}
 // Prepara archivos de apoyo

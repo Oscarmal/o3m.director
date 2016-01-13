@@ -124,4 +124,41 @@ function build_listado_artistas(){
 	}
 	return build_grid_paginado($tblData,$titulos);
 }
+
+// ALBUMS
+function build_formulario_albums(){
+// Construye formulario
+	$data = array(
+					 lst_artistas 	=> dropdown_artistas(array(name=>'id_artista'))
+					,GRID 			=> build_listado_albums()
+				);
+	$html = array_merge(textos_captura(), $data);
+	return $html;
+}
+function build_listado_albums(){
+// Grid de artistas
+	global $ins, $Path;
+	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
+	$sqlData = select_albums($searchbox);
+	$y=0;
+	if($sqlData){
+		foreach ($sqlData as $row) {
+			$seccion 	= 'albums';
+			$id 		= $row[id_album];
+			$valor 		= $row[album];
+			$tblData[$y] = $row;
+			unset($tblData[$y][combo]);
+			$tblData[$y][album] 		= '<span class="editar campo-editable" data-name="artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][subtitulo]		= '<span class="editar campo-editable" data-name="subtitulo" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[subtitulo];
+			$tblData[$y][id_artista] 	= '<span class="editar campo-editable" data-name="id_artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[id_artista];
+			$tblData[$y][anio] 			= '<span class="editar campo-editable" data-name="anio" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[anio];
+			$tblData[$y][pistas] 		= '<span class="editar campo-editable" data-name="pistas" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[pistas];
+			$tblData[$y][discos] 		= '<span class="editar campo-editable" data-name="discos" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[discos];
+			$tblData[$y][portada]		= '<span class="editar campo-editable" data-type="file" data-name="portada" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[coversurl].$row[portada].'" width="50%"/></span>';
+			$tblData[$y][quitar] 		= ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
+			$y++;
+		}
+	}
+	return build_grid_paginado($tblData,$titulos);
+}
 ?>

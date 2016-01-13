@@ -1,0 +1,67 @@
+		<div id="div-contenedor"> 
+		<form id="frm-captura-albums" class="form-horizontal" method="post" data-validate="parsley">	
+		<!-- Inicio de contenedor -->			
+			<section class="panel panel-default">
+	            <header class="panel-heading font-bold"> {txt_form} </header>
+	            <div class="panel-body">
+	                
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_album}:</label>
+	                        <div class="col-sm-5">
+	                            <input type="text" class="form-control" data-campo="album" placeholder="{txt_album}" title="{tooltip_album}" data-required="true"> 
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_subtitulo}:</label>
+	                        <div class="col-sm-5">
+	                            <input type="text" class="form-control" data-campo="subtitulo" placeholder="{txt_subtitulo}" title="{tooltip_subtitulo}" data-required="true"> 
+	                        </div>
+	                    </div>
+	                   <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_artista}:</label>
+	                        <div class="col-sm-5">
+	                            {lst_artistas}
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_anio}:</label>
+	                        <div class="col-sm-5">
+	                            <input type="text" class="form-control" data-campo="anio" placeholder="{txt_anio}" title="{tooltip_anio}" data-required="true"> 
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_pistas}:</label>
+	                        <div class="col-sm-5">
+	                            <input type="text" class="form-control" data-campo="pistas" placeholder="{txt_pistas}" title="{tooltip_pistas}" data-required="true"> 
+	                        </div>
+	                    </div>	 
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_discos}:</label>
+	                        <div class="col-sm-5">
+	                            <input type="text" class="form-control" data-campo="discos" placeholder="{txt_discos}" title="{tooltip_discos}" data-required="true"> 
+	                        </div>
+	                    </div>	
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_portada}:</label>
+	                        <div class="col-sm-5">
+	                            <input type="text" class="form-control" data-campo="portada" placeholder="{txt_portada}" title="{tooltip_portada}" data-required="true"> 
+	                        </div>
+	                    </div>                   
+
+	                    <!-- Botón -->
+	                    <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button id="btnSubmit" type="button" class="btn btn-primary" onclick="insert('frm-captura-albums','albums');">{txt_agregar}</button>
+                            </div>
+                        </div> 
+                        <div class="col-sm-9 col-sm-offset-2" id="mensajes"></div>
+	            </div>
+	        </section>
+	        <section class="panel panel-default">
+		        <div class="panel-body">
+		        	{GRID}
+		        </div>
+	        </section>
+		<!-- Fin de contenedor -->
+		</form>
+		</div>
