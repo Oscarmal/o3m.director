@@ -312,4 +312,9 @@ function formData(selector, template){
     }// next  
     return data;
 }
+
+function getRandomInt(min, max) {
+// Regresa un nuemero aleatorio dentro del rango definido
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 //O3M//
