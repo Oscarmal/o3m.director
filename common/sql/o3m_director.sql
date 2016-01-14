@@ -10,10 +10,61 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-01-12 18:22:26
+Date: 2016-01-14 16:56:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for cat_acordes
+-- ----------------------------
+DROP TABLE IF EXISTS `cat_acordes`;
+CREATE TABLE `cat_acordes` (
+  `id_acorde` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `acorde` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `notas` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `img_guitar` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `img_piano` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `img_bass` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `activo` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id_acorde`),
+  KEY `i_activo` (`activo`),
+  KEY `i_id_usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of cat_acordes
+-- ----------------------------
+INSERT INTO `cat_acordes` VALUES ('1', 'MAYORES', 'C', 'C,E,G', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('2', 'MAYORES', 'Db', 'Db,F,Ab', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('3', 'MAYORES', 'D', 'D,F#,A', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('4', 'MAYORES', 'Eb', 'Eb,G,Bb', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('5', 'MAYORES', 'E', 'E,G#,B', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('6', 'MAYORES', 'F', 'F,A,C', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('7', 'MAYORES', 'F#', 'F#,A#,C#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('8', 'MAYORES', 'G', 'G,B,D', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('9', 'MAYORES', 'G#', 'G#,C,D#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('10', 'MAYORES', 'A', 'A,C#,E', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('11', 'MAYORES', 'A#', 'A#,D,F', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('12', 'MENORES', 'Cm', 'C,Eb,G', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('13', 'MENORES', 'Dbm', 'Db,E,Ab', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('14', 'MENORES', 'Dm', 'D,F,A', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('15', 'MENORES', 'Ebm', 'Eb,Gb,Bb', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('16', 'MENORES', 'Em', 'E,G,B', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('17', 'MENORES', 'Fm', 'F,Ab,C', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('18', 'MENORES', 'F#m', 'F#,A,C#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('19', 'MENORES', 'Gm', 'G,Bb,D', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('20', 'MENORES', 'G#m', 'G#,B,D#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('21', 'MENORES', 'Am', 'A,C,E', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('22', 'MENORES', 'A#m', 'A#,Db,F', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('23', 'MAYORES', 'Bb', 'Bb,D,F', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('24', 'MAYORES', 'B', 'B,D#,F#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('25', 'MENORES', 'Bm', 'Bm,D,F#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('30', null, ' d', 'C#, A', 'acorde_30_guitar.png', 'acorde_30_piano.jpg', 'acorde_30_bass.jpg', '2016-01-14 16:39:34', '2', '1');
+INSERT INTO `cat_acordes` VALUES ('34', 'UYJRTGEDWS', ' aSDFGH', 'A,A#aug,A#Maj7', 'acorde_34_guitar.jpg', 'acorde_34_piano.jpg', 'acorde_34_bass.png', '2016-01-14 16:54:29', '2', '1');
 
 -- ----------------------------
 -- Table structure for cat_categorias
@@ -413,7 +464,7 @@ CREATE TABLE `sis_logs` (
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_log`),
   KEY `id_usuario` (`id_usuario`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=457 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=526 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of sis_logs
@@ -874,6 +925,75 @@ INSERT INTO `sis_logs` VALUES ('453', 'tbl_albums\r\n				set', '0', 'UPDATE', 'U
 INSERT INTO `sis_logs` VALUES ('454', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_3.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:12:07\'\r\n				WHERE id_album=\'3\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:12:07', '2');
 INSERT INTO `sis_logs` VALUES ('455', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:12:44\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:12:44', '2');
 INSERT INTO `sis_logs` VALUES ('456', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-12 18:15:39\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-12 18:15:39', '2');
+INSERT INTO `sis_logs` VALUES ('457', 'tbl_cantos	set', '137', 'INSERT', 'INSERT INTO tbl_cantos	SET  canto=\'No sueltes de mi mano\',alias=\'Oh Cristo!\',autor=\'Oscar Maldonado\',id_album=\'3\',id_escala=\'10\',id_variacion=\'\',id_compas=\'3\',tempo=\'68\',id_ritmo=\'1\',acordes=\'21,23,1,6,19\',id_categorias=\'1,4\',id_usuario = \'2\',timestamp 	= \'2016-01-13 12:40:50\' ;', '', null, '2016-01-13 12:40:50', '2');
+INSERT INTO `sis_logs` VALUES ('458', 'tbl_cantos	set', '138', 'INSERT', 'INSERT INTO tbl_cantos	SET  canto=\'fsdf\',alias=\'sdfret\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'93\',id_ritmo=\'3\',acordes=\'11,16\',id_categorias=\'16,20\',id_usuario = \'2\',timestamp 	= \'2016-01-13 13:23:08\' ;', '', null, '2016-01-13 13:23:08', '2');
+INSERT INTO `sis_logs` VALUES ('459', 'cat_acordes\r\n		', '26', 'INSERT', 'INSERT INTO cat_acordes\r\n		  	SET \r\n				tipo 	= \'NUEVO\',\r\n				acorde 	= \'mio#7aug\',\r\n				notas 	= \'\' ,\r\n				imagen 	= \'C:\\\\fakepath\\\\Logo AD Tlalpan w-b.png\' \r\n			;', '', null, '2016-01-13 14:23:29', '2');
+INSERT INTO `sis_logs` VALUES ('460', 'cat_acordes\r\n		', '27', 'INSERT', 'INSERT INTO cat_acordes\r\n		  	SET \r\n				tipo 	= \'NUEVA\',\r\n				acorde 	= \'mio#7aug\',\r\n				notas 	= \'\' ,\r\n				imagen 	= \'C:\\\\fakepath\\\\Logo AD Tlalpan w-b[68x74].png\' \r\n			;', '', null, '2016-01-13 14:28:00', '2');
+INSERT INTO `sis_logs` VALUES ('461', 'cat_acordes\r\n		', '28', 'INSERT', 'INSERT INTO cat_acordes\r\n		  	SET \r\n				tipo 	= \'GDFG\',\r\n				acorde 	= \'dfgdf\',\r\n				notas 	= \'A,Abm7,Faug\' ,\r\n				imagen 	= \'C:\\\\fakepath\\\\Logo AD Tlalpan w-b.png\' \r\n			;', '', null, '2016-01-13 14:29:08', '2');
+INSERT INTO `sis_logs` VALUES ('462', 'cat_acordes	set', '29', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'UJYHRTGF\',acorde=\'erthtrg\',notas=\'A#,E#7,G#7\',imagen=\'C:\\\\fakepath\\\\Logo AD Tlalpan fondo.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 14:31:48\' ;', '', null, '2016-01-13 14:31:48', '2');
+INSERT INTO `sis_logs` VALUES ('463', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'ACORDE_30.JPG\',id_usuario = \'2\',timestamp 	= \'2016-01-13 14:48:47\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 14:48:47', '2');
+INSERT INTO `sis_logs` VALUES ('464', 'cat_acordes	set', '31', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'RTGREFDSF\',acorde=\'redfgdfsv\',notas=\'A,B#aug,B7\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 16:49:14\' ;', '', null, '2016-01-13 16:49:14', '2');
+INSERT INTO `sis_logs` VALUES ('465', 'cat_acordes	set', '32', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'UYJRTGEF\',acorde=\'werty\',notas=\'A,Ab,B#m\',imagen=\'acorde_.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 16:59:40\' ;', '', null, '2016-01-13 16:59:40', '2');
+INSERT INTO `sis_logs` VALUES ('466', 'cat_acordes	set', '33', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'GDFGDF\',acorde=\'dfgdfg\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:01:15\' ;', '', null, '2016-01-13 17:01:15', '2');
+INSERT INTO `sis_logs` VALUES ('467', 'cat_acordes	set', '34', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'GDFGDF\',acorde=\'dfgdfg\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:01:35\' ;', '', null, '2016-01-13 17:01:35', '2');
+INSERT INTO `sis_logs` VALUES ('468', 'cat_acordes	set', '35', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'FSDFSD\',acorde=\'retretr\',notas=\'A,A#\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:02:41\' ;', '', null, '2016-01-13 17:02:41', '2');
+INSERT INTO `sis_logs` VALUES ('469', 'cat_acordes	set', '36', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'TERTE\',acorde=\'dfgdfgd\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:03:57\' ;', '', null, '2016-01-13 17:03:57', '2');
+INSERT INTO `sis_logs` VALUES ('470', 'cat_acordes	set', '37', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'TERTE\',acorde=\'dfgdfgd\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:05:08\' ;', '', null, '2016-01-13 17:05:08', '2');
+INSERT INTO `sis_logs` VALUES ('471', 'cat_acordes	set', '38', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'TERTE\',acorde=\'dfgdfgd\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:08:01\' ;', '', null, '2016-01-13 17:08:01', '2');
+INSERT INTO `sis_logs` VALUES ('472', 'cat_acordes	set', '39', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'ERTERT\',acorde=\'hgfhgfhfg\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:08:26\' ;', '', null, '2016-01-13 17:08:26', '2');
+INSERT INTO `sis_logs` VALUES ('473', 'cat_acordes	set', '40', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'ERTERT\',acorde=\'hgfhgfhfg\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:08:38\' ;', '', null, '2016-01-13 17:08:38', '2');
+INSERT INTO `sis_logs` VALUES ('474', 'cat_acordes	set', '41', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'ERTERT\',acorde=\'hgfhgfhfg\',notas=\'A\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:10:19\' ;', '', null, '2016-01-13 17:10:19', '2');
+INSERT INTO `sis_logs` VALUES ('475', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_41.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:10:19\'\r\n				WHERE id_acorde=\'41\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:10:19', '2');
+INSERT INTO `sis_logs` VALUES ('476', 'cat_acordes	set', '42', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'TRHGWE\',acorde=\'ertfgh\',notas=\'A#,A#7\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:11:27\' ;', '', null, '2016-01-13 17:11:27', '2');
+INSERT INTO `sis_logs` VALUES ('477', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_42.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:11:27\'\r\n				WHERE id_acorde=\'42\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:11:27', '2');
+INSERT INTO `sis_logs` VALUES ('478', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_.\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:13:32\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:13:32', '2');
+INSERT INTO `sis_logs` VALUES ('479', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_.\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:15:19\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:15:19', '2');
+INSERT INTO `sis_logs` VALUES ('480', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_.\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:16:23\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:16:23', '2');
+INSERT INTO `sis_logs` VALUES ('481', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_.\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:17:21\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:17:21', '2');
+INSERT INTO `sis_logs` VALUES ('482', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_.\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:17:36\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:17:36', '2');
+INSERT INTO `sis_logs` VALUES ('483', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:18:56\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:18:56', '2');
+INSERT INTO `sis_logs` VALUES ('484', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:19:17\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:19:17', '2');
+INSERT INTO `sis_logs` VALUES ('485', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:19:38\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:19:38', '2');
+INSERT INTO `sis_logs` VALUES ('486', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:20:31\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:20:31', '2');
+INSERT INTO `sis_logs` VALUES ('487', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:22:29\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:22:29', '2');
+INSERT INTO `sis_logs` VALUES ('488', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:22:42\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:22:42', '2');
+INSERT INTO `sis_logs` VALUES ('489', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:23:56\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:23:56', '2');
+INSERT INTO `sis_logs` VALUES ('490', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'acorde_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:27:38\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:27:38', '2');
+INSERT INTO `sis_logs` VALUES ('491', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:28:27\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:28:27', '2');
+INSERT INTO `sis_logs` VALUES ('492', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:28:41\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:28:41', '2');
+INSERT INTO `sis_logs` VALUES ('493', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:28:54\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:28:54', '2');
+INSERT INTO `sis_logs` VALUES ('494', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:34:45\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:34:45', '2');
+INSERT INTO `sis_logs` VALUES ('495', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:36:41\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:36:41', '2');
+INSERT INTO `sis_logs` VALUES ('496', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:38:18\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:38:18', '2');
+INSERT INTO `sis_logs` VALUES ('497', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:39:03\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:39:03', '2');
+INSERT INTO `sis_logs` VALUES ('498', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_30.png\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:39:14\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:39:14', '2');
+INSERT INTO `sis_logs` VALUES ('499', 'cat_acordes	set', '43', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'UGHJHG\',acorde=\'jghj\',notas=\'A#\',imagen=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:41:45\' ;', '', null, '2016-01-13 17:41:45', '2');
+INSERT INTO `sis_logs` VALUES ('500', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  imagen=\'acorde_43.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:41:45\'\r\n				WHERE id_acorde=\'43\'\r\n				LIMIT 1;', '', null, '2016-01-13 17:41:45', '2');
+INSERT INTO `sis_logs` VALUES ('501', 'tbl_albums	set', '4', 'INSERT', 'INSERT INTO tbl_albums	SET  album=\'UNDEFINED\',subtitulo=\'UNDEFINED\',id_artista=\'\',anio=\'UNDEFINED\',pistas=\'UNDEFINED\',discos=\'UNDEFINED\',portada=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-13 17:51:48\' ;', '', null, '2016-01-13 17:51:48', '2');
+INSERT INTO `sis_logs` VALUES ('502', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_30_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 15:16:10\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 15:16:10', '2');
+INSERT INTO `sis_logs` VALUES ('503', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_30_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 15:19:07\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 15:19:07', '2');
+INSERT INTO `sis_logs` VALUES ('504', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_30_piano.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 15:20:17\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 15:20:17', '2');
+INSERT INTO `sis_logs` VALUES ('505', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_30_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 15:21:00\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 15:21:00', '2');
+INSERT INTO `sis_logs` VALUES ('506', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_30_bass.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 15:21:29\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 15:21:29', '2');
+INSERT INTO `sis_logs` VALUES ('507', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_30_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 15:21:46\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 15:21:46', '2');
+INSERT INTO `sis_logs` VALUES ('508', 'cat_acordes	set', '31', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'FSDF\',acorde=\'werw\',notas=\'A\',img_guitar=\'\',img_piano=\'\',img_bass=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:05:29\' ;', '', null, '2016-01-14 16:05:29', '2');
+INSERT INTO `sis_logs` VALUES ('509', 'cat_acordes	set', '32', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'FSDF\',acorde=\'werw\',notas=\'A\',img_guitar=\'\',img_piano=\'\',img_bass=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:23:03\' ;', '', null, '2016-01-14 16:23:03', '2');
+INSERT INTO `sis_logs` VALUES ('510', 'cat_acordes	set', '33', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'FSDF\',acorde=\'werw\',notas=\'A\',img_guitar=\'\',img_piano=\'\',img_bass=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:25:43\' ;', '', null, '2016-01-14 16:25:43', '2');
+INSERT INTO `sis_logs` VALUES ('511', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde__guitar.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:25:43\'\r\n				WHERE id_acorde=\'33\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:25:43', '2');
+INSERT INTO `sis_logs` VALUES ('512', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde__piano.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:25:43\'\r\n				WHERE id_acorde=\'33\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:25:43', '2');
+INSERT INTO `sis_logs` VALUES ('513', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde__bass.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:25:43\'\r\n				WHERE id_acorde=\'33\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:25:43', '2');
+INSERT INTO `sis_logs` VALUES ('514', 'cat_acordes	set', '34', 'INSERT', 'INSERT INTO cat_acordes	SET  tipo=\'UYJRTGEDWS\',acorde=\'aSDFGH\',notas=\'A,A#aug,A#Maj7\',img_guitar=\'\',img_piano=\'\',img_bass=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:26:38\' ;', '', null, '2016-01-14 16:26:38', '2');
+INSERT INTO `sis_logs` VALUES ('515', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_34_guitar.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:26:38\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:26:38', '2');
+INSERT INTO `sis_logs` VALUES ('516', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_34_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:26:38\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:26:38', '2');
+INSERT INTO `sis_logs` VALUES ('517', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:26:38\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:26:38', '2');
+INSERT INTO `sis_logs` VALUES ('518', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_34_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:27:05\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:27:05', '2');
+INSERT INTO `sis_logs` VALUES ('519', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  notas=\'C#, A\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:39:34\'\r\n				WHERE id_acorde=\'30\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:39:34', '2');
+INSERT INTO `sis_logs` VALUES ('520', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_34_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:43:54\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:43:54', '2');
+INSERT INTO `sis_logs` VALUES ('521', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:49:21\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:49:21', '2');
+INSERT INTO `sis_logs` VALUES ('522', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:49:31\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:49:31', '2');
+INSERT INTO `sis_logs` VALUES ('523', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:50:55\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:50:55', '2');
+INSERT INTO `sis_logs` VALUES ('524', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:51:05\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:51:05', '2');
+INSERT INTO `sis_logs` VALUES ('525', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:54:29\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:54:29', '2');
 
 -- ----------------------------
 -- Table structure for sis_menu
@@ -893,7 +1013,7 @@ CREATE TABLE `sis_menu` (
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_menu`),
   KEY `i_superior` (`id_superior`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of sis_menu
@@ -904,9 +1024,9 @@ INSERT INTO `sis_menu` VALUES ('3', '1', '1', '1', 'ALABANZAS-01-2', 'icon-disc 
 INSERT INTO `sis_menu` VALUES ('4', '1', '1', '1', 'ALABANZAS-01-3', 'fa fa-users text-primary-lter', '3', 'CAPTURA/LISTADO', 'alabanzas04', null, '1');
 INSERT INTO `sis_menu` VALUES ('5', '5', '5', '0', 'CAPTURA-01', null, '1', null, 'captura01', null, '1');
 INSERT INTO `sis_menu` VALUES ('6', '5', '5', '1', 'CAPTURA-01-1', 'icon-playlist icon text-info-dker', '1', 'CAPTURA/LISTADO', 'captura02', null, '1');
-INSERT INTO `sis_menu` VALUES ('7', '6', '6', '2', 'CAPTURA-01-1-1', 'icon-music-tone icon', '1', 'CAPTURA/CANTOS', 'captura03', null, '1');
-INSERT INTO `sis_menu` VALUES ('23', '6', '6', '2', 'CAPTURA-01-1-2', 'icon-disc icon', '2', 'CAPTURA/ALBUMS', 'captura04', null, '1');
-INSERT INTO `sis_menu` VALUES ('24', '6', '6', '2', 'CAPTURA-01-1-3', 'fa fa-users', '3', 'CAPTURA/ARTISTAS', 'captura05', null, '1');
+INSERT INTO `sis_menu` VALUES ('7', '6', '6', '2', 'CAPTURA-01-1-1', 'icon-microphone icon', '2', 'CAPTURA/CANTOS', 'captura03', null, '1');
+INSERT INTO `sis_menu` VALUES ('23', '6', '6', '2', 'CAPTURA-01-1-2', 'icon-disc icon', '3', 'CAPTURA/ALBUMS', 'captura04', null, '1');
+INSERT INTO `sis_menu` VALUES ('24', '6', '6', '2', 'CAPTURA-01-1-3', 'fa fa-users', '4', 'CAPTURA/ARTISTAS', 'captura05', null, '1');
 INSERT INTO `sis_menu` VALUES ('25', '25', '25', '0', 'IGLESIA-01', null, '1', null, 'iglesia01', null, '1');
 INSERT INTO `sis_menu` VALUES ('26', '25', '25', '1', 'IGLESIA-01-1', 'icon-home icon text-warning', '1', 'IGLESIA/IGLESIA', 'iglesia02', null, '1');
 INSERT INTO `sis_menu` VALUES ('27', '25', '25', '1', 'IGLESIA-01-2', 'icon-bubbles icon text-warning', '2', 'IGLESIA/CONTACTO', 'iglesia03', null, '1');
@@ -916,7 +1036,7 @@ INSERT INTO `sis_menu` VALUES ('30', '25', '25', '1', 'IGLESIA-01-5', 'icon-soci
 INSERT INTO `sis_menu` VALUES ('31', '25', '25', '1', 'IGLESIA-01-6', 'icon-social-youtube icon text-info-dker', '6', 'IGLESIA/YOUTUBE', 'iglesia07', null, '1');
 INSERT INTO `sis_menu` VALUES ('32', '32', '32', '0', 'PMIEL-01', '', '1', null, 'pmiel01', null, '1');
 INSERT INTO `sis_menu` VALUES ('33', '32', '32', '1', 'PMIEL-01-1', 'icon-globe icon text-success-lter', '1', 'PMIEL/RED', 'pmiel02', null, '1');
-INSERT INTO `sis_menu` VALUES ('34', '6', '6', '2', 'CATALOGOS-01-1-4', 'icon-folder', '4', null, 'captura06', null, '1');
+INSERT INTO `sis_menu` VALUES ('34', '6', '6', '2', 'CATALOGOS-01-1-4', 'icon-folder', '5', null, 'captura06', null, '1');
 INSERT INTO `sis_menu` VALUES ('35', '6', '34', '3', 'CATALOGOS-01-1-4-1', 'icon-settings', '1', 'CATALOGOS/CATEGORIAS', 'captura07', null, '1');
 INSERT INTO `sis_menu` VALUES ('36', '6', '34', '3', 'CATALOGOS-01-1-4-2', 'icon-settings', '2', 'CATALOGOS/RITMOS', 'captura08', null, '1');
 INSERT INTO `sis_menu` VALUES ('37', '6', '34', '3', 'CATALOGOS-01-1-4-3', 'icon-settings', '3', 'CATALOGOS/COMPASES', 'captura09', null, '1');
@@ -926,6 +1046,8 @@ INSERT INTO `sis_menu` VALUES ('40', '40', '40', '0', 'ADMIN-01', null, '1', '',
 INSERT INTO `sis_menu` VALUES ('41', '40', '40', '1', 'ADMIN-02', ' icon-wrench text-danger', '1', '', 'admin02', null, '1');
 INSERT INTO `sis_menu` VALUES ('42', '41', '41', '2', 'ADMIN-03', 'fa fa-users ', '1', 'ADMIN/USUARIOS', 'admin03', null, '1');
 INSERT INTO `sis_menu` VALUES ('43', '41', '41', '2', 'ADMIN-04', 'fa fa-sitemap ', '2', 'ADMIN/PERFILES', 'admin04', null, '1');
+INSERT INTO `sis_menu` VALUES ('44', '6', '34', '3', 'CATALOGOS-01-1-4-6', 'icon-settings', '6', 'CATALOGOS/ACORDES', 'captura12', null, '1');
+INSERT INTO `sis_menu` VALUES ('45', '6', '6', '2', 'CAPTURA-01-1-4', 'icon-music-tone icon', '1', 'CAPTURA/CIFRADOS', 'captura13', null, '1');
 
 -- ----------------------------
 -- Table structure for sis_menu_lateral
@@ -997,7 +1119,7 @@ CREATE TABLE `sis_online` (
 -- ----------------------------
 -- Records of sis_online
 -- ----------------------------
-INSERT INTO `sis_online` VALUES ('1', '2', '1452644257');
+INSERT INTO `sis_online` VALUES ('1', '2', '1452812069');
 INSERT INTO `sis_online` VALUES ('2', '0', '1448641146');
 INSERT INTO `sis_online` VALUES ('3', '8', '1444853002');
 INSERT INTO `sis_online` VALUES ('4', '3', '1450882810');
@@ -1172,7 +1294,7 @@ CREATE TABLE `tbl_albums` (
 -- ----------------------------
 -- Records of tbl_albums
 -- ----------------------------
-INSERT INTO `tbl_albums` VALUES ('1', 'DOMÍNIO PÚBLICO', '', '1', null, null, null, 'cover_1.jpg', '2', '2016-01-12 18:15:39', '1');
+INSERT INTO `tbl_albums` VALUES ('1', 'DOMÍNIO PÚBLICO', '', '1', null, null, null, 'cover_1.jpg', '2', '2016-01-13 17:36:41', '1');
 INSERT INTO `tbl_albums` VALUES ('3', 'NUEVO', 'SUBTITULO', '2', '2015', '12', '1', 'cover_3.jpg', '2', '2016-01-12 18:12:07', '1');
 
 -- ----------------------------
@@ -1229,7 +1351,7 @@ CREATE TABLE `tbl_cantos` (
   KEY `i_compas` (`id_compas`),
   KEY `i_tempo` (`tempo`),
   KEY `i_ritmo` (`id_ritmo`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of tbl_cantos
@@ -1370,3 +1492,5 @@ INSERT INTO `tbl_cantos` VALUES ('133', 'No Puedo Parar De Alabar', 'No Puedo Pa
 INSERT INTO `tbl_cantos` VALUES ('134', 'Ya Viene Tu Salvador', 'Ya Viene Tu Salvador', null, null, '0', null, null, null, '3', null, null, null, null, '1');
 INSERT INTO `tbl_cantos` VALUES ('135', 'Jehová Levántate (Coro: Gm)', 'Jehová Levántate (Coro: Gm)', null, null, '0', '0', null, null, '3', null, null, null, null, '1');
 INSERT INTO `tbl_cantos` VALUES ('136', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Santiago Atitlan', '0', '0', null, null, null, '3', null, 'alabanza,danza,guerra,exclamacion+', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('137', 'No sueltes de mi mano', 'Oh Cristo!', 'Oscar Maldonado', '3', '10', '0', '3', '68', '1', '21,23,1,6,19', '1,4', '2', '2016-01-13 12:40:50', '1');
+INSERT INTO `tbl_cantos` VALUES ('138', 'fsdf', 'sdfret', 'tert', '3', '26', '0', '1', '93', '3', '11,16', '16,20', '2', '2016-01-13 13:23:08', '1');
