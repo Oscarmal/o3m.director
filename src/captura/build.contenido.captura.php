@@ -7,7 +7,8 @@ require_once($Path[src].'captura/dao.captura.php');
 function tooltips_captura(){
 	global $dic;
 	$tooltips = array(
-		 tooltip_nombre 	=> $dic[tooltips][captura_nombre]
+		 tooltip_click 		=> $dic[tooltips][captura_click]
+		,tooltip_nombre 	=> $dic[tooltips][captura_nombre]
 		,tooltip_alias 		=> $dic[tooltips][captura_alias]
 		,tooltip_canto		=> $dic[tooltips][captura_canto]
 		,tooltip_album		=> $dic[tooltips][captura_album]
@@ -31,6 +32,19 @@ function txt_labels_captura(){
 		,txt_iglesia 		=> $dic[captura][cantos_txt_iglesia]
 		,txt_ministerio 	=> $dic[captura][cantos_txt_ministerio]
 		,txt_pais 			=> $dic[captura][cantos_txt_pais]
+		,txt_subtitulo 		=> $dic[captura][cantos_txt_subtitulo]
+		,txt_anio 			=> $dic[captura][cantos_txt_anio]
+		,txt_pistas 		=> $dic[captura][cantos_txt_pistas]
+		,txt_discos 		=> $dic[captura][cantos_txt_discos]
+		,txt_portada 		=> $dic[captura][cantos_txt_portada]
+		,txt_escala 		=> $dic[captura][cantos_txt_escala]
+		,txt_variacion 		=> $dic[captura][cantos_txt_variacion]
+		,txt_compas 		=> $dic[captura][cantos_txt_compas]
+		,txt_ritmo 			=> $dic[captura][cantos_txt_ritmo]
+		,txt_tempo 		 	=> $dic[captura][cantos_txt_tempo]
+		,txt_acordes 		=> $dic[captura][cantos_txt_acordes]
+		,txt_categorias 	=> $dic[captura][cantos_txt_categorias]
+		,txt_autor 			=> $dic[captura][cantos_txt_autor]
 
 		,txt_guardar 		=> $dic[comun][guardar]
 		,txt_agregar 		=> $dic[comun][agregar]
@@ -73,6 +87,11 @@ function build_formulario_cantos(){
 	$data		= array(
 					 lst_albums 	=> dropdown_albums(array(requerido => true))
 					,lst_escalas 	=> dropdown_escalas(array(requerido => true, text=>'combo'))
+					,lst_variacion 	=> dropdown_escalas(array(name=>'lst_variacion',text=>'combo'))
+					,lst_compases 	=> dropdown_compases(array(text=>'combo'))
+					,lst_ritmos 	=> dropdown_ritmos(array(text=>'combo'))
+					,lst_acordes	=> dropdown_acordes(array(multiple => true))
+					,lst_categorias	=> dropdown_categorias(array(requerido => true, multiple => true))
 					,GRID 			=> build_listado_cantos()
 				);
 	$html = array_merge(textos_captura(), $data);
@@ -80,14 +99,19 @@ function build_formulario_cantos(){
 }
 function build_listado_cantos(){
 // Grid de cantos
-	global $ins;
+	global $ins, $dic;
 	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
 	$sqlData = select_cantos($searchbox);
 	$y=0;
 	if($sqlData){
 		foreach ($sqlData as $row) {
+			$seccion 	= 'cantos';
+			$id 		= $row[id_canto];
+			$valor 		= $row[canto];
 			$tblData[$y] = $row;
-			$tblData[$y][acciones] = ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');');
+			unset($tblData[$y][combo]);
+			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');').'  '
+										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');			
 			$y++;
 		}
 	}
@@ -147,10 +171,10 @@ function build_listado_albums(){
 			$id 		= $row[id_album];
 			$valor 		= $row[album];
 			$tblData[$y] = $row;
-			unset($tblData[$y][combo]);
+			unset($tblData[$y][id_artista]);
 			$tblData[$y][album] 		= '<span class="editar campo-editable" data-name="artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][subtitulo]		= '<span class="editar campo-editable" data-name="subtitulo" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[subtitulo];
-			$tblData[$y][id_artista] 	= '<span class="editar campo-editable" data-name="id_artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[id_artista];
+			// $tblData[$y][artista] 		= '<span class="editar campo-editable" data-name="artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[artista];
 			$tblData[$y][anio] 			= '<span class="editar campo-editable" data-name="anio" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[anio];
 			$tblData[$y][pistas] 		= '<span class="editar campo-editable" data-name="pistas" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[pistas];
 			$tblData[$y][discos] 		= '<span class="editar campo-editable" data-name="discos" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[discos];

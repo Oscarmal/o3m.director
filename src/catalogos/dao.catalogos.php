@@ -6,6 +6,64 @@
 * @author 		Oscar Maldonado
 */
 
+// ACORDES
+function select_acordes($searchbox=false){
+	global $db, $usuario;	
+	$filtro .= ($searchbox)?"AND (aco.acorde LIKE '%$searchbox%'
+								OR aco.notas LIKE '%$searchbox%'
+								OR aco.tipo LIKE '%$searchbox%') ":'';
+	$sql = "SELECT aco.id_acorde, 
+					CONCAT(aco.tipo,' | ',aco.acorde,' | ', aco.notas) as combo, 
+					aco.acorde,
+					aco.notas,
+					aco.tipo,
+					aco.img_guitar,
+					aco.img_piano,
+					aco.img_bass
+			FROM $db[tbl_acordes] aco 
+			WHERE 1 AND aco.activo = 1 $filtro
+			GROUP BY aco.acorde ;";
+	$resultado = SQLQuery($sql,1);
+	$resultado = ($resultado) ? $resultado : false ;
+	return $resultado;
+}
+
+function insert_acordes($data=array()){
+	global $db, $usuario;
+	$timestamp = timestamp();
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	$sql="INSERT INTO $db[tbl_acordes]	SET  $updateFields ;";
+	$id = SQLDo($sql);
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_acordes($data=array()){
+	global $db, $usuario;	
+	$timestamp = timestamp();
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_acordes]
+				SET  $updateFields
+				WHERE id_acorde='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
 // ESCALAS
 function select_escalas($searchbox=false){
 	global $db, $usuario;	
@@ -54,7 +112,7 @@ function insert_escalas($data=array()){
 				grado7 		= '$data[grado7]',
 				armadura 	= '$data[armadura]'
 			;";
-	$id = (SQLDo($sql))?true:false;
+	$id = SQLDo($sql);
 	$resultado = ($id)?$id:false;
 	return $resultado;
 }
@@ -104,7 +162,7 @@ function insert_notas($data=array()){
 				nota_en 	= '$data[nota_en]' ,
 				alteracion 	= '$data[alteracion]' 
 			;";
-	$id = (SQLDo($sql))?true:false;
+	$id = SQLDo($sql);
 	$resultado = ($id)?$id:false;
 	return $resultado;
 }
@@ -144,7 +202,7 @@ function insert_compases($data=array()){
 	global $db;
 	$sql="INSERT INTO $db[tbl_compases]
 			SET compas = '$data[compas]' ;";
-	$id = (SQLDo($sql))?true:false;
+	$id = SQLDo($sql);
 	$resultado = ($id)?$id:false;
 	return $resultado;
 }
@@ -184,7 +242,7 @@ function insert_ritmos($data=array()){
 	global $db;
 	$sql="INSERT INTO $db[tbl_ritmos]
 			SET ritmo = '$data[ritmo]' ;";
-	$id = (SQLDo($sql))?true:false;
+	$id = SQLDo($sql);
 	$resultado = ($id)?$id:false;
 	return $resultado;
 }
@@ -224,7 +282,7 @@ function insert_categorias($data=array()){
 	global $db;
 	$sql="INSERT INTO $db[tbl_categorias]
 			SET categoria = '$data[categoria]' ;";
-	$id = (SQLDo($sql))?true:false;
+	$id = SQLDo($sql);
 	$resultado = ($id)?$id:false;
 	return $resultado;
 }

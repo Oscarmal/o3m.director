@@ -67,9 +67,7 @@ require_once('views.vars.error.php');
 						,ESCALAS 		=> 'escalas.html'
 						,NOTAS 			=> 'notas.html'
 						,RITMOS 		=> 'ritmos.html'
-						,ALBUMS 		=> 'albums.html'
-						,ARTISTAS 		=> 'artistas.html'
-						,CANTOS 		=> 'cantos.html'
+						,ACORDES 		=> 'acordes.html'
 					)
 				,ERROR  => 'error.html'
 			);

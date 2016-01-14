@@ -16,6 +16,7 @@ $vistas = array(
 			,ESCALAS 		=> 'escalas.html'
 			,NOTAS 			=> 'notas.html'
 			,RITMOS 		=> 'ritmos.html'
+			,ACORDES 		=> 'acordes.html'
 			,ERROR 			=> 'error.html'
 			);
 
@@ -48,6 +49,8 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_notas($cmd,$urlParams);
 	}elseif($cmd == 'RITMOS'){
 		$vars = vars_ritmos($cmd,$urlParams);
+	}elseif($cmd == 'ACORDES'){
+		$vars = vars_acordes($cmd,$urlParams);
 	}else{
 		$vars = vars_error($cmd);
 	}
@@ -178,6 +181,29 @@ function vars_ritmos($seccion, $urlParams){
 	$negocio = array(
 				 MORE 				=>  include_editable()
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido				
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
+function vars_acordes($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][acordes_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_acordes();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=>  include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/file-editable.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

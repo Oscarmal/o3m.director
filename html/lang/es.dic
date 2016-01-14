@@ -47,6 +47,8 @@
 	menutop|captura09	= Compases
 	menutop|captura10	= Escalas
 	menutop|captura11	= Notas
+	menutop|captura12	= Acordes
+	menutop|captura13	= Cifrados
 	menutop|iglesia01	= Mahanaim Tlalpan
 	menutop|iglesia02	= Iglesia
 	menutop|iglesia03	= Contacto
@@ -84,6 +86,7 @@
 	captura|listado_titulo 		= Listado
 	captura|categorias_titulo 	= Captura de Categorías
 	captura|compases_titulo 	= Captura de Compáses
+	captura|acordes_titulo 		= Captura de Acordes
 	captura|escalas_titulo 		= Captura de Escalas
 	captura|notas_titulo 		= Captura de Notas
 	captura|ritmos_titulo 		= Captura de Ritmos
@@ -115,9 +118,23 @@
 	captura|cantos_txt_grado6		= Grado VI
 	captura|cantos_txt_grado7		= Grado VII
 	captura|cantos_txt_armadura		= Armadura
+	captura|cantos_txt_tipo			= Tipo
+	captura|cantos_txt_acorde		= Acorde
+	captura|cantos_txt_notas		= Notas
+	captura|cantos_txt_imagen		= Imagen
 	captura|cantos_txt_iglesia		= Iglesia
 	captura|cantos_txt_ministerio	= Ministerio
 	captura|cantos_txt_pais			= Pais
+	captura|cantos_txt_subtitulo	= Subtitulo
+	captura|cantos_txt_anio 		= Año
+	captura|cantos_txt_pistas 		= Pistas
+	captura|cantos_txt_discos 		= Discos
+	captura|cantos_txt_portada		= Portada
+	captura|cantos_txt_tempo		= Tempo
+	captura|cantos_txt_acordes		= Acordes
+	captura|cantos_txt_categorias	= Categorías
+	captura|cantos_txt_variacion	= Variación
+	captura|cantos_txt_autor		= Autor
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia
@@ -143,6 +160,7 @@
 	tooltips|lst_categoria		= Seleccione las categorias
 
 	#Captura|Cantos
+	tooltips|captura_click		= Haga click aquí
 	tooltips|captura_nombre		= Ingrese el nombre del canto
 	tooltips|captura_alias		= Ingrese el alias del canto
 	tooltips|captura_canto		= Canto

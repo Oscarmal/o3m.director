@@ -1,5 +1,23 @@
-		<div id="frm-captura-listado"> 	
+		<div id="div-contenedor"> 
+		<form id="frm-captura-listado" class="form-horizontal" method="post" data-validate="parsley">	
 		<!-- Inicio de contenedor -->			
-			{CONTENIDO}
+			<div class="panel-group m-b" id="accordion1">
+				<div class="panel panel-default">
+					<div class="panel-heading font-bold"> 
+					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne" title="{tooltip_click}"><i class="fa fa-plus-circle"></i> {txt_form} </a> 
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+						<div class="panel-body text-sm"> 
+							{CONTENIDO}
+						</div>
+					</div>
+				</div>
+			</div>
+	        <section class="panel panel-default">
+		        <div class="panel-body">
+		        	{GRID}
+		        </div>
+	        </section>
 		<!-- Fin de contenedor -->
+		</form>
 		</div>

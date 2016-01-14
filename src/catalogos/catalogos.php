@@ -200,5 +200,89 @@ function activate_catalogos_notas($in){
 	}
 	return json_encode($data);
 }
+
+// ACORDES
+function insert_catalogos_acordes($in){
+	global $dic,$Path;
+	if(!$in[objData]) $in[objData] = $in;
+	$id_img = explode(',', $in[id_img]);
+	$arrData = array(
+				tipo 		=> strtoupper($in[objData][tipo]),
+				acorde 		=> $in[objData][acorde],
+				notas 		=> $in[objData][lts_notas],
+				img_guitar 	=> $in[objData][img_guitar],
+				img_piano 	=> $in[objData][img_piano],
+				img_bass 	=> $in[objData][img_bass]
+			);
+	if($success = insert_acordes($arrData)){
+		foreach($id_img as $idimg){ #Recorre archivos recibidos
+			switch ($idimg) {
+				case 0: $prefix = '_guitar'; break;		
+				case 1: $prefix = '_piano'; break;		
+				case 2: $prefix = '_bass'; break;		
+				default: $prefix = ''; break;
+			}
+			$idfile = 'file-'.$idimg;			
+			if(is_uploaded_file($_FILES[$idfile]['tmp_name'])){
+			// Guardado de imagen		
+				$e 		= explode('.', $in[objData]['filename'.$idimg]);
+				array_map('unlink', glob($Path[chords].'acorde_'.$success.$prefix.".*")); #Borra duplicados
+				$imagen = 'acorde_'.$success.$prefix.'.'.$e[count($e)-1];
+				if(copy($_FILES[$idfile]['tmp_name'], $Path[chords].$imagen)){
+					unlink($_FILES[$idfile]['tmp_name']);
+					resize_image($Path[chords].$imagen);
+					$img = "Imagen guardada.";
+					update_acordes(array(id =>$success, 'img'.$prefix => $imagen));
+				}else{ $img = false; return;}
+			}
+		}
+		$data = array(success => $success, img => $img, message => 'El registro con ID: '.$success.' ha sido agregado.');
+	}else{
+		$data = array(success => false, message => 'ERROR al insertar datos.');
+	}
+	return json_encode($data);
+}
+function update_catalogos_acordes($in){
+	global $dic, $Path;
+	// dump_var($in);
+	$id = (!$in[pk])?$in[objData][id]:$in[pk];	
+	if(is_uploaded_file($_FILES['file']['tmp_name'])){
+	// Guardado de imagen		
+		$e 		= explode('.', $in[value]);
+		switch ($in[name]) {
+			case 'img_guitar': 	$prefix = '_guitar'; break;		
+			case 'img_piano': 	$prefix = '_piano'; break;		
+			case 'img_bass': 	$prefix = '_bass'; break;		
+			default: 			$prefix = ''; break;
+		}
+		array_map('unlink', glob($Path[chords].'acorde_'.$id.$prefix.".*")); #Borra duplicados
+		$imagen = 'acorde_'.$id.$prefix.'.'.$e[count($e)-1];
+		if(copy($_FILES['file']['tmp_name'], $Path[chords].$imagen)){
+			unlink($_FILES['file']['tmp_name']);
+			resize_image($Path[chords].$imagen);
+			$img = "Imagen guardada.";
+		}else{ $img = false; return;}
+		$in[value] = $imagen;
+	}
+
+	if($success = update_acordes(array(id =>$id, $in[name] => $in[value]))){
+		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
+	}else{
+		$data = array(success => false, id => $id, message => 'ERROR al actualizar datos.');
+	}
+	return json_encode($data);
+}
+function activate_catalogos_acordes($in){
+	global $dic;
+	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
+	$activo = ($in[objData][activo])?1:0;
+	if($success = update_acordes(array(id =>$id, activo => $activo)) ){
+		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido desactivado.');
+	}else{
+		$data = array(success => false, id => $id, message => 'ERROR al desactivar registro.');
+	}
+	return json_encode($data);
+}
+
 /*O3M*/
 ?>

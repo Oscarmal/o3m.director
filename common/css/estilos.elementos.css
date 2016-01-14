@@ -116,4 +116,5 @@ input:focus, textarea:focus, select:focus{
     text-align: right;
     padding-right: 10px;
 }
+.chosen-container { min-width: 200px !important; }
 /*O3M*/

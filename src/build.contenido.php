@@ -30,7 +30,7 @@ function drop_down_select($params = array()){
 	$class      = ($params['class'])?$params['class']:'';
 	$disabled   = ($params['disabled'])?$params['disabled']:'';
 	$requerido  = ($params['requerido'])?'data-required="true"':'';
-	$multiple   = ($params['multiple'])?$params['multiple']:'';
+	$multiple   = ($params['multiple'])?'multiple':'';
 	$title   	= ($params['title'])?$params['title']:'';
 	$width 		= ($params['width'])?'style="width:'.$params['width'].'px;"':'';
 
@@ -120,6 +120,26 @@ function create_list($dataArray=false, $class=false){
 	return $listHTML;
 }
 /*FIN GENERALES*/
+function dropdown_acordes($data=array()){
+	global $dic;
+	$requerido = ($data[requerido])?true:false;
+	$name = ($data[name])?$data[name]:'lts_acordes';
+	$lst_data = select_acordes();
+	$dataDropdown = array(
+				'data' 		=> $lst_data,
+				'name' 		=> $name,
+				'value' 	=> 'id_acorde',
+				'text'  	=> 'acorde',
+				'requerido' => $requerido,
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
+				'width' 	=> '200',
+				'selected' 	=> $data[id_selected],
+				'title' 	=> $dic[tooltips][lst_acordes]
+			);
+	return drop_down_select($dataDropdown);
+}
+
 function dropdown_escalas($data=array()){
 	global $dic;
 	$requerido = ($data[requerido])?true:false;
@@ -133,7 +153,8 @@ function dropdown_escalas($data=array()){
 				'value' 	=> $value,
 				'text'  	=> $text,
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_escalas]
@@ -154,7 +175,8 @@ function dropdown_notas($data=array()){
 				'value' 	=> $value,
 				'text'  	=> $text,
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_notas]
@@ -173,7 +195,8 @@ function dropdown_compases($data=array()){
 				'value' 	=> 'id_compas',
 				'text'  	=> 'compas',
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_compases]
@@ -192,7 +215,8 @@ function dropdown_ritmos($data=array()){
 				'value' 	=> 'id_ritmo',
 				'text'  	=> 'ritmo',
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_ritmo]
@@ -211,7 +235,8 @@ function dropdown_albums($data=array()){
 				'value' 	=> 'id_album',
 				'text'  	=> 'album',
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_albums]
@@ -230,7 +255,8 @@ function dropdown_artistas($data=array()){
 				'value' 	=> 'id_artista',
 				'text'  	=> 'combo',
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_artistas]
@@ -249,7 +275,8 @@ function dropdown_cantos($data=array()){
 				'value' 	=> 'id_canto',
 				'text'  	=> 'cantos',
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_cantos]
@@ -266,9 +293,10 @@ function dropdown_categorias($data=array()){
 				'data' 		=> $lst_data,
 				'name' 		=> $name,
 				'value' 	=> 'id_categoria',
-				'text'  	=> 'categorias',
+				'text'  	=> 'categoria',
 				'requerido' => $requerido,
-				'class' 	=> '',
+				'class' 	=> $data[clase],
+				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
 				'title' 	=> $dic[tooltips][lst_categorias]

@@ -12,12 +12,14 @@ function select_albums($searchbox=false){
 	$sql = "SELECT alb.id_album, 
 					alb.album, 
 					alb.subtitulo, 
-					alb.id_artista, 
+					alb.id_artista,
+					CONCAT(IFNULL(art.artista,''),' - ',IFNULL(art.iglesia,''),' - ',IFNULL(art.ministerio,''),' - ',IFNULL(art.pais,'')) as artista,
 					alb.anio, 
 					alb.pistas, 
 					alb.discos,
 					alb.portada
 			FROM $db[tbl_albums] alb 
+			LEFT JOIN $db[tbl_artistas] art on alb.id_artista=art.id_artista
 			WHERE 1 AND alb.activo = 1 $filtro
 			GROUP BY alb.album ;";
 	$resultado = SQLQuery($sql,1);
@@ -130,5 +132,42 @@ function select_cantos($searchbox=false){
 	$resultado = ($resultado) ? $resultado : false ;
 	return $resultado;
 }
+
+function insert_cantos($data=array()){
+	global $db, $usuario;
+	$timestamp = timestamp();
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	$sql="INSERT INTO $db[tbl_cantos]	SET  $updateFields ;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_cantos($data=array()){
+	global $db, $usuario;	
+	$timestamp = timestamp();
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_cantos]
+				SET  $updateFields
+				WHERE id_canto='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
 /*O3M*/
 ?>

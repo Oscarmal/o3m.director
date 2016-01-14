@@ -7,7 +7,8 @@ require_once($Path[src].'catalogos/dao.catalogos.php');
 function tooltips_catalogos(){
 	global $dic;
 	$tooltips = array(
-		 tooltip_escala		=> $dic[tooltips][captura_escala]
+		 tooltip_click 		=> $dic[tooltips][captura_click]
+		,tooltip_escala		=> $dic[tooltips][captura_escala]
 		,tooltip_nota_es	=> $dic[tooltips][captura_nota_es]
 		,tooltip_nota_en	=> $dic[tooltips][captura_nota_en]
 		,tooltip_alteracion	=> $dic[tooltips][captura_alteracion]
@@ -38,7 +39,10 @@ function txt_labels_catalogos(){
 		,txt_grado6			=> $dic[captura][cantos_txt_grado6]
 		,txt_grado7			=> $dic[captura][cantos_txt_grado7]
 		,txt_armadura		=> $dic[captura][cantos_txt_armadura]
-
+		,txt_tipo			=> $dic[captura][cantos_txt_tipo]
+		,txt_acorde			=> $dic[captura][cantos_txt_acorde]
+		,txt_notas			=> $dic[captura][cantos_txt_notas]
+		,txt_imagen			=> $dic[captura][cantos_txt_imagen]
 		,txt_guardar 		=> $dic[comun][guardar]
 		,txt_agregar 		=> $dic[comun][agregar]
 		);
@@ -208,6 +212,41 @@ function build_listado_notas(){
 			unset($tblData[$y][nota_en]);
 			$tblData[$y][nota] = '<span class="editar campo-editable" data-type="datos" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][quitar] = ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
+			$y++;
+		}
+	}
+	return build_grid_paginado($tblData,$titulos);
+}
+
+// ACORDES
+function build_formulario_acordes(){
+// Construye formulario
+	$data = array( 
+				 lst_notas	=> dropdown_notas(array(text=>'nota_en', value => 'nota_en', multiple => true, requerido=>true))
+				,GRID 		=> build_listado_acordes() 
+			);
+	$html = array_merge(textos(), $data);
+	return $html;
+}
+function build_listado_acordes(){
+// Grid de acordes
+	global $ins, $dic, $Path;
+	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
+	$sqlData = select_acordes($searchbox);
+	$y=0;
+	if($sqlData){
+		foreach ($sqlData as $row) {
+			$seccion 	= 'acordes';
+			$id 		= $row[id_acorde];
+			$valor 		= $row[acorde];
+			$tblData[$y] = $row;
+			unset($tblData[$y][combo],$tblData[$y][img_guitar],$tblData[$y][img_piano],$tblData[$y][img_bass]);
+			$tblData[$y][acorde] 	= '<span class="editar campo-editable" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][notas]  	= '<span class="editar campo-editable" data-name="notas" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.create_list(explode('|',implode(',|',explode(',',$row[notas])))).'</span>';
+			$tblData[$y][guitarra]  = '<span class="editar campo-editable" data-type="file" data-name="img_guitar" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[chordsurl].$row[img_guitar].'" width="50%"/></span>';
+			$tblData[$y][piano] 	= '<span class="editar campo-editable" data-type="file" data-name="img_piano" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[chordsurl].$row[img_piano].'" width="50%"/></span>';
+			$tblData[$y][bajo] 		= '<span class="editar campo-editable" data-type="file" data-name="img_bass" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[chordsurl].$row[img_bass].'" width="50%"/></span>';
+			$tblData[$y][quitar] 	= ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
 		}
 	}
