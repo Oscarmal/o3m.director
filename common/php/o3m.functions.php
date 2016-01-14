@@ -687,10 +687,14 @@ function include_editable($tipo=1){
     return $includes;
 }
 
-function resize_image($imagen=false, $escala=false, $mime='jpg'){
+function resize_image($imagen=false, $escala=false){
 // Redimenciona el tamaño de una imagen
 	global $cfg;
 	if($imagen){
+		// Extensión de archivo
+		$e = explode('.', $imagen);
+		$mime = $e[count($e)-1];
+		// dump_var($e);
 		// Obtener los nuevos tamaños
 		list($ancho, $alto) = getimagesize($imagen);
 		if($escala){
@@ -703,12 +707,26 @@ function resize_image($imagen=false, $escala=false, $mime='jpg'){
 
 		// Cargar
 		$thumb = imagecreatetruecolor($nuevo_ancho, $nuevo_alto);
+		// Transparencias
+		switch ($mime){
+		    case "png":
+		        $background = imagecolorallocate($thumb, 0, 0, 0);
+		        imagecolortransparent($thumb, $background);
+		        imagealphablending($thumb, false);
+		        imagesavealpha($thumb, true);
+		        break;
+		    case "gif":
+		        $background = imagecolorallocate($thumb, 0, 0, 0);
+		        imagecolortransparent($thumb, $background);
+		        break;
+		}
+		// Crear
 		switch ($mime) {
 			case 'jpg': $origen = imagecreatefromjpeg($imagen); break;
 			case 'png': $origen = imagecreatefrompng($imagen); break;
 			case 'gif': $origen = imagecreatefromgif($imagen); break;		
 			default: $origen = imagecreatefromjpeg($imagen); break;
-		}
+		}	
 
 		// Cambiar el tamaño
 		imagecopyresized($thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
