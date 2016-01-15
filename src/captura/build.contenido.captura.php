@@ -49,6 +49,7 @@ function txt_labels_captura(){
 
 		,txt_guardar 		=> $dic[comun][guardar]
 		,txt_agregar 		=> $dic[comun][agregar]
+		,txt_actualizar		=> $dic[comun][actualizar]
 		);
 	return $labels;
 }
@@ -111,6 +112,7 @@ function build_listado_cantos(){
 			$valor 		= $row[canto];
 			$tblData[$y] = $row;
 			unset($tblData[$y][combo]);
+			$tblData[$y][canto] 		= '<span class="editar campo-editable" data-name="canto" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$row[id_canto],'editar_canto('.$row[id_canto].');').'  '
 										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');			
 			$y++;
@@ -126,11 +128,11 @@ function build_formulario_cantos_edit(){
 		$sqlData = select_canto_unico(array(id=>$ins[id]));
 		// dump_var($sqlData);
 		$data		= array(
-						 val_id 		=> $sqlData[0][id_canto]
-						,val_nombre 	=> $sqlData[0][canto]
-						,val_alias 		=> $sqlData[0][alias]
-						,val_autor 		=> $sqlData[0][autor]
-						,val_tempo 		=> $sqlData[0][tempo]
+						 val_id 		=> utf8_encode($sqlData[0][id_canto])
+						,val_nombre 	=> utf8_encode($sqlData[0][canto])
+						,val_alias 		=> utf8_encode($sqlData[0][alias])
+						,val_autor 		=> utf8_encode($sqlData[0][autor])
+						,val_tempo 		=> utf8_encode($sqlData[0][tempo])
 						,lst_albums 	=> dropdown_albums(array(requerido => true, id_selected=>$sqlData[0][id_album]))
 						,lst_escalas 	=> dropdown_escalas(array(requerido => true, text=>'combo', id_selected=>$sqlData[0][id_escala]))
 						,lst_variacion 	=> dropdown_escalas(array(name=>'lst_variacion',text=>'combo', id_selected=>$sqlData[0][id_variacion]))

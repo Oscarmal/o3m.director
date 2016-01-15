@@ -1,6 +1,5 @@
 <?php session_name('o3m_fw_director'); session_start(); if(isset($_SESSION['header_path'])){include_once($_SESSION['header_path']);}else{header('location: '.dirname(__FILE__));}
 // Define modulo del sistema
-dump_var($in);
 define(MODULO, $in[modulo]);
 // Archivo DAO
 require_once($Path[src].MODULO.'/dao.captura.php');
@@ -48,7 +47,6 @@ function activate_captura_artistas($in){
 
 // ALBUMS
 function insert_captura_albums($in){
-	dump_var($in);
 	global $dic, $Path;	
 	if(!$in[objData]) $in[objData] = $in;
 	$arrData = array(
@@ -138,8 +136,22 @@ function insert_captura_cantos($in){
 }
 function update_captura_cantos($in){
 	global $dic;
-	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
-	if($success = update_cantos(array(id =>$id, $in[name] => strtoupper($in[value])))){
+	$id = $in[objData][id_canto];
+	$arrData = array(
+				 id			=> $in[objData][id_canto]
+				,canto 		=> $in[objData][nombre]
+				,alias 		=> $in[objData][alias]
+				,autor 		=> $in[objData][autor]
+				,id_album	=> $in[objData][lts_albums]
+				,id_escala	=> $in[objData][lts_escalas]
+				,id_variacion => $in[objData][lts_variacion]
+				,id_compas	=> $in[objData][lts_compases]
+				,tempo 		=> $in[objData][tempo]
+				,id_ritmo	=> $in[objData][lts_ritmos]
+				,acordes	=> $in[objData][lts_acordes]
+				,id_categorias => $in[objData][lts_categorias]
+			);
+	if($success = update_cantos($arrData)){
 		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
 		$data = array(success => false, id => $id, message => 'ERROR al actualizar datos.');
