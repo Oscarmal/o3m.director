@@ -14,6 +14,7 @@ $vistas = array(
 			,ALBUMS 		=> 'albums.html'
 			,ARTISTAS 		=> 'artistas.html'
 			,CANTOS 		=> 'cantos.html'
+			,CANTOS_EDIT	=> 'cantos_edit.html'
 			,ERROR 			=> 'error.html'
 			);
 
@@ -42,6 +43,8 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_artistas($cmd,$urlParams);
 	}elseif($cmd == 'CANTOS'){
 		$vars = vars_cantos($cmd,$urlParams);
+	}elseif($cmd == 'CANTOS_EDIT'){
+		$vars = vars_cantos_edit($cmd,$urlParams);
 	}else{
 		$vars = vars_error($cmd);
 	}
@@ -127,6 +130,27 @@ function vars_cantos($seccion, $urlParams){
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido								
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
+function vars_cantos_edit($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][cantos_edit_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_cantos_edit();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cantos_edit.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

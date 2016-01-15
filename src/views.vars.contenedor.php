@@ -49,6 +49,7 @@ require_once('views.vars.error.php');
 						,ALBUMS 		=> 'albums.html'
 						,ARTISTAS 		=> 'artistas.html'
 						,CANTOS 		=> 'cantos.html'
+						,CANTOS_EDIT	=> 'cantos_edit.html'
 					)
 				,IGLESIA =>
 					array(

@@ -93,9 +93,11 @@
 	captura|albums_titulo  		= Captura de Albums
 	captura|artistas_titulo 	= Captura de Artistas
 	captura|cantos_titulo 		= Captura de Cantos
+	captura|cantos_edit_titulo	= Edición de Canto
 
 	#Cantos
 	captura|cantos_txt_form 		= Agregar nuevo
+	captura|cantos_txt_form_edit 	= Editar datos
 	captura|cantos_txt_titulo 		= Titulo
 	captura|cantos_txt_nombre 		= Nombre
 	captura|cantos_txt_alias 		= Alias

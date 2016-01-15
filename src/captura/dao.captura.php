@@ -118,16 +118,32 @@ function update_artistas($data=array()){
 }
 
 // CANTOS
-function select_cantos($searchbox=false){
+function select_cantos($data=array()){
 	global $db, $usuario;	
+	$searchbox 	= ($data[searchbox])?$data[searchbox]:false;
+	$id 		= ($data[id])?$data[id]:false;
 	$filtro .= ($searchbox)?"AND (cant.canto LIKE '%$searchbox%'
 								OR cant.alias LIKE '%$searchbox%'
 								OR cant.autor LIKE '%$searchbox%'
 							)":'';
+	$filtro .= ($id)?" AND cant.id_canto='$id'":'';
 	$sql = "SELECT cant.id_canto, cant.canto, cant.alias, cant.autor
 			FROM $db[tbl_cantos] cant 
 			WHERE 1 AND cant.activo = 1 $filtro
 			GROUP BY cant.canto, cant.autor ;";
+	$resultado = SQLQuery($sql,1);
+	$resultado = ($resultado) ? $resultado : false ;
+	return $resultado;
+}
+
+function select_canto_unico($data=array()){
+	global $db, $usuario;	
+	$id 	 = ($data[id])?$data[id]:false;
+	$filtro .= ($id)?" AND cant.id_canto='$id'":'';
+	$sql = "SELECT cant.*
+			FROM $db[tbl_cantos] cant 
+			WHERE 1 AND cant.activo = 1 $filtro 
+			GROUP BY cant.id_canto;";
 	$resultado = SQLQuery($sql,1);
 	$resultado = ($resultado) ? $resultado : false ;
 	return $resultado;

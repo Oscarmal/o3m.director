@@ -24,6 +24,7 @@ function txt_labels_captura(){
 	global $dic;
 	$labels = array(
 		 txt_form 			=> $dic[captura][cantos_txt_form]
+		,txt_form_edit		=> $dic[captura][cantos_txt_form_edit]
 		,txt_nombre 		=> $dic[captura][cantos_txt_nombre]
 		,txt_alias 			=> $dic[captura][cantos_txt_alias]
 		,txt_canto 			=> $dic[captura][cantos_txt_canto]
@@ -101,7 +102,7 @@ function build_listado_cantos(){
 // Grid de cantos
 	global $ins, $dic;
 	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
-	$sqlData = select_cantos($searchbox);
+	$sqlData = select_cantos(array(searchbox=>$searchbox));
 	$y=0;
 	if($sqlData){
 		foreach ($sqlData as $row) {
@@ -110,12 +111,40 @@ function build_listado_cantos(){
 			$valor 		= $row[canto];
 			$tblData[$y] = $row;
 			unset($tblData[$y][combo]);
-			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$row[id_canto],'editar('.$row[id_canto].');').'  '
+			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$row[id_canto],'editar_canto('.$row[id_canto].');').'  '
 										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');			
 			$y++;
 		}
 	}
 	return build_grid_paginado($tblData,$titulos);
+}
+
+function build_formulario_cantos_edit(){
+// Construye formulario de edición
+	global $Path, $ins, $dic;
+	if($ins[id]){
+		$sqlData = select_canto_unico(array(id=>$ins[id]));
+		// dump_var($sqlData);
+		$data		= array(
+						 val_id 		=> $sqlData[0][id_canto]
+						,val_nombre 	=> $sqlData[0][canto]
+						,val_alias 		=> $sqlData[0][alias]
+						,val_autor 		=> $sqlData[0][autor]
+						,val_tempo 		=> $sqlData[0][tempo]
+						,lst_albums 	=> dropdown_albums(array(requerido => true, id_selected=>$sqlData[0][id_album]))
+						,lst_escalas 	=> dropdown_escalas(array(requerido => true, text=>'combo', id_selected=>$sqlData[0][id_escala]))
+						,lst_variacion 	=> dropdown_escalas(array(name=>'lst_variacion',text=>'combo', id_selected=>$sqlData[0][id_variacion]))
+						,lst_compases 	=> dropdown_compases(array(text=>'combo', id_selected=>$sqlData[0][id_compas]))
+						,lst_ritmos 	=> dropdown_ritmos(array(text=>'combo', id_selected=>$sqlData[0][id_ritmo]))
+						,lst_acordes	=> dropdown_acordes(array(multiple => true, id_selected=>$sqlData[0][acordes]))
+						,lst_categorias	=> dropdown_categorias(array(requerido => true, multiple => true, id_selected=>'8,9'))
+						,GRID 			=> build_listado_cantos()
+					);
+		$html = array_merge(textos_captura(), $data);
+		return $html;
+	}else{
+		return header('location: '.$Path[url].'captura/cantos/');
+	}
 }
 
 // ARTISTAS

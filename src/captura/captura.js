@@ -3,6 +3,10 @@ $(document).ready(function(){
 	editar($("#sec").val().toLowerCase());
 });
 
+function editar_canto(id){
+	$(location).attr('href', raizPath()+'captura/cantos_edit/?id='+id)
+}
+
 function insert(idFormulario, accion){	
 	if(idFormulario){
 		if($('#'+idFormulario).parsley('validate')){
