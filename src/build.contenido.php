@@ -24,7 +24,7 @@ function drop_down_select($params = array()){
 	$data   	= ($params['data'])?$params['data']:'';
 	$name   	= ($params['name'])?$params['name']:'';
 	$event   	= ($params['event'])?$params['event']:'';
-	$selected   = ($params['selected'])?$params['selected']:'';
+	$selected   = ($params['selected'])?explode(',',$params['selected']):'';
 	$value      = ($params['value'])?$params['value']:false;
 	$text   	= ($params['text'])?$params['text']:'';
 	$class      = ($params['class'])?$params['class']:'';
@@ -38,12 +38,16 @@ function drop_down_select($params = array()){
     if(is_array($data)){
     	foreach ($data as $key => $values) {
     		$option_selected='';
-    		if($selected){
-    			if($values[$value]==$selected){
-    				$option_selected='selected';	
-    			}	
-    		}
-    		$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
+    		if($selected){	 
+    			foreach($selected as $option){   		
+					if($values[$value]==$option){
+						$option_selected='selected';	
+					}	
+					$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
+				}		    		
+	    	}else{
+	    		$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
+	    	}  		
 	    }
 	    $opc='<select name="'.$name.'" id="'.$name.'" '.$multiple.' class="chosen-select '.$class.'" onchange="'.$event.'" data-campo="'.$name.'" '.$requerido.' title="'.$title.'" '.$width.'>
 	            <option value="">'.$leyenda.'</option>
