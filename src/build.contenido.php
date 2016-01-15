@@ -39,10 +39,10 @@ function drop_down_select($params = array()){
     	foreach ($data as $key => $values) {
     		$option_selected='';
     		if($selected){	 
-    			foreach($selected as $option){   		
+    			foreach(array_unique($selected) as $option){   		
 					if($values[$value]==$option){
 						$option_selected='selected';	
-					}	
+					}else{$option_selected='';}
 					$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
 				}		    		
 	    	}else{
