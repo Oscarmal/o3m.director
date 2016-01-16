@@ -95,6 +95,8 @@
 	captura|artistas_titulo 	= Captura de Artistas
 	captura|cantos_titulo 		= Captura de Cantos
 	captura|cantos_edit_titulo	= Edición de Canto
+	captura|cifrados_titulo		= Captura de Cifrados
+	captura|cifrados_edit_titulo= Edición de Cifrado
 
 	#Cantos
 	captura|cantos_txt_form 		= Agregar nuevo

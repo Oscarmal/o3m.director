@@ -15,6 +15,8 @@ $vistas = array(
 			,ARTISTAS 		=> 'artistas.html'
 			,CANTOS 		=> 'cantos.html'
 			,CANTOS_EDIT	=> 'cantos_edit.html'
+			,CIFRADOS 		=> 'cifrados.html'
+			,CIFRADOS_EDIT	=> 'cifrados_edit.html'
 			,ERROR 			=> 'error.html'
 			);
 
@@ -45,6 +47,10 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_cantos($cmd,$urlParams);
 	}elseif($cmd == 'CANTOS_EDIT'){
 		$vars = vars_cantos_edit($cmd,$urlParams);
+	}elseif($cmd == 'CIFRADOS'){
+		$vars = vars_cifrados($cmd,$urlParams);
+	}elseif($cmd == 'CIFRADOS_EDIT'){
+		$vars = vars_cifrados_edit($cmd,$urlParams);
 	}else{
 		$vars = vars_error($cmd);
 	}
@@ -151,6 +157,48 @@ function vars_cantos_edit($seccion, $urlParams){
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cantos_edit.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido								
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
+function vars_cifrados($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][cifrados_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_cantos();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido								
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
+function vars_cifrados_edit($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][cifrados_edit_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_cantos_edit();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados_edit.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

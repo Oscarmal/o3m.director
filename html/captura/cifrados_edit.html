@@ -1,0 +1,64 @@
+		<div id="div-contenedor"> 
+		<form id="frm-captura-cifrados-edit" class="form-horizontal" method="post" data-validate="parsley">	
+		<!-- Inicio de contenedor -->		
+	        <section class="panel panel-default">
+		        <div class="panel-heading font-bold"> 
+		            <i class="fa fa-edit"></i> {txt_form_edit} </div>
+		        <div class="panel-body">
+		        	<div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_canto}:</label>
+	                        <div class="col-sm-5">
+	                        <input id="id_cifrado" name="id_cifrado" type="hidden" class="form-control" data-campo="id_cifrado" value="{val_id}"> 
+
+	                            {lst_cantos} 
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_escala}:</label>
+	                        <div class="col-sm-5">
+	                            {lst_escalas} 
+	                        </div>
+	                    </div>	
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_variacion}:</label>
+	                        <div class="col-sm-5">
+	                            {lst_variacion} 
+	                        </div>
+	                    </div> 
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_compas}:</label>
+	                        <div class="col-sm-5">
+	                            {lst_compases} 
+	                        </div>
+	                    </div> 
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_ritmo}:</label>
+	                        <div class="col-sm-5">
+	                            {lst_ritmos} 
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_tempo}:</label>
+	                        <div class="col-sm-5">
+	                        	<input class="slider slider-horizontal form-control" type="text" data-slider-min="1" data-slider-max="300" data-slider-step="1" value="" data-slider-value="{val_tempo}" value="{val_tempo}" data-slider-orientation="horizontal" data-campo="tempo" title="{tooltip_tempo}" style="width:300px;">
+	                        </div>
+	                    </div>  	                       
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_acordes}:</label>
+	                        <div class="col-sm-5">
+	                            {lst_acordes} 
+	                        </div>
+	                    </div>             
+
+	                    <!-- Botón -->
+	                    <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button id="btnSubmit" type="button" class="btn btn-primary" onclick="editar('frm-captura-cifrados-edit','cifrados_edit');">{txt_actualizar}</button>
+                            </div>
+                        </div> 
+                        <div class="col-sm-9 col-sm-offset-2" id="mensajes"></div>
+		        </div>
+	        </section>
+		<!-- Fin de contenedor -->
+		</form>
+		</div>
