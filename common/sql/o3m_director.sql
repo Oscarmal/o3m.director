@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-01-14 16:56:41
+Date: 2016-01-18 17:45:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `cat_acordes` (
   PRIMARY KEY (`id_acorde`),
   KEY `i_activo` (`activo`),
   KEY `i_id_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of cat_acordes
@@ -47,8 +47,8 @@ INSERT INTO `cat_acordes` VALUES ('6', 'MAYORES', 'F', 'F,A,C', null, null, null
 INSERT INTO `cat_acordes` VALUES ('7', 'MAYORES', 'F#', 'F#,A#,C#', null, null, null, null, null, '1');
 INSERT INTO `cat_acordes` VALUES ('8', 'MAYORES', 'G', 'G,B,D', null, null, null, null, null, '1');
 INSERT INTO `cat_acordes` VALUES ('9', 'MAYORES', 'G#', 'G#,C,D#', null, null, null, null, null, '1');
-INSERT INTO `cat_acordes` VALUES ('10', 'MAYORES', 'A', 'A,C#,E', null, null, null, null, null, '1');
-INSERT INTO `cat_acordes` VALUES ('11', 'MAYORES', 'A#', 'A#,D,F', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('10', 'MAYORES', 'A', 'A,C#,E', 'acorde_10_guitar.png', 'acorde_10_piano.jpg', null, '2016-01-18 12:04:01', '2', '1');
+INSERT INTO `cat_acordes` VALUES ('11', 'MAYORES', 'A#', 'A#,D,F', 'acorde_11_guitar.png', 'acorde_11_piano.jpg', null, '2016-01-18 12:10:25', '2', '1');
 INSERT INTO `cat_acordes` VALUES ('12', 'MENORES', 'Cm', 'C,Eb,G', null, null, null, null, null, '1');
 INSERT INTO `cat_acordes` VALUES ('13', 'MENORES', 'Dbm', 'Db,E,Ab', null, null, null, null, null, '1');
 INSERT INTO `cat_acordes` VALUES ('14', 'MENORES', 'Dm', 'D,F,A', null, null, null, null, null, '1');
@@ -58,13 +58,11 @@ INSERT INTO `cat_acordes` VALUES ('17', 'MENORES', 'Fm', 'F,Ab,C', null, null, n
 INSERT INTO `cat_acordes` VALUES ('18', 'MENORES', 'F#m', 'F#,A,C#', null, null, null, null, null, '1');
 INSERT INTO `cat_acordes` VALUES ('19', 'MENORES', 'Gm', 'G,Bb,D', null, null, null, null, null, '1');
 INSERT INTO `cat_acordes` VALUES ('20', 'MENORES', 'G#m', 'G#,B,D#', null, null, null, null, null, '1');
-INSERT INTO `cat_acordes` VALUES ('21', 'MENORES', 'Am', 'A,C,E', null, null, null, null, null, '1');
-INSERT INTO `cat_acordes` VALUES ('22', 'MENORES', 'A#m', 'A#,Db,F', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('21', 'MENORES', 'Am', 'A,C,E', 'acorde_21_guitar.png', 'acorde_21_piano.jpg', null, '2016-01-18 12:15:44', '2', '1');
+INSERT INTO `cat_acordes` VALUES ('22', 'MENORES', 'A#m', 'A#,Db,F', 'acorde_22_guitar.png', 'acorde_22_piano.jpg', null, '2016-01-18 12:14:14', '2', '1');
 INSERT INTO `cat_acordes` VALUES ('23', 'MAYORES', 'Bb', 'Bb,D,F', null, null, null, null, null, '1');
-INSERT INTO `cat_acordes` VALUES ('24', 'MAYORES', 'B', 'B,D#,F#', null, null, null, null, null, '1');
+INSERT INTO `cat_acordes` VALUES ('24', 'MAYORES', 'B', 'B,D#,F#', 'acorde_24_guitar.png', 'acorde_24_piano.jpg', null, '2016-01-18 12:21:05', '2', '1');
 INSERT INTO `cat_acordes` VALUES ('25', 'MENORES', 'Bm', 'Bm,D,F#', null, null, null, null, null, '1');
-INSERT INTO `cat_acordes` VALUES ('30', null, ' d', 'C#, A', 'acorde_30_guitar.png', 'acorde_30_piano.jpg', 'acorde_30_bass.jpg', '2016-01-14 16:39:34', '2', '1');
-INSERT INTO `cat_acordes` VALUES ('34', 'UYJRTGEDWS', ' aSDFGH', 'A,A#aug,A#Maj7', 'acorde_34_guitar.jpg', 'acorde_34_piano.jpg', 'acorde_34_bass.png', '2016-01-14 16:54:29', '2', '1');
 
 -- ----------------------------
 -- Table structure for cat_categorias
@@ -464,7 +462,7 @@ CREATE TABLE `sis_logs` (
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_log`),
   KEY `id_usuario` (`id_usuario`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=526 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=571 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of sis_logs
@@ -994,6 +992,51 @@ INSERT INTO `sis_logs` VALUES ('522', 'cat_acordes\r\n				set', '0', 'UPDATE', '
 INSERT INTO `sis_logs` VALUES ('523', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:50:55\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:50:55', '2');
 INSERT INTO `sis_logs` VALUES ('524', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:51:05\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:51:05', '2');
 INSERT INTO `sis_logs` VALUES ('525', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_bass=\'acorde_34_bass.png\',id_usuario = \'2\',timestamp 	= \'2016-01-14 16:54:29\'\r\n				WHERE id_acorde=\'34\'\r\n				LIMIT 1;', '', null, '2016-01-14 16:54:29', '2');
+INSERT INTO `sis_logs` VALUES ('526', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'fsdf\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:33:26\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:33:26', '2');
+INSERT INTO `sis_logs` VALUES ('527', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'fsdf\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:34:51\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:34:51', '2');
+INSERT INTO `sis_logs` VALUES ('528', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'fsdf\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:36:33\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:36:33', '2');
+INSERT INTO `sis_logs` VALUES ('529', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:38:19\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:38:19', '2');
+INSERT INTO `sis_logs` VALUES ('530', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,11,11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:38:51\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:38:51', '2');
+INSERT INTO `sis_logs` VALUES ('531', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,11,11,11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:39:30\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:39:30', '2');
+INSERT INTO `sis_logs` VALUES ('532', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  activo=\'0\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:41:31\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:41:31', '2');
+INSERT INTO `sis_logs` VALUES ('533', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,11,11,11,11,11,11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:42:54\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:42:54', '2');
+INSERT INTO `sis_logs` VALUES ('534', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'114\',id_ritmo=\'3\',acordes=\'11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:43:21\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:43:21', '2');
+INSERT INTO `sis_logs` VALUES ('535', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,16\',id_categorias=\'8,8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:43:49\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:43:49', '2');
+INSERT INTO `sis_logs` VALUES ('536', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'123123\',alias=\'nuevo de prueba\',autor=\'tert\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,16\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-14 18:46:02\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-14 18:46:02', '2');
+INSERT INTO `sis_logs` VALUES ('537', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'12312355\',id_usuario = \'2\',timestamp 	= \'2016-01-18 10:30:06\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 10:30:06', '2');
+INSERT INTO `sis_logs` VALUES ('538', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  alias=\'nuevo de prueba|\',id_usuario = \'2\',timestamp 	= \'2016-01-18 10:30:08\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 10:30:08', '2');
+INSERT INTO `sis_logs` VALUES ('539', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  alias=\'nuevo de prueba1\',id_usuario = \'2\',timestamp 	= \'2016-01-18 10:30:11\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 10:30:11', '2');
+INSERT INTO `sis_logs` VALUES ('540', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  autor=\'tert1\',id_usuario = \'2\',timestamp 	= \'2016-01-18 10:30:15\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 10:30:15', '2');
+INSERT INTO `sis_logs` VALUES ('541', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'12312355\',alias=\'nuevo de prueba123\',autor=\'tert1\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'\',id_ritmo=\'3\',acordes=\'11,16\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-18 10:30:27\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 10:30:27', '2');
+INSERT INTO `sis_logs` VALUES ('542', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'12312355\',alias=\'nuevo de prueba123\',autor=\'tert1\',id_album=\'3\',id_escala=\'26\',id_variacion=\'\',id_compas=\'1\',tempo=\'112\',id_ritmo=\'3\',acordes=\'11,16\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-18 10:30:41\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 10:30:41', '2');
+INSERT INTO `sis_logs` VALUES ('543', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_10_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-18 11:35:42\'\r\n				WHERE id_acorde=\'10\'\r\n				LIMIT 1;', '', null, '2016-01-18 11:35:42', '2');
+INSERT INTO `sis_logs` VALUES ('544', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_10_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-18 11:43:42\'\r\n				WHERE id_acorde=\'10\'\r\n				LIMIT 1;', '', null, '2016-01-18 11:43:42', '2');
+INSERT INTO `sis_logs` VALUES ('545', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_10_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 11:44:18\'\r\n				WHERE id_acorde=\'10\'\r\n				LIMIT 1;', '', null, '2016-01-18 11:44:18', '2');
+INSERT INTO `sis_logs` VALUES ('546', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_10_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:04:01\'\r\n				WHERE id_acorde=\'10\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:04:01', '2');
+INSERT INTO `sis_logs` VALUES ('547', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_11_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:06:19\'\r\n				WHERE id_acorde=\'11\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:06:19', '2');
+INSERT INTO `sis_logs` VALUES ('548', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_11_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:06:49\'\r\n				WHERE id_acorde=\'11\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:06:49', '2');
+INSERT INTO `sis_logs` VALUES ('549', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_11_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:10:25\'\r\n				WHERE id_acorde=\'11\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:10:25', '2');
+INSERT INTO `sis_logs` VALUES ('550', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_22_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:12:07\'\r\n				WHERE id_acorde=\'22\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:12:07', '2');
+INSERT INTO `sis_logs` VALUES ('551', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_22_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:14:14\'\r\n				WHERE id_acorde=\'22\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:14:14', '2');
+INSERT INTO `sis_logs` VALUES ('552', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_21_guitar.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:15:20\'\r\n				WHERE id_acorde=\'21\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:15:20', '2');
+INSERT INTO `sis_logs` VALUES ('553', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_21_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:15:28\'\r\n				WHERE id_acorde=\'21\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:15:28', '2');
+INSERT INTO `sis_logs` VALUES ('554', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_21_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:15:44\'\r\n				WHERE id_acorde=\'21\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:15:44', '2');
+INSERT INTO `sis_logs` VALUES ('555', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_guitar=\'acorde_24_guitar.png\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:20:48\'\r\n				WHERE id_acorde=\'24\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:20:48', '2');
+INSERT INTO `sis_logs` VALUES ('556', 'cat_acordes\r\n				set', '0', 'UPDATE', 'UPDATE cat_acordes\r\n				SET  img_piano=\'acorde_24_piano.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 12:21:05\'\r\n				WHERE id_acorde=\'24\'\r\n				LIMIT 1;', '', null, '2016-01-18 12:21:05', '2');
+INSERT INTO `sis_logs` VALUES ('557', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  interprete=\'inter\',id_usuario = \'2\',timestamp 	= \'2016-01-18 13:09:01\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 13:09:01', '2');
+INSERT INTO `sis_logs` VALUES ('558', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  anio=\'2016\',id_usuario = \'2\',timestamp 	= \'2016-01-18 13:09:18\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 13:09:19', '2');
+INSERT INTO `sis_logs` VALUES ('559', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  interprete=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-18 13:09:43\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 13:09:44', '2');
+INSERT INTO `sis_logs` VALUES ('560', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'12312355\',alias=\'nuevo de prueba123\',autor=\'tert1\',interprete=\'fsdfsdg\',anio=\'2016\',id_album=\'3\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-18 13:12:29\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 13:12:30', '2');
+INSERT INTO `sis_logs` VALUES ('561', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'No sueltes de mi mano\',alias=\'Oh Cristo!\',autor=\'Oscar Maldonado\',interprete=\'Mahanaim Tlalpan\',anio=\'2015\',id_album=\'3\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-18 13:58:17\'\r\n				WHERE id_canto=\'137\'\r\n				LIMIT 1;', '', null, '2016-01-18 13:58:17', '2');
+INSERT INTO `sis_logs` VALUES ('562', 'tbl_cifrados	set', '2', 'INSERT', 'INSERT INTO tbl_cifrados	SET  id_canto=\'\',id_escala=\'5\',id_variacion=\'\',id_compas=\'3\',tempo=\'165\',id_ritmo=\'3\',acordes=\'21,16,6,8\',cifrado=\'[Am]///A su Majestad, [(Am-G)]\n[F]Bienvenido Rey, [(F/F#)]\n[G]A su Majestad, daré la [E]honra y el ho[Am]nor///\',piano=\'Piano\',trompeta=\'trompeta\',sax=\'saxofón\',comentarios=\'Comentarios\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:37:57\' ;', '', null, '2016-01-18 14:37:57', '2');
+INSERT INTO `sis_logs` VALUES ('563', 'tbl_cifrados	set', '3', 'INSERT', 'INSERT INTO tbl_cifrados	SET  id_canto=\'\',id_escala=\'5\',id_variacion=\'\',id_compas=\'3\',tempo=\'144\',id_ritmo=\'3\',acordes=\'21,16,6,8\',cifrado=\'[Am]///A su Majestad, [(Am-G)]\n[F]Bienvenido Rey, [(F/F#)]\n[G]A su Majestad, daré la [E]honra y el ho[Am]nor///\',piano=\'Piano\',trompeta=\'Trompeta\',sax=\'Saxofón\',comentarios=\'Comentarios\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:42:34\' ;', '', null, '2016-01-18 14:42:34', '2');
+INSERT INTO `sis_logs` VALUES ('564', 'tbl_cifrados	set', '4', 'INSERT', 'INSERT INTO tbl_cifrados	SET  id_canto=\'123\',id_escala=\'5\',id_variacion=\'\',id_compas=\'3\',tempo=\'122\',id_ritmo=\'3\',acordes=\'21,16,6,8\',cifrado=\'[Am]///A su Majestad, [(Am-G)]\n[F]Bienvenido Rey, [(F/F#)]\n[G]A su Majestad, daré la [E]honra y el ho[Am]nor///\',piano=\'Piano\',trompeta=\'Trompeta\',sax=\'Saxofón\',comentarios=\'Comentarios\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:46:04\' ;', '', null, '2016-01-18 14:46:04', '2');
+INSERT INTO `sis_logs` VALUES ('565', 'tbl_albums	set', '4', 'INSERT', 'INSERT INTO tbl_albums	SET  album=\'A SU MAJESTAD\',subtitulo=\'A\',id_artista=\'\',anio=\'2010\',pistas=\'10\',discos=\'1\',portada=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:48:10\' ;', '', null, '2016-01-18 14:48:10', '2');
+INSERT INTO `sis_logs` VALUES ('566', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_1.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:48:11\'\r\n				WHERE id_album=\'1\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:48:11', '2');
+INSERT INTO `sis_logs` VALUES ('567', 'tbl_albums	set', '5', 'INSERT', 'INSERT INTO tbl_albums	SET  album=\'A SU MAJESTAD\',subtitulo=\'\',id_artista=\'\',anio=\'2010\',pistas=\'10\',discos=\'1\',portada=\'\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:51:08\' ;', '', null, '2016-01-18 14:51:08', '2');
+INSERT INTO `sis_logs` VALUES ('568', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_5.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:51:08\'\r\n				WHERE id_album=\'5\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:51:08', '2');
+INSERT INTO `sis_logs` VALUES ('569', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'A Su Majestad\',alias=\'A Su Majestad\',autor=\'\',interprete=\'\',anio=\'2010\',id_album=\'5\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:55:40\'\r\n				WHERE id_canto=\'123\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:55:40', '2');
+INSERT INTO `sis_logs` VALUES ('570', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'A Su Majestad\',alias=\'A Su Majestad\',autor=\'\',interprete=\'\',anio=\'2010\',id_album=\'5\',id_categorias=\'8\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:56:06\'\r\n				WHERE id_canto=\'123\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:56:06', '2');
 
 -- ----------------------------
 -- Table structure for sis_menu
@@ -1119,7 +1162,7 @@ CREATE TABLE `sis_online` (
 -- ----------------------------
 -- Records of sis_online
 -- ----------------------------
-INSERT INTO `sis_online` VALUES ('1', '2', '1452812069');
+INSERT INTO `sis_online` VALUES ('1', '2', '1453160662');
 INSERT INTO `sis_online` VALUES ('2', '0', '1448641146');
 INSERT INTO `sis_online` VALUES ('3', '8', '1444853002');
 INSERT INTO `sis_online` VALUES ('4', '3', '1450882810');
@@ -1289,13 +1332,14 @@ CREATE TABLE `tbl_albums` (
   KEY `i_anio` (`anio`),
   KEY `i_id_usuario` (`id_usuario`),
   KEY `i_activo` (`activo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of tbl_albums
 -- ----------------------------
-INSERT INTO `tbl_albums` VALUES ('1', 'DOMÍNIO PÚBLICO', '', '1', null, null, null, 'cover_1.jpg', '2', '2016-01-13 17:36:41', '1');
+INSERT INTO `tbl_albums` VALUES ('1', 'DOMÍNIO PÚBLICO', '', '1', null, null, null, 'cover_1.jpg', '2', '2016-01-18 14:48:11', '1');
 INSERT INTO `tbl_albums` VALUES ('3', 'NUEVO', 'SUBTITULO', '2', '2015', '12', '1', 'cover_3.jpg', '2', '2016-01-12 18:12:07', '1');
+INSERT INTO `tbl_albums` VALUES ('5', 'A SU MAJESTAD', '', '0', '2010', '10', '1', 'cover_5.jpg', '2', '2016-01-18 14:51:08', '1');
 
 -- ----------------------------
 -- Table structure for tbl_artistas
@@ -1330,14 +1374,11 @@ CREATE TABLE `tbl_cantos` (
   `id_canto` int(11) NOT NULL AUTO_INCREMENT,
   `canto` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
   `alias` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `autor` varchar(80) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `autor` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `interprete` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `anio` mediumint(4) DEFAULT NULL,
   `id_album` int(11) DEFAULT NULL,
-  `id_escala` smallint(3) DEFAULT NULL,
-  `id_variacion` smallint(3) DEFAULT NULL,
-  `id_compas` tinyint(2) DEFAULT NULL,
-  `tempo` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `id_ritmo` tinyint(2) DEFAULT NULL,
-  `acordes` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `num_pista` smallint(3) DEFAULT NULL,
   `id_categorias` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `timestamp` datetime DEFAULT NULL,
@@ -1345,152 +1386,185 @@ CREATE TABLE `tbl_cantos` (
   PRIMARY KEY (`id_canto`),
   KEY `i_id_usuario` (`id_usuario`),
   KEY `i_activo` (`activo`),
-  KEY `i_album` (`id_album`),
-  KEY `i_escala` (`id_escala`),
-  KEY `i_variacion` (`id_variacion`),
-  KEY `i_compas` (`id_compas`),
-  KEY `i_tempo` (`tempo`),
-  KEY `i_ritmo` (`id_ritmo`)
+  KEY `i_album` (`id_album`)
 ) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of tbl_cantos
 -- ----------------------------
-INSERT INTO `tbl_cantos` VALUES ('1', 'Quiero Ungir Tu Cabeza', 'Quiero Ungir Tu Cabeza', 'Elim', '1', '4', null, '3', null, '1', null, '1', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('2', 'La Niña De Tus Ojos', 'La Niña De Tus Ojos', null, '1', '4', null, '3', null, '1', null, '2,3', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('3', 'Exquisita Presencia', 'Exquisita Presencia', 'Elim', null, '0', null, null, null, '1', null, 'presencia,clamor', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('4', 'Gracias Cristo (Levantemos…)', 'Gracias Cristo (Levantemos…)', null, null, '0', null, null, null, '1', null, 'gratitud,adoracion', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('5', 'Mi Alma Tiene Sed', 'Mi Alma Tiene Sed', 'Santiago Atitlan', null, '0', null, null, null, '1', null, 'llenura,clamor,necesidad', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('6', 'Condúceme A Las Aguas', 'Condúceme A Las Aguas', 'Santiago Atitlan', null, '0', null, null, null, '1', null, 'clamor,llenura', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('7', 'Digno Eres De Gloria', 'Digno Eres De Gloria', null, null, '0', null, null, null, '1', null, 'adoracion,exaltacion', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('8', 'Cuando Pienso En Ti', 'Cuando Pienso En Ti', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('9', 'Así Es Mi Padre', 'Así Es Mi Padre', null, null, '0', null, null, null, '1', null, 'exaltacion,adoracion', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('10', 'Oh Que Grata Tu Amistad', 'Oh Que Grata Tu Amistad', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('11', 'No Hay Nadie Que Me Ame Cómo Él', 'No Hay Nadie Que Me Ame Cómo Él', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('12', 'Vine A Adorar A Dios', 'Vine A Adorar A Dios', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('13', 'Escuchar Tu Voz', 'Escuchar Tu Voz', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('14', 'Grandes Cosas Ha Hecho Jehová Con Nosotros', 'Grandes Cosas Ha Hecho Jehová Con Nosotros', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('15', 'Dame De Beber', 'Dame De Beber', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('16', 'Quiero Derramar Mi Corazón', 'Quiero Derramar Mi Corazón', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('17', 'En Tu Presencia, Sólo En Tu Presencia', 'En Tu Presencia, Sólo En Tu Presencia', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('18', 'Oh Jehová, Fortaleza Mía', 'Oh Jehová, Fortaleza Mía', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('19', 'Dios Está Aquí', 'Dios Está Aquí', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('20', 'El Espíritu De Dios Está En Este Lugar', 'El Espíritu De Dios Está En Este Lugar', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('21', 'Jesús, Jesús', 'Jesús, Jesús', 'Santiago Atitlan', null, '0', null, null, null, '1', null, 'adoracion,jesus', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('22', 'Tu Fidelidad', 'Tu Fidelidad', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('23', 'Al Que Está Sentado En El Trono', 'Al Que Está Sentado En El Trono', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('24', 'Canción Del Espíritu', 'Canción Del Espíritu', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('25', 'Hoy He Venido Con Dulces Palabras', 'Hoy He Venido Con Dulces Palabras', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('26', 'Señor Estoy Aquí', 'Señor Estoy Aquí', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('27', 'Hoy He Venido - Te Adoraré', 'Hoy He Venido - Te Adoraré', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('28', 'Santo Es El Señor (Empieza En G)', 'Santo Es El Señor (Empieza En G)', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('29', 'Hay Una Fuente En Mi', 'Hay Una Fuente En Mi', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('30', 'Yo Quiero Estar Donde Tú Estas', 'Yo Quiero Estar Donde Tú Estas', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('31', 'Menesteroso - Padre Celestial', 'Menesteroso - Padre Celestial', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('32', 'Él Me Escogió - Nada Merecía', 'Él Me Escogió - Nada Merecía', 'Mahanim', null, '0', null, null, null, '1', null, 'gratitud', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('33', 'Cúbreme Señor', 'Cúbreme Señor', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('34', 'A Ti Levantaré Mi Cántico', 'A Ti Levantaré Mi Cántico', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('35', 'Hay Momentos', 'Hay Momentos', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('36', 'Es A Tus Pies', 'Es A Tus Pies', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('37', 'Quiero Decirte Que Te Amo', 'Quiero Decirte Que Te Amo', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('38', 'Cuando No Era Nada', 'Cuando No Era Nada', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('39', 'Este Es Mi Respirar', 'Este Es Mi Respirar', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('40', 'Que Nunca Falte Tu Gloria', 'Que Nunca Falte Tu Gloria', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('41', 'El Señor Es Mi Rey', 'El Señor Es Mi Rey', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('42', 'Torre Fuerte', 'Torre Fuerte', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('43', 'Gracias - Por Tu Sangre Tengo Entrada', 'Gracias - Por Tu Sangre Tengo Entrada', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('44', 'Bienvenido Padre', 'Bienvenido Padre', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('45', 'Jesús Mi Amado', 'Jesús Mi Amado', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('46', 'Mi Vida Ofreceré', 'Mi Vida Ofreceré', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('47', 'Aleluya', 'Aleluya', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('48', 'Al Rey Jesús', 'Al Rey Jesús', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('49', 'Ven Amado Mío', 'Ven Amado Mío', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('50', 'Cuando Estoy En Tu Presencia', 'Cuando Estoy En Tu Presencia', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('51', 'Déjame Tocar Tu Manto', 'Déjame Tocar Tu Manto', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('52', 'Inconmovible', 'Inconmovible', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('53', 'Canto De Amor (Sube: A)', 'Canto De Amor (Sube: A)', null, null, '0', '0', null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('54', 'Me Rindo, Todo A Ti', 'Me Rindo, Todo A Ti', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('55', 'Señor Tú Eres Mi Roca', 'Señor Tú Eres Mi Roca', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('56', 'Jehová Es La Fortaleza', 'Jehová Es La Fortaleza', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('57', 'Grande Es Mi Señor', 'Grande Es Mi Señor', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('58', 'Quiero Amarte Señor Jesús', 'Quiero Amarte Señor Jesús', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('59', 'Oh Altísimo Señor', 'Oh Altísimo Señor', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('60', 'Favores No Merecía', 'Favores No Merecía', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('61', 'Te Adoramos', 'Te Adoramos', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('62', 'Espíritu De Dios, Llena Mi Vida', 'Espíritu De Dios, Llena Mi Vida', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('63', 'Amamos Tu Presencia', 'Amamos Tu Presencia', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('64', 'Fiel A Tu Palabra', 'Fiel A Tu Palabra', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('65', 'Te Adoraré', 'Te Adoraré', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('66', 'Dejame Tocar Tu Manto', 'Dejame Tocar Tu Manto', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('67', 'Te Doy Gracias Señor', 'Te Doy Gracias Señor', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('68', 'Dios, El Más Grande', 'Dios, El Más Grande', null, null, '0', null, null, null, '1', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('69', 'Salmo 150 (Lo Que Respire…)', 'Salmo 150 (Lo Que Respire…)', null, null, '0', null, null, null, '2', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('70', 'Cantaré A Jesús Mi Amado', 'Cantaré A Jesús Mi Amado', null, null, '0', null, null, null, '2', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('71', 'Noble Sostén', 'Noble Sostén', null, null, '0', null, null, null, '2', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('72', 'Cuan Bello Es Mi Dios', 'Cuan Bello Es Mi Dios', null, null, '0', null, null, null, '2', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('73', 'Hay Poder En Jesús', 'Hay Poder En Jesús', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('74', 'Atráeme Señor (Y Correremos…)', 'Atráeme Señor (Y Correremos…)', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('75', 'Empieza A Llover', 'Empieza A Llover', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('76', 'Santa Unción (Que Tu Santa Unción Caiga...)', 'Santa Unción (Que Tu Santa Unción Caiga...)', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('77', 'Oh Santo Espíritu', 'Oh Santo Espíritu', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('78', 'Aceite Del Cielo', 'Aceite Del Cielo', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('79', 'La Nube De Tu Gloria', 'La Nube De Tu Gloria', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('80', 'Mío Es El Señor Jesús', 'Mío Es El Señor Jesús', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('81', 'Yo He Venido A Alabar', 'Yo He Venido A Alabar', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('82', 'Ahora Ya No Soy Igual', 'Ahora Ya No Soy Igual', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('83', 'Alguien Está Aquí', 'Alguien Está Aquí', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('84', 'Libre, Tu Me Hiciste Libe', 'Libre, Tu Me Hiciste Libe', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('85', 'Libre Por La Sangre De Cristo', 'Libre Por La Sangre De Cristo', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('86', 'Oh Jesús, Bienvenido', 'Oh Jesús, Bienvenido', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('87', 'Yo Quiero Cantar', 'Yo Quiero Cantar', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('88', 'Jehová Eterno Es Tu Poder', 'Jehová Eterno Es Tu Poder', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('89', 'No Temeré', 'No Temeré', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('90', 'Cómo Hizo David (Am)', 'Cómo Hizo David (Am)', null, null, '0', '0', null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('91', 'Grita, Canta, Danza (Am)', 'Grita, Canta, Danza (Am)', null, null, '0', '0', null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('92', 'El Poderoso De Israel (Am)', 'El Poderoso De Israel (Am)', null, null, '0', '0', null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('93', 'Él Viene Por Mi', 'Él Viene Por Mi', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('94', 'Jesús Maravilloso', 'Jesús Maravilloso', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('95', 'Cantaré A Jehová', 'Cantaré A Jehová', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('96', 'Regocíjate Sión', 'Regocíjate Sión', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('97', 'Yo Tengo Un Dios Grande Y Sublime', 'Yo Tengo Un Dios Grande Y Sublime', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('98', 'El Nombre De Jesús Es Poder', 'El Nombre De Jesús Es Poder', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('99', 'Canción Feliz', 'Canción Feliz', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('100', 'Soy Feliz', 'Soy Feliz', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('101', 'Gózate Delante Del Señor', 'Gózate Delante Del Señor', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('102', 'Aplaudid', 'Aplaudid', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('103', 'Mis Pecados De Ayer', 'Mis Pecados De Ayer', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('104', 'Gracias Salvador Divino', 'Gracias Salvador Divino', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('105', 'Quién Como Jehová', 'Quién Como Jehová', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('106', 'Entraré Por Sus Puertas - Y Me Gozaré', 'Entraré Por Sus Puertas - Y Me Gozaré', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('107', 'No Hay Dios Como Mi Dios', 'No Hay Dios Como Mi Dios', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('108', 'Grande Es Mi Señor Jesús', 'Grande Es Mi Señor Jesús', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('109', 'Cantaré Al Señor Por Siempre', 'Cantaré Al Señor Por Siempre', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('110', 'El Señor Me Ha Levantado Con Poder', 'El Señor Me Ha Levantado Con Poder', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('111', 'A Ti Oh Precioso Jesús', 'A Ti Oh Precioso Jesús', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('112', 'La Fiesta Ya Empezó', 'La Fiesta Ya Empezó', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('113', 'Te Bendecimos Señor', 'Te Bendecimos Señor', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('114', 'Él Está Aquí', 'Él Está Aquí', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('115', 'Santo Es Él', 'Santo Es Él', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('116', 'Ven A Adorar A Cristo', 'Ven A Adorar A Cristo', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('117', 'Cristo Viene', 'Cristo Viene', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('118', 'Ya Ha Llegado El Momento', 'Ya Ha Llegado El Momento', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('119', 'No A Nosotros', 'No A Nosotros', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('120', 'Santo, Santo, Santo Es El Señor Jehová', 'Santo, Santo, Santo Es El Señor Jehová', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('121', 'Fiesta En Tu Honor', 'Fiesta En Tu Honor', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('122', 'Jesucristo Volverá', 'Jesucristo Volverá', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('123', 'A Su Majestad', 'A Su Majestad', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('124', 'Hacedor De Maravillas', 'Hacedor De Maravillas', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('125', 'Varón De Guerra', 'Varón De Guerra', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('126', 'Poderoso', 'Poderoso', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('127', 'No Es Con Nuestras Fuerzas', 'No Es Con Nuestras Fuerzas', null, null, '0', '0', null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('128', 'El Santo De Israel', 'El Santo De Israel', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('129', 'Con Oleo De Alegría - Toda La Noche Sin Parar', 'Con Oleo De Alegría - Toda La Noche Sin Parar', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('130', 'Con Gozo Cantaré A Jehová', 'Con Gozo Cantaré A Jehová', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('131', 'No Puedo Parar de Alabar', 'No Puedo Parar de Alabar', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('132', 'Abrió El Mar', 'Abrió El Mar', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('133', 'No Puedo Parar De Alabar', 'No Puedo Parar De Alabar', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('134', 'Ya Viene Tu Salvador', 'Ya Viene Tu Salvador', null, null, '0', null, null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('135', 'Jehová Levántate (Coro: Gm)', 'Jehová Levántate (Coro: Gm)', null, null, '0', '0', null, null, '3', null, null, null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('136', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Santiago Atitlan', '0', '0', null, null, null, '3', null, 'alabanza,danza,guerra,exclamacion+', null, null, '1');
-INSERT INTO `tbl_cantos` VALUES ('137', 'No sueltes de mi mano', 'Oh Cristo!', 'Oscar Maldonado', '3', '10', '0', '3', '68', '1', '21,23,1,6,19', '1,4', '2', '2016-01-13 12:40:50', '1');
-INSERT INTO `tbl_cantos` VALUES ('138', 'fsdf', 'sdfret', 'tert', '3', '26', '0', '1', '93', '3', '11,16', '16,20', '2', '2016-01-13 13:23:08', '1');
+INSERT INTO `tbl_cantos` VALUES ('1', 'Quiero Ungir Tu Cabeza', 'Quiero Ungir Tu Cabeza', 'Elim', null, null, '1', null, '1', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('2', 'La Niña De Tus Ojos', 'La Niña De Tus Ojos', null, null, null, '1', null, '2,3', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('3', 'Exquisita Presencia', 'Exquisita Presencia', 'Elim', null, null, null, null, 'presencia,clamor', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('4', 'Gracias Cristo (Levantemos…)', 'Gracias Cristo (Levantemos…)', null, null, null, null, null, 'gratitud,adoracion', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('5', 'Mi Alma Tiene Sed', 'Mi Alma Tiene Sed', 'Santiago Atitlan', null, null, null, null, 'llenura,clamor,necesidad', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('6', 'Condúceme A Las Aguas', 'Condúceme A Las Aguas', 'Santiago Atitlan', null, null, null, null, 'clamor,llenura', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('7', 'Digno Eres De Gloria', 'Digno Eres De Gloria', null, null, null, null, null, 'adoracion,exaltacion', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('8', 'Cuando Pienso En Ti', 'Cuando Pienso En Ti', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('9', 'Así Es Mi Padre', 'Así Es Mi Padre', null, null, null, null, null, 'exaltacion,adoracion', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('10', 'Oh Que Grata Tu Amistad', 'Oh Que Grata Tu Amistad', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('11', 'No Hay Nadie Que Me Ame Cómo Él', 'No Hay Nadie Que Me Ame Cómo Él', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('12', 'Vine A Adorar A Dios', 'Vine A Adorar A Dios', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('13', 'Escuchar Tu Voz', 'Escuchar Tu Voz', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('14', 'Grandes Cosas Ha Hecho Jehová Con Nosotros', 'Grandes Cosas Ha Hecho Jehová Con Nosotros', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('15', 'Dame De Beber', 'Dame De Beber', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('16', 'Quiero Derramar Mi Corazón', 'Quiero Derramar Mi Corazón', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('17', 'En Tu Presencia, Sólo En Tu Presencia', 'En Tu Presencia, Sólo En Tu Presencia', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('18', 'Oh Jehová, Fortaleza Mía', 'Oh Jehová, Fortaleza Mía', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('19', 'Dios Está Aquí', 'Dios Está Aquí', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('20', 'El Espíritu De Dios Está En Este Lugar', 'El Espíritu De Dios Está En Este Lugar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('21', 'Jesús, Jesús', 'Jesús, Jesús', 'Santiago Atitlan', null, null, null, null, 'adoracion,jesus', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('22', 'Tu Fidelidad', 'Tu Fidelidad', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('23', 'Al Que Está Sentado En El Trono', 'Al Que Está Sentado En El Trono', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('24', 'Canción Del Espíritu', 'Canción Del Espíritu', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('25', 'Hoy He Venido Con Dulces Palabras', 'Hoy He Venido Con Dulces Palabras', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('26', 'Señor Estoy Aquí', 'Señor Estoy Aquí', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('27', 'Hoy He Venido - Te Adoraré', 'Hoy He Venido - Te Adoraré', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('28', 'Santo Es El Señor (Empieza En G)', 'Santo Es El Señor (Empieza En G)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('29', 'Hay Una Fuente En Mi', 'Hay Una Fuente En Mi', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('30', 'Yo Quiero Estar Donde Tú Estas', 'Yo Quiero Estar Donde Tú Estas', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('31', 'Menesteroso - Padre Celestial', 'Menesteroso - Padre Celestial', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('32', 'Él Me Escogió - Nada Merecía', 'Él Me Escogió - Nada Merecía', 'Mahanim', null, null, null, null, 'gratitud', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('33', 'Cúbreme Señor', 'Cúbreme Señor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('34', 'A Ti Levantaré Mi Cántico', 'A Ti Levantaré Mi Cántico', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('35', 'Hay Momentos', 'Hay Momentos', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('36', 'Es A Tus Pies', 'Es A Tus Pies', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('37', 'Quiero Decirte Que Te Amo', 'Quiero Decirte Que Te Amo', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('38', 'Cuando No Era Nada', 'Cuando No Era Nada', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('39', 'Este Es Mi Respirar', 'Este Es Mi Respirar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('40', 'Que Nunca Falte Tu Gloria', 'Que Nunca Falte Tu Gloria', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('41', 'El Señor Es Mi Rey', 'El Señor Es Mi Rey', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('42', 'Torre Fuerte', 'Torre Fuerte', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('43', 'Gracias - Por Tu Sangre Tengo Entrada', 'Gracias - Por Tu Sangre Tengo Entrada', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('44', 'Bienvenido Padre', 'Bienvenido Padre', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('45', 'Jesús Mi Amado', 'Jesús Mi Amado', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('46', 'Mi Vida Ofreceré', 'Mi Vida Ofreceré', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('47', 'Aleluya', 'Aleluya', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('48', 'Al Rey Jesús', 'Al Rey Jesús', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('49', 'Ven Amado Mío', 'Ven Amado Mío', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('50', 'Cuando Estoy En Tu Presencia', 'Cuando Estoy En Tu Presencia', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('51', 'Déjame Tocar Tu Manto', 'Déjame Tocar Tu Manto', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('52', 'Inconmovible', 'Inconmovible', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('53', 'Canto De Amor (Sube: A)', 'Canto De Amor (Sube: A)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('54', 'Me Rindo, Todo A Ti', 'Me Rindo, Todo A Ti', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('55', 'Señor Tú Eres Mi Roca', 'Señor Tú Eres Mi Roca', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('56', 'Jehová Es La Fortaleza', 'Jehová Es La Fortaleza', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('57', 'Grande Es Mi Señor', 'Grande Es Mi Señor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('58', 'Quiero Amarte Señor Jesús', 'Quiero Amarte Señor Jesús', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('59', 'Oh Altísimo Señor', 'Oh Altísimo Señor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('60', 'Favores No Merecía', 'Favores No Merecía', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('61', 'Te Adoramos', 'Te Adoramos', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('62', 'Espíritu De Dios, Llena Mi Vida', 'Espíritu De Dios, Llena Mi Vida', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('63', 'Amamos Tu Presencia', 'Amamos Tu Presencia', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('64', 'Fiel A Tu Palabra', 'Fiel A Tu Palabra', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('65', 'Te Adoraré', 'Te Adoraré', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('66', 'Dejame Tocar Tu Manto', 'Dejame Tocar Tu Manto', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('67', 'Te Doy Gracias Señor', 'Te Doy Gracias Señor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('68', 'Dios, El Más Grande', 'Dios, El Más Grande', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('69', 'Salmo 150 (Lo Que Respire…)', 'Salmo 150 (Lo Que Respire…)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('70', 'Cantaré A Jesús Mi Amado', 'Cantaré A Jesús Mi Amado', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('71', 'Noble Sostén', 'Noble Sostén', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('72', 'Cuan Bello Es Mi Dios', 'Cuan Bello Es Mi Dios', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('73', 'Hay Poder En Jesús', 'Hay Poder En Jesús', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('74', 'Atráeme Señor (Y Correremos…)', 'Atráeme Señor (Y Correremos…)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('75', 'Empieza A Llover', 'Empieza A Llover', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('76', 'Santa Unción (Que Tu Santa Unción Caiga...)', 'Santa Unción (Que Tu Santa Unción Caiga...)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('77', 'Oh Santo Espíritu', 'Oh Santo Espíritu', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('78', 'Aceite Del Cielo', 'Aceite Del Cielo', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('79', 'La Nube De Tu Gloria', 'La Nube De Tu Gloria', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('80', 'Mío Es El Señor Jesús', 'Mío Es El Señor Jesús', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('81', 'Yo He Venido A Alabar', 'Yo He Venido A Alabar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('82', 'Ahora Ya No Soy Igual', 'Ahora Ya No Soy Igual', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('83', 'Alguien Está Aquí', 'Alguien Está Aquí', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('84', 'Libre, Tu Me Hiciste Libe', 'Libre, Tu Me Hiciste Libe', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('85', 'Libre Por La Sangre De Cristo', 'Libre Por La Sangre De Cristo', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('86', 'Oh Jesús, Bienvenido', 'Oh Jesús, Bienvenido', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('87', 'Yo Quiero Cantar', 'Yo Quiero Cantar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('88', 'Jehová Eterno Es Tu Poder', 'Jehová Eterno Es Tu Poder', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('89', 'No Temeré', 'No Temeré', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('90', 'Cómo Hizo David (Am)', 'Cómo Hizo David (Am)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('91', 'Grita, Canta, Danza (Am)', 'Grita, Canta, Danza (Am)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('92', 'El Poderoso De Israel (Am)', 'El Poderoso De Israel (Am)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('93', 'Él Viene Por Mi', 'Él Viene Por Mi', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('94', 'Jesús Maravilloso', 'Jesús Maravilloso', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('95', 'Cantaré A Jehová', 'Cantaré A Jehová', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('96', 'Regocíjate Sión', 'Regocíjate Sión', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('97', 'Yo Tengo Un Dios Grande Y Sublime', 'Yo Tengo Un Dios Grande Y Sublime', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('98', 'El Nombre De Jesús Es Poder', 'El Nombre De Jesús Es Poder', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('99', 'Canción Feliz', 'Canción Feliz', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('100', 'Soy Feliz', 'Soy Feliz', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('101', 'Gózate Delante Del Señor', 'Gózate Delante Del Señor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('102', 'Aplaudid', 'Aplaudid', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('103', 'Mis Pecados De Ayer', 'Mis Pecados De Ayer', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('104', 'Gracias Salvador Divino', 'Gracias Salvador Divino', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('105', 'Quién Como Jehová', 'Quién Como Jehová', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('106', 'Entraré Por Sus Puertas - Y Me Gozaré', 'Entraré Por Sus Puertas - Y Me Gozaré', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('107', 'No Hay Dios Como Mi Dios', 'No Hay Dios Como Mi Dios', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('108', 'Grande Es Mi Señor Jesús', 'Grande Es Mi Señor Jesús', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('109', 'Cantaré Al Señor Por Siempre', 'Cantaré Al Señor Por Siempre', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('110', 'El Señor Me Ha Levantado Con Poder', 'El Señor Me Ha Levantado Con Poder', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('111', 'A Ti Oh Precioso Jesús', 'A Ti Oh Precioso Jesús', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('112', 'La Fiesta Ya Empezó', 'La Fiesta Ya Empezó', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('113', 'Te Bendecimos Señor', 'Te Bendecimos Señor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('114', 'Él Está Aquí', 'Él Está Aquí', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('115', 'Santo Es Él', 'Santo Es Él', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('116', 'Ven A Adorar A Cristo', 'Ven A Adorar A Cristo', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('117', 'Cristo Viene', 'Cristo Viene', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('118', 'Ya Ha Llegado El Momento', 'Ya Ha Llegado El Momento', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('119', 'No A Nosotros', 'No A Nosotros', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('120', 'Santo, Santo, Santo Es El Señor Jehová', 'Santo, Santo, Santo Es El Señor Jehová', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('121', 'Fiesta En Tu Honor', 'Fiesta En Tu Honor', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('122', 'Jesucristo Volverá', 'Jesucristo Volverá', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('123', 'A Su Majestad', 'A Su Majestad', '', '', '2010', '5', null, '8', '2', '2016-01-18 14:56:06', '1');
+INSERT INTO `tbl_cantos` VALUES ('124', 'Hacedor De Maravillas', 'Hacedor De Maravillas', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('125', 'Varón De Guerra', 'Varón De Guerra', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('126', 'Poderoso', 'Poderoso', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('127', 'No Es Con Nuestras Fuerzas', 'No Es Con Nuestras Fuerzas', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('128', 'El Santo De Israel', 'El Santo De Israel', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('129', 'Con Oleo De Alegría - Toda La Noche Sin Parar', 'Con Oleo De Alegría - Toda La Noche Sin Parar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('130', 'Con Gozo Cantaré A Jehová', 'Con Gozo Cantaré A Jehová', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('131', 'No Puedo Parar de Alabar', 'No Puedo Parar de Alabar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('132', 'Abrió El Mar', 'Abrió El Mar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('133', 'No Puedo Parar De Alabar', 'No Puedo Parar De Alabar', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('134', 'Ya Viene Tu Salvador', 'Ya Viene Tu Salvador', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('135', 'Jehová Levántate (Coro: Gm)', 'Jehová Levántate (Coro: Gm)', null, null, null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('136', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Santiago Atitlan', null, null, '0', null, 'alabanza,danza,guerra,exclamacion+', null, null, '1');
+INSERT INTO `tbl_cantos` VALUES ('137', 'No sueltes de mi mano', 'Oh Cristo!', 'Oscar Maldonado', 'Mahanaim Tlalpan', '2015', '3', null, '8,9', '2', '2016-01-18 13:58:17', '1');
+INSERT INTO `tbl_cantos` VALUES ('138', '12312355', 'nuevo de prueba123', 'tert1', 'fsdfsdg', '2016', '3', null, '8,9', '2', '2016-01-18 13:12:29', '1');
+
+-- ----------------------------
+-- Table structure for tbl_cifrados
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_cifrados`;
+CREATE TABLE `tbl_cifrados` (
+  `id_cifrado` int(11) NOT NULL AUTO_INCREMENT,
+  `id_canto` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_escala` smallint(3) DEFAULT NULL,
+  `id_variacion` smallint(3) DEFAULT NULL,
+  `id_compas` tinyint(2) DEFAULT NULL,
+  `tempo` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_ritmo` tinyint(2) DEFAULT NULL,
+  `acordes` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `cifrado` text COLLATE utf8_spanish_ci,
+  `piano` text COLLATE utf8_spanish_ci,
+  `trompeta` text COLLATE utf8_spanish_ci,
+  `sax` text COLLATE utf8_spanish_ci,
+  `comentarios` text COLLATE utf8_spanish_ci,
+  `id_usuario` int(11) DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  `activo` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id_cifrado`),
+  KEY `i_id_usuario` (`id_usuario`),
+  KEY `i_activo` (`activo`),
+  KEY `i_escala` (`id_escala`),
+  KEY `i_variacion` (`id_variacion`),
+  KEY `i_compas` (`id_compas`),
+  KEY `i_tempo` (`tempo`),
+  KEY `i_ritmo` (`id_ritmo`),
+  KEY `i_id_canto` (`id_canto`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of tbl_cifrados
+-- ----------------------------
+INSERT INTO `tbl_cifrados` VALUES ('1', '137', '20', '0', '1', '112', '3', '11,16', '[Am]///A su Majestad, [(Am-G)]\n[F]Bienvenido Rey, [(F/F#)]\n[G]A su Majestad, daré la [E]honra y el ho[Am]nor///', null, null, null, null, null, null, '1');
+INSERT INTO `tbl_cifrados` VALUES ('4', '123', '5', '9', '3', '122', '3', '21,16,6,8', '[Am]///A su Majestad, [(Am-G)]\n[F]Bienvenido Rey, [(F/F#)]\n[G]A su Majestad, daré la [E]honra y el ho[Am]nor///', 'Piano', 'Trompeta', 'Saxofón', 'Comentarios', '2', '2016-01-18 14:46:04', '1');
