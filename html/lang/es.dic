@@ -143,6 +143,12 @@
 	captura|cantos_txt_categorias	= Categorías
 	captura|cantos_txt_variacion	= Variación
 	captura|cantos_txt_autor		= Autor
+	captura|cantos_txt_interprete	= Interprete
+	captura|cantos_txt_cifrado 		= Cifrado
+	captura|cantos_txt_piano 		= Notas para Piano
+	captura|cantos_txt_trompeta		= Notas para Trompeta
+	captura|cantos_txt_sax 			= Notas para Saxofón
+	captura|cantos_txt_comentarios	= Comentarios
 
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia

@@ -14,6 +14,8 @@ $(document).ready(function(){
       show: { effect: "fadeIn", delay: 150 },
       position: { my: "left top", at: "right+10 top-5" }
     });
+    // Zoom
+    // $(".img-zoom").elevateZoom();   
 });
 
 function changeCss(archivo) {

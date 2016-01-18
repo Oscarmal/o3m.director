@@ -40,7 +40,7 @@
 	                    <div class="form-group">
 	                        <label class="col-sm-2 control-label">{txt_tempo}:</label>
 	                        <div class="col-sm-5">
-	                        	<input class="slider slider-horizontal form-control" type="text" data-slider-min="1" data-slider-max="300" data-slider-step="1" value="" data-slider-value="{val_tempo}" value="{val_tempo}" data-slider-orientation="horizontal" data-campo="tempo" title="{tooltip_tempo}" style="width:300px;">
+	                        	<input class="slider slider-horizontal form-control" type="text" data-slider-min="1" data-slider-max="300" data-slider-step="1" value="{tempo}" data-slider-value="{tempo}" data-slider-orientation="horizontal" data-campo="tempo" title="{tooltip_tempo}" style="width:300px;">
 	                        </div>
 	                    </div>  	                       
 	                    <div class="form-group">
@@ -48,11 +48,43 @@
 	                        <div class="col-sm-5">
 	                            {lst_acordes} 
 	                        </div>
-	                    </div>             
+	                    </div>       
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_cifrado}:</label>
+	                        <div class="col-sm-5">
+	                            <textarea class="form-control parsley-validated" rows="10" data-campo="cifrado" placeholder="{txt_cifrado}" title="{tooltip_cifrado}" data-required="true">{cifrado}</textarea>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_piano}:</label>
+	                        <div class="col-sm-5">
+	                            <textarea class="form-control" rows="5" data-campo="piano" placeholder="{txt_piano}" title="{tooltip_piano}" >{piano}</textarea>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_trompeta}:</label>
+	                        <div class="col-sm-5">
+	                            <textarea class="form-control" rows="5" data-campo="trompeta" placeholder="{txt_trompeta}" title="{tooltip_trompeta}" >{trompeta}</textarea>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_sax}:</label>
+	                        <div class="col-sm-5">
+	                            <textarea class="form-control" rows="5" data-campo="sax" placeholder="{txt_sax}" title="{tooltip_sax}" >{sax}</textarea>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-sm-2 control-label">{txt_comentarios}:</label>
+	                        <div class="col-sm-5">
+	                            <textarea class="form-control" rows="4" data-campo="comentarios" placeholder="{txt_comentarios}" title="{tooltip_comentarios}" >{comentarios}</textarea>
+	                        </div>
+	                    </div>      
 
 	                    <!-- Botón -->
 	                    <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
+                                <button id="btnCancel" type="button" class="btn btn-default" onclick="window.history.go(-1);">{txt_cancelar}</button>
+                                &nbsp;&nbsp;&nbsp;
                                 <button id="btnSubmit" type="button" class="btn btn-primary" onclick="editar('frm-captura-cifrados-edit','cifrados_edit');">{txt_actualizar}</button>
                             </div>
                         </div> 

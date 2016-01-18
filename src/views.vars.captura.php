@@ -91,8 +91,9 @@ function vars_albums($seccion, $urlParams){
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> include_editable()
-				 					   .incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/albums.js')
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/file-editable.js')
+				 					   .incJs($Path[js].'/jquery.elevatezoom.min.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -175,10 +176,11 @@ function vars_cifrados($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][cifrados_titulo];
 	## Envio de valores ##
-	$data_contenido = build_formulario_cantos();
+	$data_contenido = build_formulario_cifrados();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados.js')
+				 						.incJs($Path[js].'/jquery.elevatezoom.min.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -196,7 +198,7 @@ function vars_cifrados_edit($seccion, $urlParams){
 	## Logica de negocio ##
 	$titulo 	= $dic[captura][cifrados_edit_titulo];
 	## Envio de valores ##
-	$data_contenido = build_formulario_cantos_edit();
+	$data_contenido = build_formulario_cifrados_edit();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados_edit.js')

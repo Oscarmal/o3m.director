@@ -272,7 +272,7 @@ function dropdown_cantos($data=array()){
 	global $dic;
 	$requerido = ($data[requerido])?true:false;
 	$name = ($data[name])?$data[name]:'lts_cantos';
-	$value = ($data[value])?$data[value]:'id_escala';
+	$value = ($data[value])?$data[value]:'id_canto';
 	$text = ($data[text])?$data[text]:'canto';
 	$lst_data = select_cantos();
 	$dataDropdown = array(
@@ -285,7 +285,8 @@ function dropdown_cantos($data=array()){
 				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
-				'title' 	=> $dic[tooltips][lst_cantos]
+				'title' 	=> $dic[tooltips][lst_cantos],
+				'leyenda' 	=> $data[leyenda]
 			);
 	return drop_down_select($dataDropdown);
 }

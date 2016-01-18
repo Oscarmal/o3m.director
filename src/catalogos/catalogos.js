@@ -1,16 +1,16 @@
 $(document).ready(function(){
 	// scriptJs_Enter(); //Carga detección de ENTER
-	editar($("#sec").val().toLowerCase());
-	// $(".img-zoom").elevateZoom();
-	$(".img-zoom").elevateZoom({ 
-		// zoomType 			: "inner", 
-		cursor 				: "crosshair",
-		zoomWindowWidth 	: 200, 
-		zoomWindowHeight 	: 150,
-		tint 				: true,
-		tintColour 			: '#36b0c8',
-		tintOpacity 		: 0.5
-	}); 
+	editar($("#sec").val().toLowerCase());	
+	 $(".img-zoom").elevateZoom({ 
+        // zoomType             : "inner", 
+        cursor              : "crosshair",
+        zoomWindowWidth     : 200, 
+        zoomWindowHeight    : 150,
+        tint                : true,
+        tintColour          : '#36b0c8',
+        tintOpacity         : 0.5,
+        scrollZoom : true
+    }); 
 });
 
 function insert(idFormulario, accion){	

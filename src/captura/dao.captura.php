@@ -37,7 +37,7 @@ function insert_albums($data=array()){
 	$campos[] = "timestamp 	= '$timestamp'";
 	$updateFields = implode(',', $campos);
 	$sql="INSERT INTO $db[tbl_albums]	SET  $updateFields ;";
-	$id = (SQLDo($sql))?true:false;
+	$id = SQLDo($sql);
 	$resultado = ($id)?$id:false;
 	return $resultado;
 }
@@ -127,8 +127,11 @@ function select_cantos($data=array()){
 								OR cant.autor LIKE '%$searchbox%'
 							)":'';
 	$filtro .= ($id)?" AND cant.id_canto='$id'":'';
-	$sql = "SELECT cant.id_canto, cant.canto, cant.alias, cant.autor
+	$sql = "SELECT cant.id_canto, 
+					CONCAT(IFNULL(cant.canto,''),' - ',IFNULL(alb.album,'')) as combo,
+					cant.canto, cant.alias, cant.autor, cant.interprete, cant.anio, alb.album
 			FROM $db[tbl_cantos] cant 
+			LEFT JOIN $db[tbl_albums] alb ON cant.id_album=alb.id_album
 			WHERE 1 AND cant.activo = 1 $filtro
 			GROUP BY cant.canto, cant.autor ;";
 	$resultado = SQLQuery($sql,1);
@@ -179,6 +182,84 @@ function update_cantos($data=array()){
 		$sql="UPDATE $db[tbl_cantos]
 				SET  $updateFields
 				WHERE id_canto='$id'
+				LIMIT 1;";
+		$resultado = (SQLDo($sql))?true:false;
+		return $resultado;
+	}else{return false;}
+}
+
+// CIFRADOS
+function select_cifrados($data=array()){
+	global $db, $usuario;	
+	$searchbox 	= ($data[searchbox])?$data[searchbox]:false;
+	$id 		= ($data[id])?$data[id]:false;
+	$filtro .= ($searchbox)?"AND (cant.canto LIKE '%$searchbox%'
+								OR cant.alias LIKE '%$searchbox%'
+								OR alb.album LIKE '%$searchbox%'
+								OR esc.grado1 LIKE '%$searchbox%'
+							)":'';
+	$filtro .= ($id)?" AND cant.id_canto='$id'":'';
+	$sql = "SELECT cif.id_cifrado, 
+					cant.canto, 
+					cant.alias, 
+					alb.album, 
+					esc.grado1 as escala, 
+					(SELECT CAST(GROUP_CONCAT(DISTINCT nota_en SEPARATOR ',') AS CHAR(1000)) from $db[tbl_notas] WHERE FIND_IN_SET(id_nota,cif.acordes)) as acordes,
+					alb.portada
+			FROM $db[tbl_cifrados] cif 
+			LEFT JOIN $db[tbl_cantos] cant ON cant.id_canto=cif.id_canto
+			LEFT JOIN $db[tbl_albums] alb ON cant.id_album=alb.id_album
+			LEFT JOIN $db[tbl_escalas] esc ON esc.id_escala=cif.id_escala
+			WHERE 1 AND cif.activo = 1 $filtro;";
+			// dump_var($sql);
+	$resultado = SQLQuery($sql,1);
+	$resultado = ($resultado) ? $resultado : false ;
+	return $resultado;
+}
+
+function select_cifrado_unico($data=array()){
+	global $db, $usuario;	
+	$id 	 = ($data[id])?$data[id]:false;
+	$filtro .= ($id)?" AND cif.id_cifrado='$id'":'';
+	$sql = "SELECT cif.*
+			FROM $db[tbl_cifrados] cif 
+			WHERE 1 AND cif.activo = 1 $filtro 
+			GROUP BY cif.id_cifrado;";
+	$resultado = SQLQuery($sql,1);
+	$resultado = ($resultado) ? $resultado : false ;
+	return $resultado;
+}
+
+function insert_cifrados($data=array()){
+	global $db, $usuario;
+	$timestamp = timestamp();
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	$sql="INSERT INTO $db[tbl_cifrados]	SET  $updateFields ;";
+	$id = (SQLDo($sql))?true:false;
+	$resultado = ($id)?$id:false;
+	return $resultado;
+}
+
+function update_cifrados($data=array()){
+	global $db, $usuario;	
+	$timestamp = timestamp();
+	$id = ($data[id])?$data[id]:false;
+	unset($data[id]);
+	foreach($data as $campo => $valor){
+		$campos[] = $campo."='".$valor."'";
+	}
+	$campos[] = "id_usuario = '$usuario[id_usuario]'";
+	$campos[] = "timestamp 	= '$timestamp'";
+	$updateFields = implode(',', $campos);
+	if($id && $updateFields){
+		$sql="UPDATE $db[tbl_cifrados]
+				SET  $updateFields
+				WHERE id_cifrado='$id'
 				LIMIT 1;";
 		$resultado = (SQLDo($sql))?true:false;
 		return $resultado;
