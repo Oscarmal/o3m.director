@@ -1,0 +1,28 @@
+		<div id="div-contenedor"> 
+		<form id="frm-captura-listado" class="form-horizontal" method="post" data-validate="parsley">	
+		<!-- Inicio de contenedor -->			
+			<div class="panel-group m-b" id="accordion1">
+				<div class="panel panel-default">
+					<div class="panel-heading font-bold"> 
+					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i class="fa fa-align-center"></i> {txt_sin_formato} </a> 
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse out" style="height: 0px;">
+						<div class="panel-body text-sm"> 
+							{TXT}
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+	                <div class="panel-heading font-bold"> 
+	                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><i class="fa fa-indent"></i> {txt_con_formato}</a> 
+	                </div>
+	                <div id="collapseTwo" class="panel-collapse collapse in" style="height: auto;">
+	                   <div class="panel-body text-sm"> {WEB}</div>
+	                </div>
+	            </div>
+	            <br/><center><button id="btnRegresar" type="button" class="btn btn-info" onclick="window.history.go(-1);">{txt_regresar}</button></center>
+			</div>	        
+		<!-- Fin de contenedor -->
+		</form>
+		</div>

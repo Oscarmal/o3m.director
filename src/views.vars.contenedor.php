@@ -20,6 +20,7 @@ require_once('views.vars.error.php');
 				 GENERAL		=> 'views.vars.general.php'
 				,ALABANZAS		=> 'views.vars.alabanzas.php'
 				,CAPTURA		=> 'views.vars.captura.php'
+				,CIFRADO		=> 'views.vars.cifrado.php'
 				,IGLESIA		=> 'views.vars.iglesia.php'
 				,PMIEL			=> 'views.vars.pmiel.php'
 				,CATALOGOS		=> 'views.vars.catalogos.php'
@@ -71,6 +72,10 @@ require_once('views.vars.error.php');
 						,NOTAS 			=> 'notas.html'
 						,RITMOS 		=> 'ritmos.html'
 						,ACORDES 		=> 'acordes.html'
+					)
+				,CIFRADO  => 
+					array(
+						 VER 		=> 'ver.html'
 					)
 				,ERROR  => 'error.html'
 			);

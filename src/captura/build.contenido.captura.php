@@ -16,6 +16,7 @@ function tooltips_captura(){
 		,tooltip_iglesia	=> $dic[tooltips][captura_iglesia]
 		,tooltip_ministerio	=> $dic[tooltips][captura_ministerio]
 		,tooltip_pais 		=> $dic[tooltips][captura_pais]
+		,tooltip_cifrado	=> $dic[tooltips][captura_cifrado]
 		);
 	return $tooltips;
 }
@@ -67,28 +68,6 @@ function textos_captura(){
 	$textos = array_merge($labels, $tooltips);
 	return $textos;
 }
-
-function build_acordes(){
-	$chord = new guitarTabs();
-	$letra = '[Am]///A su Majestad, [(Am-G)]
-				[F]Bienvenido Rey, [(F/F#)]
-					Inicio [E7]uno dos tres cuatro cinco seis [F]siete ocho nueve diez once [F#]doce
-				[G]A su Majestad, daré la [E]honra y el ho[Am]nor/// ';
-	$chord->titulo='A su Majestad';
-	$chord->autor='Pastor Luis Villavicencio';
-	$chord->canta='Palabra Miel Washington, USA';
-	$chord->album='A su Majestad';
-	$chord->anio='2012';
-	$chord->escala='Am';
-	$chord->compas='4/4';
-	$chord->ritmo='Rápido';
-	$chord->tempo='165 beats';
-	$chord->categoria='Alabanza, Majestad';
-	$chord->cancion($letra);
-	$cifrado = '<div style="margin-left:auto; margin-right:auto; width:70%;">'.$chord->html(1).$chord->txt().'</div>';
-	return $cifrado;
-}
-
 
 // CANTOS
 function build_formulario_cantos(){
@@ -247,7 +226,8 @@ function build_listado_cifrados(){
 			$tblData[$y] = $row;
 			// unset($tblData[$y][id_cifrado]);
 			$tblData[$y][portada]		= '<span style="text-align:center; vertical-align:middle;">'.'<img class="img-zoom" src="'.$Path[coversurl].$row[portada].'" data-zoom-image="'.$Path[coversurl].$row[portada].'" width="50%"/></span>';
-			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$id,'editar_cifrado('.$id.');').'  '
+			$tblData[$y][acciones] 		= ico_detalle('ico-cifrado_'.$id,'ver_cifrado('.$id.');').'  '
+										 .ico_editar('ico-editar_'.$id,'editar_cifrado('.$id.');').'  '
 										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
 		}
@@ -283,4 +263,5 @@ function build_formulario_cifrados_edit(){
 		return header('location: '.$Path[url].'captura/cantos/');
 	}
 }
+
 ?>

@@ -97,6 +97,7 @@
 	captura|cantos_edit_titulo	= Edición de Canto
 	captura|cifrados_titulo		= Captura de Cifrados
 	captura|cifrados_edit_titulo= Edición de Cifrado
+	captura|cifrado_titulo		= Mostrando Cifrado
 
 	#Cantos
 	captura|cantos_txt_form 		= Agregar nuevo
@@ -150,6 +151,12 @@
 	captura|cantos_txt_sax 			= Notas para Saxofón
 	captura|cantos_txt_comentarios	= Comentarios
 
+#Captura
+	cifrado|ver_titulo 			= Mostrado Cifrado
+
+	cifrado|txt_sin_formato 	= Sin Formato
+	cifrado|txt_con_formato 	= Con Formato
+
 #Iglesia
 	iglesia|iglesia_titulo 		= Iglesia
 	iglesia|contacto_titulo 	= Contacto
@@ -187,4 +194,5 @@
 	tooltips|captura_compas		= Compás
 	tooltips|captura_ritmo		= Ritmo
 	tooltips|captura_categoria	= Categoría
-	tooltips|captura_armadura		= Ingrese el nombre de la armadura
+	tooltips|captura_armadura	= Ingrese el nombre de la armadura
+	tooltips|captura_cifrado	= Escriba la letra del canto con los acordes correspondietnes entre corchetes i.e.: [F]Cristo te ado[C]ramos, [Gm]Cristo te exal[A7]tamos

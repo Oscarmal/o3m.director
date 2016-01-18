@@ -17,6 +17,7 @@ $vistas = array(
 			,CANTOS_EDIT	=> 'cantos_edit.html'
 			,CIFRADOS 		=> 'cifrados.html'
 			,CIFRADOS_EDIT	=> 'cifrados_edit.html'
+			,CIFRADO 		=> 'cifrado.html'
 			,ERROR 			=> 'error.html'
 			);
 
@@ -51,6 +52,8 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_cifrados($cmd,$urlParams);
 	}elseif($cmd == 'CIFRADOS_EDIT'){
 		$vars = vars_cifrados_edit($cmd,$urlParams);
+	}elseif($cmd == 'CIFRADO'){
+		$vars = vars_cifrado($cmd,$urlParams);
 	}else{
 		$vars = vars_error($cmd);
 	}
@@ -158,7 +161,8 @@ function vars_cantos_edit($seccion, $urlParams){
 	$data_contenido = build_formulario_cantos_edit();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cantos_edit.js')
+				 MORE 				=> include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/cantos_edit.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -179,8 +183,10 @@ function vars_cifrados($seccion, $urlParams){
 	$data_contenido = build_formulario_cifrados();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados.js')
+				 MORE 				=> include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/cifrados.js')
 				 						.incJs($Path[js].'/jquery.elevatezoom.min.js')
+
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -201,7 +207,29 @@ function vars_cifrados_edit($seccion, $urlParams){
 	$data_contenido = build_formulario_cifrados_edit();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados_edit.js')
+				 MORE 				=> include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/cifrados_edit.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido								
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
+function vars_cifrado($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][cifrado_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_cifrado();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrado.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

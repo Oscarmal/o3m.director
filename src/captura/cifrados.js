@@ -16,6 +16,10 @@ function editar_cifrado(id){
 	$(location).attr('href', raizPath()+'captura/cifrados_edit/?id='+id)
 }
 
+function ver_cifrado(id){
+	$(location).attr('href', raizPath()+'cifrado/ver/?id='+id)
+}
+
 function insert(idFormulario, accion){	
 	if(idFormulario){
 		if($('#'+idFormulario).parsley('validate')){

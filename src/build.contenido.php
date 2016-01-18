@@ -7,6 +7,7 @@ require_once($Path[src].'dao.perfiles.php');
 require_once($Path[src].'catalogos/dao.catalogos.php');
 require_once($Path[src].'catalogos/build.contenido.catalogos.php');
 require_once($Path[src].'captura/build.contenido.captura.php');
+require_once($Path[src].'cifrado/build.contenido.cifrado.php');
 //**FUNCIONES GENERALES******************************************************************
 function build_grid_paginado($arrayData=array(), $arrayHeaders=array()){
 // Construye un listado paginado con el arreglo recibido
@@ -80,7 +81,7 @@ function convertir_fecha_for_vista($string){
 #Iconos 
 function ico_detalle($id=false,$onclick=false){
 	global $dic;
-	return '<span id="'.$id.'" class="ico detalle" title="'.$dic[ico][detalle].'" onclick="'.$onclick.'" ><i class="fa fa-search-plus"></i></span>';
+	return '<span id="'.$id.'" class="ico detalle" title="'.$dic[ico][detalle].'" onclick="'.$onclick.'" ><i class="fa fa-file-text-o"></i></span>';
 }
 function ico_eliminar($id=false,$onclick=false){
 	global $dic;
