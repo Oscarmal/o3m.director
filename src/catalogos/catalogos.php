@@ -259,7 +259,7 @@ function update_catalogos_acordes($in){
 		$imagen = 'acorde_'.$id.$prefix.'.'.$e[count($e)-1];
 		if(copy($_FILES['file']['tmp_name'], $Path[chords].$imagen)){
 			unlink($_FILES['file']['tmp_name']);
-			resize_image($Path[chords].$imagen);
+			resize_image($Path[chords].$imagen,1);
 			$img = "Imagen guardada.";
 		}else{ $img = false; return;}
 		$in[value] = $imagen;

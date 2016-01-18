@@ -82,9 +82,6 @@ function editar(accion){
 		type: "text", 
 		url: ajax_url,
         params: function (params){
-   //      	modulo : modulo,
-			// seccion : seccion,
-			// accion : 'update_captura_'+accion
 			params.modulo 	= modulo;
 			params.seccion 	= seccion;
 			params.accion 	= 'update_captura_'+accion;

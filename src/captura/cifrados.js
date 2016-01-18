@@ -1,17 +1,11 @@
 $(document).ready(function(){
 	// scriptJs_Enter(); //Carga detección de ENTER
-	editar($("#sec").val().toLowerCase());
-	// $(".img-zoom").elevateZoom();
-	$(".img-zoom").elevateZoom({ 
-		// zoomType 			: "inner", 
-		cursor 				: "crosshair",
-		zoomWindowWidth 	: 200, 
-		zoomWindowHeight 	: 150,
-		tint 				: true,
-		tintColour 			: '#36b0c8',
-		tintOpacity 		: 0.5
-	}); 
+
 });
+
+function editar_canto(id){
+	$(location).attr('href', raizPath()+'captura/cantos_edit/?id='+id)
+}
 
 function insert(idFormulario, accion){	
 	if(idFormulario){
@@ -20,7 +14,7 @@ function insert(idFormulario, accion){
 				var modulo = $("#mod").val().toLowerCase(); // <-- Modulo actual del sistema
 				var seccion = $("#sec").val();
 				var raiz = raizPath();
-				var ajax_url = raiz+"src/"+modulo+"/catalogos.php";
+				var ajax_url = raiz+"src/"+modulo+"/captura.php";
 				var reload = raiz+modulo+'/'+accion+'/';
 				var div_msj = 'mensajes';
 				var objData = formData('#'+idFormulario);
@@ -32,7 +26,7 @@ function insert(idFormulario, accion){
 						auth : 1,
 						modulo : modulo,
 						seccion : seccion,
-						accion : 'insert_catalogos_'+accion,
+						accion : 'insert_captura_'+accion,
 						objData : objData
 					}
 					,beforeSend: function(){
@@ -79,7 +73,7 @@ function editar(accion){
 	var modulo = $("#mod").val().toLowerCase(); // <-- Modulo actual del sistema
 	var seccion = $("#sec").val().toLowerCase();
 	var raiz = raizPath();
-	var ajax_url = raiz+"src/"+modulo+"/catalogos.php";	
+	var ajax_url = raiz+"src/"+modulo+"/captura.php";	
 	// Generales
 	$.fn.editable.defaults.mode = 'inline'; // popup | inline
 	$.fn.editable.defaults.ajaxOptions = {type: 'POST', dataType: 'json'};
@@ -87,10 +81,11 @@ function editar(accion){
 	$('.campo-editable').editable({
 		type: "text", 
 		url: ajax_url,
-        params:{
-        	modulo : modulo,
-			seccion : seccion,
-			accion : 'update_catalogos_'+accion
+        params: function (params){
+			params.modulo 	= modulo;
+			params.seccion 	= seccion;
+			params.accion 	= 'update_captura_'+accion;
+   			return params;
         }
         ,success: function(respuesta) {
         	var div_msj = 'frm-msj_'+respuesta.id;
@@ -116,7 +111,7 @@ function activate(idFormulario, accion, id, activo){
 				var modulo = $("#mod").val().toLowerCase(); // <-- Modulo actual del sistema
 				var seccion = $("#sec").val();
 				var raiz = raizPath();
-				var ajax_url = raiz+"src/"+modulo+"/catalogos.php";
+				var ajax_url = raiz+"src/"+modulo+"/captura.php";
 				var div_msj = 'frm-msj_'+id;
 				var objData = formData('#'+idFormulario);
 				objData['activo'] = (!activo)?0:1;
@@ -129,7 +124,7 @@ function activate(idFormulario, accion, id, activo){
 						auth : 1,
 						modulo : modulo,
 						seccion : seccion,
-						accion : 'activate_catalogos_'+accion,
+						accion : 'activate_captura_'+accion,
 						objData : objData
 					}
 					,success: function(respuesta){
@@ -172,41 +167,50 @@ function activate(idFormulario, accion, id, activo){
 	}
 }
 
-function insert_acordes(idFormulario, accion){	
+function insert_albums(idFormulario, accion){	
 	if(idFormulario){
 		if($('#'+idFormulario).parsley('validate')){
 			if(accion){
 				var modulo = $("#mod").val().toLowerCase(); // <-- Modulo actual del sistema
 				var seccion = $("#sec").val();
 				var raiz = raizPath();
-				var ajax_url = raiz+"src/"+modulo+"/catalogos.php";
+				var ajax_url = raiz+"src/"+modulo+"/captura.php";
 				var reload = raiz+modulo+'/'+accion+'/';
 				var div_msj = 'mensajes';
-				var frmData = new FormData('#'+idFormulario);	
-				var c = [];			
-				$.each($("input[type=file]"), function(i, obj) {
-				        $.each(obj.files,function(j,file){
-				            frmData.append('file-'+i, file);
-				            frmData.append("filename"+i,file.name);
-				        	if(file.name){c.push(i);}
-				        });
-				});
-				// frmData.append("file",$('#file')[0].files[0]);
-				// frmData.append("filename",$('#file')[0].files[0].name);
-				frmData.append("id_img", c);
-				frmData.append("modulo", modulo);
-				frmData.append("seccion", seccion);
-				frmData.append("accion", 'insert_catalogos_'+accion);
-				frmData.append("tipo", $("#tipo").val());
-				frmData.append("acorde", $("#acorde").val());
-				frmData.append("lts_notas", $('[name = lts_notas]').val());
+				var sendData = [];
+				// if($('#file')[0].files[0]){
+				var frmData = new FormData('#'+idFormulario);
+					frmData.append("file",$('#file')[0].files[0]);
+					frmData.append("filename",$('#file')[0].files[0].name);
+					frmData.append("modulo", modulo);
+					frmData.append("seccion", seccion);
+					frmData.append("accion", 'insert_captura_'+accion);
+					frmData.append("album", $("#album").val());
+					frmData.append("subtitulo", $("#subtitulo").val());
+					frmData.append("lts_artistas", $('[name = lts_artistas]').val());
+					frmData.append("anio", $("#anio").val());
+					frmData.append("pistas", $("#pistas").val());
+					frmData.append("discos", $("#discos").val());
+					sendData = frmData;
+					var proccessFile = false;
+					// alert('conFile');
+				// }else{
+				// 	var objData = formData('#'+idFormulario);
+				// 	sendData['objData'] = objData;
+				// 	sendData['modulo'] = modulo;
+				// 	sendData['seccion'] = seccion;
+				// 	sendData['accion'] = 'insert_captura_'+accion;
+				// 	var proccessFile = true;
+				// 	alert('sinFile');
+				// }
+				// alert(dump_var(sendData));
 				$.ajax({
 					type: 'POST',
 					url: ajax_url,
 					dataType: "json",
-					contentType: false, 
-                	processData: false,
-                	data : frmData
+					contentType: proccessFile, 
+                	processData: proccessFile,
+                	data : sendData
 					,beforeSend: function(){
 						ico = '<i class="fa fa-cog fa-spin"></i> ';
 					    msj = build_mensaje('Espere un momento por favor... ',3,ico+'Guardando!');

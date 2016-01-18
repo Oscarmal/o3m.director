@@ -127,6 +127,9 @@
 	captura|cantos_txt_acorde		= Acorde
 	captura|cantos_txt_notas		= Notas
 	captura|cantos_txt_imagen		= Imagen
+	captura|cantos_txt_img_guitar	= Imagen Guitarra
+	captura|cantos_txt_img_piano	= Imagen Piano
+	captura|cantos_txt_img_bass		= Imagen Bajo
 	captura|cantos_txt_iglesia		= Iglesia
 	captura|cantos_txt_ministerio	= Ministerio
 	captura|cantos_txt_pais			= Pais

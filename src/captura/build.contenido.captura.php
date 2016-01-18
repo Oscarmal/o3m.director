@@ -49,6 +49,7 @@ function txt_labels_captura(){
 
 		,txt_guardar 		=> $dic[comun][guardar]
 		,txt_agregar 		=> $dic[comun][agregar]
+		,txt_cancelar 		=> $dic[comun][cancelar]
 		,txt_actualizar		=> $dic[comun][actualizar]
 		);
 	return $labels;
@@ -113,6 +114,8 @@ function build_listado_cantos(){
 			$tblData[$y] = $row;
 			unset($tblData[$y][combo]);
 			$tblData[$y][canto] 		= '<span class="editar campo-editable" data-name="canto" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][alias] 		= '<span class="editar campo-editable" data-name="alias" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[alias];
+			$tblData[$y][autor] 		= '<span class="editar campo-editable" data-name="autor" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[autor];
 			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$row[id_canto],'editar_canto('.$row[id_canto].');').'  '
 										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');			
 			$y++;

@@ -272,12 +272,14 @@ function dropdown_cantos($data=array()){
 	global $dic;
 	$requerido = ($data[requerido])?true:false;
 	$name = ($data[name])?$data[name]:'lts_cantos';
+	$value = ($data[value])?$data[value]:'id_escala';
+	$text = ($data[text])?$data[text]:'canto';
 	$lst_data = select_cantos();
 	$dataDropdown = array(
 				'data' 		=> $lst_data,
 				'name' 		=> $name,
-				'value' 	=> 'id_canto',
-				'text'  	=> 'cantos',
+				'value' 	=> $value,
+				'text'  	=> $text,
 				'requerido' => $requerido,
 				'class' 	=> $data[clase],
 				'multiple' 	=> $data[multiple],

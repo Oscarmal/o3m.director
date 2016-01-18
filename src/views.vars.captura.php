@@ -135,7 +135,8 @@ function vars_cantos($seccion, $urlParams){
 	$data_contenido = build_formulario_cantos();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				 MORE 				=> include_editable()
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

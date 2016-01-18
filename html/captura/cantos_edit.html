@@ -8,7 +8,7 @@
 		        	<div class="form-group">
 	                        <label class="col-sm-2 control-label">{txt_nombre}:</label>
 	                        <div class="col-sm-5">
-	                        <input id="id_canto" name="id_canto" type="hidden" class="form-control" data-campo="id_canto" value="{val_id}"> 
+	                        <input id="id" name="id" type="hidden" class="form-control" data-campo="id" value="{val_id}"> 
 
 	                            <input type="text" class="form-control" data-campo="nombre" placeholder="{txt_nombre}" title="{tooltip_nombre}" data-required="true" value="{val_nombre}"> 
 	                        </div>
@@ -77,6 +77,8 @@
 	                    <!-- Botón -->
 	                    <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
+                                <button id="btnCancel" type="button" class="btn btn-default" onclick="window.history.go(-1);">{txt_cancelar}</button>
+                                &nbsp;&nbsp;&nbsp;
                                 <button id="btnSubmit" type="button" class="btn btn-primary" onclick="editar('frm-captura-cantos-edit','cantos_edit');">{txt_actualizar}</button>
                             </div>
                         </div> 

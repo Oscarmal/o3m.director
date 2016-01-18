@@ -204,6 +204,8 @@ function vars_acordes($seccion, $urlParams){
 				 MORE 				=>  include_editable()
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/catalogos.js')
 				 					   .incJs($Path[srcjs].strtolower(MODULO).'/file-editable.js')
+				 					   .incJs($Path[js].'/jquery.elevatezoom.min.js')
+				 					   
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

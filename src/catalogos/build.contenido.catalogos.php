@@ -42,7 +42,9 @@ function txt_labels_catalogos(){
 		,txt_tipo			=> $dic[captura][cantos_txt_tipo]
 		,txt_acorde			=> $dic[captura][cantos_txt_acorde]
 		,txt_notas			=> $dic[captura][cantos_txt_notas]
-		,txt_imagen			=> $dic[captura][cantos_txt_imagen]
+		,txt_img_guitar		=> $dic[captura][cantos_txt_img_guitar]
+		,txt_img_piano		=> $dic[captura][cantos_txt_img_piano]
+		,txt_img_bass		=> $dic[captura][cantos_txt_img_bass]
 		,txt_guardar 		=> $dic[comun][guardar]
 		,txt_agregar 		=> $dic[comun][agregar]
 		);
@@ -243,9 +245,9 @@ function build_listado_acordes(){
 			unset($tblData[$y][combo],$tblData[$y][img_guitar],$tblData[$y][img_piano],$tblData[$y][img_bass]);
 			$tblData[$y][acorde] 	= '<span class="editar campo-editable" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][notas]  	= '<span class="editar campo-editable" data-name="notas" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.create_list(explode('|',implode(',|',explode(',',$row[notas])))).'</span>';
-			$tblData[$y][guitarra]  = '<span class="editar campo-editable" data-type="file" data-name="img_guitar" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[chordsurl].$row[img_guitar].'" width="50%"/></span>';
-			$tblData[$y][piano] 	= '<span class="editar campo-editable" data-type="file" data-name="img_piano" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[chordsurl].$row[img_piano].'" width="50%"/></span>';
-			$tblData[$y][bajo] 		= '<span class="editar campo-editable" data-type="file" data-name="img_bass" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img src="'.$Path[chordsurl].$row[img_bass].'" width="50%"/></span>';
+			$tblData[$y][guitarra]  = '<span style="text-align:center; vertical-align:middle;" class="editar campo-editable" data-type="file" data-name="img_guitar" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img class="img-zoom" src="'.$Path[chordsurl].$row[img_guitar].'" data-zoom-image="'.$Path[chordsurl].$row[img_guitar].'" width="50%"/></span>';
+			$tblData[$y][piano] 	= '<span style="text-align:center; vertical-align:middle; margin-top: 8%;" class="editar campo-editable" data-type="file" data-name="img_piano" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img class="img-zoom" src="'.$Path[chordsurl].$row[img_piano].'" data-zoom-image="'.$Path[chordsurl].$row[img_piano].'" width="50%"/></span>';
+			$tblData[$y][bajo] 		= '<span style="text-align:center; vertical-align:middle;" class="editar campo-editable" data-type="file" data-name="img_bass" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img class="img-zoom" src="'.$Path[chordsurl].$row[img_bass].'" data-zoom-image="'.$Path[chordsurl].$row[img_bass].'" width="50%"/></span>';
 			$tblData[$y][quitar] 	= ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
 			$y++;
 		}
