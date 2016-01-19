@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-01-18 17:45:33
+Date: 2016-01-18 18:09:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -73,8 +73,8 @@ CREATE TABLE `cat_categorias` (
   `categoria` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_categoria`),
-  UNIQUE KEY `i_categoria` (`categoria`),
-  KEY `i_activo` (`activo`)
+  KEY `i_activo` (`activo`),
+  KEY `i_categoria` (`categoria`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
@@ -111,8 +111,8 @@ CREATE TABLE `cat_compases` (
   `compas` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_compas`),
-  UNIQUE KEY `i_compas` (`compas`),
-  KEY `i_activo` (`activo`)
+  KEY `i_activo` (`activo`),
+  KEY `i_compas` (`compas`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
@@ -362,8 +362,8 @@ CREATE TABLE `cat_ritmos` (
   `ritmo` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_ritmo`),
-  UNIQUE KEY `i_ritmo` (`ritmo`),
-  KEY `i_activo` (`activo`)
+  KEY `i_activo` (`activo`),
+  KEY `i_ritmo` (`ritmo`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
@@ -462,7 +462,7 @@ CREATE TABLE `sis_logs` (
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_log`),
   KEY `id_usuario` (`id_usuario`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=571 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=572 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of sis_logs
@@ -1037,6 +1037,7 @@ INSERT INTO `sis_logs` VALUES ('567', 'tbl_albums	set', '5', 'INSERT', 'INSERT I
 INSERT INTO `sis_logs` VALUES ('568', 'tbl_albums\r\n				set', '0', 'UPDATE', 'UPDATE tbl_albums\r\n				SET  portada=\'cover_5.jpg\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:51:08\'\r\n				WHERE id_album=\'5\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:51:08', '2');
 INSERT INTO `sis_logs` VALUES ('569', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'A Su Majestad\',alias=\'A Su Majestad\',autor=\'\',interprete=\'\',anio=\'2010\',id_album=\'5\',id_categorias=\'8,9\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:55:40\'\r\n				WHERE id_canto=\'123\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:55:40', '2');
 INSERT INTO `sis_logs` VALUES ('570', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  canto=\'A Su Majestad\',alias=\'A Su Majestad\',autor=\'\',interprete=\'\',anio=\'2010\',id_album=\'5\',id_categorias=\'8\',id_usuario = \'2\',timestamp 	= \'2016-01-18 14:56:06\'\r\n				WHERE id_canto=\'123\'\r\n				LIMIT 1;', '', null, '2016-01-18 14:56:06', '2');
+INSERT INTO `sis_logs` VALUES ('571', 'tbl_cantos\r\n				set', '0', 'UPDATE', 'UPDATE tbl_cantos\r\n				SET  num_pista=\'1\',id_usuario = \'2\',timestamp 	= \'2016-01-18 18:00:58\'\r\n				WHERE id_canto=\'138\'\r\n				LIMIT 1;', '', null, '2016-01-18 18:00:58', '2');
 
 -- ----------------------------
 -- Table structure for sis_menu
@@ -1162,7 +1163,7 @@ CREATE TABLE `sis_online` (
 -- ----------------------------
 -- Records of sis_online
 -- ----------------------------
-INSERT INTO `sis_online` VALUES ('1', '2', '1453160662');
+INSERT INTO `sis_online` VALUES ('1', '2', '1453162100');
 INSERT INTO `sis_online` VALUES ('2', '0', '1448641146');
 INSERT INTO `sis_online` VALUES ('3', '8', '1444853002');
 INSERT INTO `sis_online` VALUES ('4', '3', '1450882810');
@@ -1529,7 +1530,7 @@ INSERT INTO `tbl_cantos` VALUES ('134', 'Ya Viene Tu Salvador', 'Ya Viene Tu Sal
 INSERT INTO `tbl_cantos` VALUES ('135', 'Jehová Levántate (Coro: Gm)', 'Jehová Levántate (Coro: Gm)', null, null, null, null, null, null, null, null, '1');
 INSERT INTO `tbl_cantos` VALUES ('136', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Su Nombre Guerrero Es Jehová (Coro: Gm)', 'Santiago Atitlan', null, null, '0', null, 'alabanza,danza,guerra,exclamacion+', null, null, '1');
 INSERT INTO `tbl_cantos` VALUES ('137', 'No sueltes de mi mano', 'Oh Cristo!', 'Oscar Maldonado', 'Mahanaim Tlalpan', '2015', '3', null, '8,9', '2', '2016-01-18 13:58:17', '1');
-INSERT INTO `tbl_cantos` VALUES ('138', '12312355', 'nuevo de prueba123', 'tert1', 'fsdfsdg', '2016', '3', null, '8,9', '2', '2016-01-18 13:12:29', '1');
+INSERT INTO `tbl_cantos` VALUES ('138', '12312355', 'nuevo de prueba123', 'tert1', 'fsdfsdg', '2016', '3', '1', '8,9', '2', '2016-01-18 18:00:58', '1');
 
 -- ----------------------------
 -- Table structure for tbl_cifrados
