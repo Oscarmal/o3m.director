@@ -187,7 +187,7 @@ function build_listado_albums(){
 			$valor 		= $row[album];
 			$tblData[$y] = $row;
 			unset($tblData[$y][id_artista]);
-			$tblData[$y][album] 		= '<span class="editar campo-editable" data-name="artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
+			$tblData[$y][album] 		= '<span class="editar campo-editable" data-name="album" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$valor.'</span> <span id="frm-msj_'.$id.'"></span>';
 			$tblData[$y][subtitulo]		= '<span class="editar campo-editable" data-name="subtitulo" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[subtitulo];
 			// $tblData[$y][artista] 		= '<span class="editar campo-editable" data-name="artista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[artista];
 			$tblData[$y][anio] 			= '<span class="editar campo-editable" data-name="anio" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[anio];

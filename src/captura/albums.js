@@ -37,7 +37,7 @@ function insert_albums(idFormulario, accion){
 					frmData.append("accion", 'insert_captura_'+accion);
 					frmData.append("album", $("#album").val());
 					frmData.append("subtitulo", $("#subtitulo").val());
-					frmData.append("lts_artistas", $('[name = lts_artistas]').val());
+					frmData.append("id_artista", $('[name = id_artista]').val());
 					frmData.append("anio", $("#anio").val());
 					frmData.append("pistas", $("#pistas").val());
 					frmData.append("discos", $("#discos").val());
