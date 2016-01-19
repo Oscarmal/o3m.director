@@ -50,12 +50,12 @@ function insert_captura_albums($in){
 	global $dic, $Path;	
 	if(!$in[objData]) $in[objData] = $in;
 	$arrData = array(
-				 album 			=> strtoupper($in[objData][album])
-				,subtitulo 		=> strtoupper($in[objData][subtitulo])
+				 album 			=> ($in[objData][album])
+				,subtitulo 		=> ($in[objData][subtitulo])
 				,id_artista 	=> $in[objData][id_artista]
-				,anio 			=> strtoupper($in[objData][anio])
-				,pistas			=> strtoupper($in[objData][pistas])
-				,discos			=> strtoupper($in[objData][discos])
+				,anio 			=> ($in[objData][anio])
+				,pistas			=> ($in[objData][pistas])
+				,discos			=> ($in[objData][discos])
 				,portada		=> $in[objData][portada]
 			);
 	if($success = insert_albums($arrData)){
