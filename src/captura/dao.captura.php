@@ -8,7 +8,12 @@
 // ALBUMS
 function select_albums($searchbox=false){
 	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (alb.album LIKE '%$searchbox%')":'';
+	$filtro .= ($searchbox)?"AND (
+						   alb.album LIKE '%$searchbox%'
+						OR CONCAT(IFNULL(art.artista,''),' - ',IFNULL(art.iglesia,''),' - ',IFNULL(art.ministerio,''),' - ',IFNULL(art.pais,'')) LIKE '%$searchbox%'
+						OR alb.anio LIKE '%$searchbox%'
+						OR alb.subtitulo LIKE '%$searchbox%'
+				)":'';
 	$sql = "SELECT alb.id_album, 
 					alb.album, 
 					alb.subtitulo, 
