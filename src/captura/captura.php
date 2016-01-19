@@ -170,6 +170,7 @@ function update_captura_cantos($in){
 					,id_categorias => $in[objData][lts_categorias]
 				);
 	}
+	// dump_var($arrData);
 	if($success = update_cantos($arrData)){
 		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
@@ -191,7 +192,7 @@ function activate_captura_cantos($in){
 
 // CIFRADOS
 function insert_captura_cifrados($in){
-	global $dic;	
+	global $dic;		
 	$arrData = array(
 				 id_canto	=> $in[objData][lts_cantos]
 				,id_escala	=> $in[objData][lts_escalas]
@@ -216,7 +217,7 @@ function insert_captura_cifrados($in){
 function update_captura_cifrados($in){
 	global $dic;
 	if(!$in[objData]) $in[objData] = $in;	
-	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
+	$id 	= (!$in[pk])?$in[objData][id_cifrado]:$in[pk];
 	if($in[pk] && $in[name]){
 		$arrData = array(
 					 id			=> $in[pk]

@@ -36,16 +36,12 @@ function drop_down_select($params = array()){
 	$width 		= ($params['width'])?'style="width:'.$params['width'].'px;"':'';
 
     $leyenda    = (array_key_exists('leyenda' ,$params))?$params['leyenda']: '-----';
-    if(is_array($data)){
+    if(is_array($data)){    	
     	foreach ($data as $key => $values) {
     		$option_selected='';
-    		if($selected){	 
-    			foreach(array_unique($selected) as $option){   		
-					if($values[$value]==$option){
-						$option_selected='selected';	
-					}else{$option_selected='';}
-					$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
-				}		    		
+    		if($selected){	
+					$option_selected = (in_array($values[$value],$selected))?'selected':'';
+					$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	   		
 	    	}else{
 	    		$select.='<option value="'.$values[$value].'"'.$option_selected.'>'.utf8_encode($values[$text]).'</option>';	
 	    	}  		

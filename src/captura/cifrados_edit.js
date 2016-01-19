@@ -34,7 +34,9 @@ function editar(idFormulario, accion){
 						ico = '<i class="fa fa-thumbs-up"></i> ';
 						msj = build_mensaje('La información ha sido actualizada correctamente.','success',ico+'Éxito!');
 						$("#"+div_msj).html(msj).slideDown("fast");
-						setTimeout(function(){$("#"+div_msj).slideUp("fast"); $(location).attr('href', reload);}, 2000);
+						setTimeout(function(){$("#"+div_msj).slideUp("fast"); 
+							$(location).attr('href', raiz+modulo+'/'+'cifrados/');
+						}, 2000);
 				}else{
 					ico = '<i class="fa fa-times-circle"></i> ';
 					msj = build_mensaje('No se han podido actualizar los datos, verifique su información por favor.','danger',ico+'Error!');

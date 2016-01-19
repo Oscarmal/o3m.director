@@ -123,7 +123,7 @@ function build_formulario_cantos_edit(){
 						,val_interprete => utf8_encode($sqlData[0][interprete])
 						,val_anio 		=> utf8_encode($sqlData[0][anio])
 						,lst_albums 	=> dropdown_albums(array(requerido => true, id_selected=>$sqlData[0][id_album]))
-						,lst_categorias	=> dropdown_categorias(array(requerido => true, multiple => true, id_selected=>'8,9'))
+						,lst_categorias	=> dropdown_categorias(array(requerido => true, multiple => true, id_selected=>$sqlData[0][id_categorias]))
 						,GRID 			=> build_listado_cantos()
 					);
 		$html = array_merge(textos_captura(), $data);
@@ -266,9 +266,8 @@ function build_formulario_cifrados_edit(){
 	global $Path, $ins, $dic;
 	if($ins[id]){
 		$sqlData = select_cifrado_unico(array(id=>$ins[id]));
-		// dump_var($sqlData);
 		$data		= array(
-						 val_id 		=> utf8_encode($sqlData[0][id_canto])
+						 val_id 		=> utf8_encode($sqlData[0][id_cifrado])
 						,lst_cantos 	=> dropdown_cantos(array(requerido => true, text=>'combo', leyenda => '--Canto - Album--', id_selected=>$sqlData[0][id_canto]))
 						,lst_albums 	=> dropdown_albums(array(requerido => true, id_selected=>$sqlData[0][id_album]))
 						,lst_escalas 	=> dropdown_escalas(array(requerido => true, text=>'combo', id_selected=>$sqlData[0][id_escala]))
