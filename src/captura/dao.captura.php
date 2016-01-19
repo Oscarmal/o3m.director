@@ -129,7 +129,8 @@ function select_cantos($data=array()){
 	$filtro .= ($id)?" AND cant.id_canto='$id'":'';
 	$sql = "SELECT cant.id_canto, 
 					CONCAT(IFNULL(cant.canto,''),' - ',IFNULL(alb.album,'')) as combo,
-					cant.canto, cant.alias, cant.autor, cant.interprete, cant.anio, alb.album
+					cant.canto, cant.alias, cant.autor, cant.interprete, cant.anio, cant.num_pista as pista,
+					alb.album, alb.portada
 			FROM $db[tbl_cantos] cant 
 			LEFT JOIN $db[tbl_albums] alb ON cant.id_album=alb.id_album
 			WHERE 1 AND cant.activo = 1 $filtro

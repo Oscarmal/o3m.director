@@ -140,7 +140,8 @@ function vars_cantos($seccion, $urlParams){
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
 				 MORE 				=> include_editable()
-				 					   .incJs($Path[srcjs].strtolower(MODULO).'/captura.js')
+				 					   .incJs($Path[srcjs].strtolower(MODULO).'/cantos.js')
+				 					   .incJs($Path[js].'/jquery.elevatezoom.min.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono
@@ -183,8 +184,7 @@ function vars_cifrados($seccion, $urlParams){
 	$data_contenido = build_formulario_cifrados();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> include_editable()
-				 					   .incJs($Path[srcjs].strtolower(MODULO).'/cifrados.js')
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados.js')
 				 						.incJs($Path[js].'/jquery.elevatezoom.min.js')
 
 				,MODULE 			=> strtolower(MODULO)
@@ -207,8 +207,7 @@ function vars_cifrados_edit($seccion, $urlParams){
 	$data_contenido = build_formulario_cifrados_edit();
 	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
 	$negocio = array(
-				 MORE 				=> include_editable()
-				 					   .incJs($Path[srcjs].strtolower(MODULO).'/cifrados_edit.js')
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/cifrados_edit.js')
 				,MODULE 			=> strtolower(MODULO)
 				,SECTION 			=> $seccion			
 				,ICONO 				=> $icono

@@ -150,6 +150,7 @@
 	captura|cantos_txt_trompeta		= Notas para Trompeta
 	captura|cantos_txt_sax 			= Notas para Saxofón
 	captura|cantos_txt_comentarios	= Comentarios
+	captura|cantos_txt_pista 		= Número de Pista
 
 #Captura
 	cifrado|ver_titulo 			= Mostrado Cifrado

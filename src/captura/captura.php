@@ -120,6 +120,7 @@ function insert_captura_cantos($in){
 				,autor 		=> $in[objData][autor]
 				,interprete	=> $in[objData][interprete]
 				,anio		=> $in[objData][anio]
+				,num_pista	=> $in[objData][pista]
 				,id_album	=> $in[objData][lts_albums]
 				,id_categorias => $in[objData][lts_categorias]
 			);
@@ -147,6 +148,7 @@ function update_captura_cantos($in){
 					,autor 		=> $in[objData][autor]
 					,interprete	=> $in[objData][interprete]
 					,anio		=> $in[objData][anio]
+					,num_pista	=> $in[objData][pista]
 					,id_album	=> $in[objData][lts_albums]
 					,id_categorias => $in[objData][lts_categorias]
 				);

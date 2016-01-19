@@ -37,6 +37,7 @@ function txt_labels_captura(){
 		,txt_subtitulo 		=> $dic[captura][cantos_txt_subtitulo]
 		,txt_anio 			=> $dic[captura][cantos_txt_anio]
 		,txt_pistas 		=> $dic[captura][cantos_txt_pistas]
+		,txt_pista 			=> $dic[captura][cantos_txt_pista]
 		,txt_discos 		=> $dic[captura][cantos_txt_discos]
 		,txt_portada 		=> $dic[captura][cantos_txt_portada]
 		,txt_escala 		=> $dic[captura][cantos_txt_escala]
@@ -82,7 +83,7 @@ function build_formulario_cantos(){
 }
 function build_listado_cantos(){
 // Grid de cantos
-	global $ins, $dic;
+	global $ins, $dic, $Path;
 	$searchbox 	= ($ins['searchbox'])?$ins['searchbox']:false;
 	$sqlData = select_cantos(array(searchbox=>$searchbox));
 	$y=0;
@@ -98,6 +99,8 @@ function build_listado_cantos(){
 			$tblData[$y][autor] 		= '<span class="editar campo-editable" data-name="autor" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[autor];
 			$tblData[$y][interprete]	= '<span class="editar campo-editable" data-name="interprete" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[interprete];
 			$tblData[$y][anio] 			= '<span class="editar campo-editable" data-name="anio" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[anio];
+			$tblData[$y][pista] 		= '<span class="editar campo-editable" data-name="num_pista" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[pista];
+			$tblData[$y][portada]		= '<span style="text-align:center; vertical-align:middle;">'.'<img class="img-zoom" src="'.$Path[coversurl].$row[portada].'" data-zoom-image="'.$Path[coversurl].$row[portada].'" width="50%"/></span>';
 			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$row[id_canto],'editar_canto('.$row[id_canto].');').'  '
 										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');			
 			$y++;
