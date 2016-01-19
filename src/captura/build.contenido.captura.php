@@ -194,11 +194,35 @@ function build_listado_albums(){
 			$tblData[$y][pistas] 		= '<span class="editar campo-editable" data-name="pistas" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[pistas];
 			$tblData[$y][discos] 		= '<span class="editar campo-editable" data-name="discos" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.$row[discos];
 			$tblData[$y][portada]		= '<span class="editar campo-editable" data-type="file" data-name="portada" data-pk="'.$id.'" data-title="'.$dic[ico][editar].'" title="'.$dic[ico][editar].'">'.'<img class="img-zoom" src="'.$Path[coversurl].$row[portada].'" data-zoom-image="'.$Path[coversurl].$row[portada].'" width="50%"/></span>';
-			$tblData[$y][quitar] 		= ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');
+			$tblData[$y][acciones] 		= ico_editar('ico-editar_'.$id,'editar_album('.$id.');').'  '
+										 .ico_eliminar($id,"activate('frm-captura-".$seccion."','".$seccion."',".$id.');');			
 			$y++;
 		}
 	}
 	return build_grid_paginado($tblData,$titulos);
+}
+
+function build_formulario_albums_edit(){
+// Construye formulario de edición
+	global $Path, $ins, $dic;
+	if($ins[id]){
+		$sqlData = select_album_unico(array(id=>$ins[id]));
+		// dump_var($sqlData);
+		$data		= array(
+						 val_id 		=> utf8_encode($sqlData[0][id_album])
+						,album 			=> utf8_encode($sqlData[0][album])
+						,subtitulo 		=> utf8_encode($sqlData[0][subtitulo])
+						,lst_artistas 	=> dropdown_artistas(array(requerido => true, id_selected=>$sqlData[0][id_artista]))
+						,anio 	 		=> utf8_encode($sqlData[0][anio])
+						,pistas 		=> utf8_encode($sqlData[0][pistas])
+						,discos  		=> utf8_encode($sqlData[0][discos])
+						,portada  		=> utf8_encode($sqlData[0][portada])
+					);
+		$html = array_merge(textos_captura(), $data);
+		return $html;
+	}else{
+		return header('location: '.$Path[url].'captura/cantos/');
+	}
 }
 
 // CIFRADOS

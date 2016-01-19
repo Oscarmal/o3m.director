@@ -253,18 +253,21 @@ function dropdown_artistas($data=array()){
 	global $dic;
 	$requerido = ($data[requerido])?true:false;
 	$name = ($data[name])?$data[name]:'lts_artistas';
+	$value = ($data[value])?$data[value]:'id_artista';
+	$text = ($data[text])?$data[text]:'combo';
 	$lst_data = select_artistas();
 	$dataDropdown = array(
 				'data' 		=> $lst_data,
 				'name' 		=> $name,
-				'value' 	=> 'id_artista',
-				'text'  	=> 'combo',
+				'value' 	=> $value,
+				'text'  	=> $text,
 				'requerido' => $requerido,
 				'class' 	=> $data[clase],
 				'multiple' 	=> $data[multiple],
 				'width' 	=> '200',
 				'selected' 	=> $data[id_selected],
-				'title' 	=> $dic[tooltips][lst_artistas]
+				'title' 	=> $dic[tooltips][lst_artistas],
+				'leyenda' 	=> $data[leyenda]
 			);
 	return drop_down_select($dataDropdown);
 }

@@ -26,7 +26,7 @@ function insert_captura_artistas($in){
 function update_captura_artistas($in){
 	global $dic;
 	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
-	if($success = update_artistas(array(id =>$id, $in[name] => strtoupper($in[value])))){
+	if($success = update_artistas(array(id =>$id, $in[name] => $in[value]))){
 		$data = array(success => true, id => $id, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
 		$data = array(success => false, id => $id, message => 'ERROR al actualizar datos.');
@@ -80,6 +80,23 @@ function insert_captura_albums($in){
 function update_captura_albums($in){
 	global $dic, $Path;	
 	$id 	= (!$in[pk])?$in[objData][id]:$in[pk];
+	if($in[pk] && $in[name]){
+		$arrData = array(
+					 id			=> $in[pk]
+					,$in[name]	=> $in[value]
+				);
+	}else{
+		$arrData = array(
+					 id			=> $in[objData][id]
+					,album 		=> $in[objData][album]
+					,subtitulo  => $in[objData][subtitulo]
+					,id_artista => $in[objData][lts_artistas]
+					,anio		=> $in[objData][anio]
+					,pistas		=> $in[objData][pistas]
+					,discos		=> $in[objData][discos]
+					// ,portada	=> $in[objData][portada]
+				);
+	}
 	if(is_uploaded_file($_FILES['file']['tmp_name'])){
 	// Guardado de imagen				
 		$e 		= explode('.', $in[value]);
@@ -90,9 +107,9 @@ function update_captura_albums($in){
 			resize_image($Path[covers].$cover);
 			$img = "Imagen guardada.";
 		}else{ $img = false; return;}
-		$in[value] = $cover;
+		$arrData[portada] = $cover;
 	}	
-	if($success = update_albums(array(id =>$id, $in[name] => $in[value]))){		
+	if($success = update_albums($arrData)){		
 		$data = array(success => true, id => $id, image => $img, message => 'El registro con ID: '.$id.' ha sido actualizado.');
 	}else{
 		$data = array(success => false, id => $id, image => $img, message => 'ERROR al actualizar datos.');

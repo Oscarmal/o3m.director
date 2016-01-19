@@ -92,6 +92,7 @@
 	captura|notas_titulo 		= Captura de Notas
 	captura|ritmos_titulo 		= Captura de Ritmos
 	captura|albums_titulo  		= Captura de Albums
+	captura|albums_edit_titulo 	= Edición de Albums
 	captura|artistas_titulo 	= Captura de Artistas
 	captura|cantos_titulo 		= Captura de Cantos
 	captura|cantos_edit_titulo	= Edición de Canto

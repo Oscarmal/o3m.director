@@ -48,6 +48,7 @@ require_once('views.vars.error.php');
 					array(
 						 LISTADO 		=> 'listado.html'
 						,ALBUMS 		=> 'albums.html'
+						,ALBUMS_EDIT	=> 'albums_edit.html'
 						,ARTISTAS 		=> 'artistas.html'
 						,CANTOS 		=> 'cantos.html'
 						,CANTOS_EDIT	=> 'cantos_edit.html'

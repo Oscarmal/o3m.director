@@ -27,6 +27,19 @@ function select_albums($searchbox=false){
 	return $resultado;
 }
 
+function select_album_unico($data=array()){
+	global $db, $usuario;	
+	$id 	 = ($data[id])?$data[id]:false;
+	$filtro .= ($id)?" AND id_album='$id'":'';
+	$sql = "SELECT *
+			FROM $db[tbl_albums]  
+			WHERE 1 AND activo = 1 $filtro 
+			GROUP BY id_album;";
+	$resultado = SQLQuery($sql,1);
+	$resultado = ($resultado) ? $resultado : false ;
+	return $resultado;
+}
+
 function insert_albums($data=array()){
 	global $db, $usuario;
 	$timestamp = timestamp();

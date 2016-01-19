@@ -13,6 +13,10 @@ $(document).ready(function(){
 	});
 });
 
+function editar_album(id){
+	$(location).attr('href', raizPath()+'captura/albums_edit/?id='+id)
+}
+
 function insert_albums(idFormulario, accion){	
 	if(idFormulario){
 		if($('#'+idFormulario).parsley('validate')){

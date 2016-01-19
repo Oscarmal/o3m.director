@@ -12,12 +12,12 @@ require_once($Path[src].'build.contenido.php');
 $vistas = array(
 			 LISTADO 		=> 'listado.html'
 			,ALBUMS 		=> 'albums.html'
+			,ALBUMS_EDIT	=> 'albums_edit.html'
 			,ARTISTAS 		=> 'artistas.html'
 			,CANTOS 		=> 'cantos.html'
 			,CANTOS_EDIT	=> 'cantos_edit.html'
 			,CIFRADOS 		=> 'cifrados.html'
 			,CIFRADOS_EDIT	=> 'cifrados_edit.html'
-			,CIFRADO 		=> 'cifrado.html'
 			,ERROR 			=> 'error.html'
 			);
 
@@ -42,6 +42,8 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_listado($cmd, $urlParams);
 	}elseif($cmd == 'ALBUMS'){
 		$vars = vars_albums($cmd,$urlParams);
+	}elseif($cmd == 'ALBUMS_EDIT'){
+		$vars = vars_albums_edit($cmd,$urlParams);
 	}elseif($cmd == 'ARTISTAS'){
 		$vars = vars_artistas($cmd,$urlParams);
 	}elseif($cmd == 'CANTOS'){
@@ -52,8 +54,6 @@ function tpl_vars($cmd, $urlParams=array()){
 		$vars = vars_cifrados($cmd,$urlParams);
 	}elseif($cmd == 'CIFRADOS_EDIT'){
 		$vars = vars_cifrados_edit($cmd,$urlParams);
-	}elseif($cmd == 'CIFRADO'){
-		$vars = vars_cifrado($cmd,$urlParams);
 	}else{
 		$vars = vars_error($cmd);
 	}
@@ -102,6 +102,27 @@ function vars_albums($seccion, $urlParams){
 				,ICONO 				=> $icono
 				,TITULO				=> $titulo
 				,CONTENIDO 			=> $contenido				
+			);
+	$texto = array();
+	$data = array_merge($negocio, $texto);	
+	return $data;
+}
+
+function vars_albums_edit($seccion, $urlParams){
+	global $var, $Path, $icono, $dic, $db, $ins, $vistas;
+	define(SECCION, $seccion);	 
+	## Logica de negocio ##
+	$titulo 	= $dic[captura][albums_edit_titulo];
+	## Envio de valores ##
+	$data_contenido = build_formulario_albums_edit();
+	$contenido 	= contenidoHtml(strtolower(MODULO).'/'.$vistas[strtoupper($seccion)], $data_contenido);
+	$negocio = array(
+				 MORE 				=> incJs($Path[srcjs].strtolower(MODULO).'/albums_edit.js')
+				,MODULE 			=> strtolower(MODULO)
+				,SECTION 			=> $seccion			
+				,ICONO 				=> $icono
+				,TITULO				=> $titulo
+				,CONTENIDO 			=> $contenido								
 			);
 	$texto = array();
 	$data = array_merge($negocio, $texto);	

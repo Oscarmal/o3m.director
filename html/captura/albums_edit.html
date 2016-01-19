@@ -1,0 +1,67 @@
+		<div id="div-contenedor"> 
+		<form id="frm-captura-albums_edit" class="form-horizontal" method="post" data-validate="parsley">	
+		<!-- Inicio de contenedor -->		
+	        <section class="panel panel-default">
+		        <div class="panel-heading font-bold"> 
+		            <i class="fa fa-edit"></i> {txt_form_edit} </div>
+		        <div class="panel-body">
+	                <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_album}:</label>
+		                        <div class="col-sm-5">
+		                        <input id="id" name="id" type="hidden" class="form-control" data-campo="id" value="{val_id}"> 
+
+		                            <input type="text" id="album" class="form-control" data-campo="album" placeholder="{txt_album}" title="{tooltip_album}" data-required="true" value="{album}"> 
+		                        </div>
+		                    </div>
+		                    <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_subtitulo}:</label>
+		                        <div class="col-sm-5">
+		                            <input type="text" id="subtitulo" class="form-control" data-campo="subtitulo" placeholder="{txt_subtitulo}" title="{tooltip_subtitulo}" value="{subtitulo}" > 
+		                        </div>
+		                    </div>
+		                   <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_artista}:</label>
+		                        <div class="col-sm-5">
+		                            {lst_artistas}
+		                        </div>
+		                    </div>
+		                    <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_anio}:</label>
+		                        <div class="col-sm-5">
+		                            <input type="text" id="anio" class="form-control" data-campo="anio" placeholder="{txt_anio}" title="{tooltip_anio}" value="{anio}"> 
+		                        </div>
+		                    </div>
+		                    <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_pistas}:</label>
+		                        <div class="col-sm-5">
+		                            <input type="text" id="pistas" class="form-control" data-campo="pistas" placeholder="{txt_pistas}" title="{tooltip_pistas}"  value="{pistas}" > 
+		                        </div>
+		                    </div>	 
+		                    <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_discos}:</label>
+		                        <div class="col-sm-5">
+		                            <input type="text" id="discos" class="form-control" data-campo="discos" placeholder="{txt_discos}" title="{tooltip_discos}"  value="{discos}"> 
+		                        </div>
+		                    </div>	
+		                    <!-- <div class="form-group">
+		                        <label class="col-sm-2 control-label">{txt_portada}:</label>
+		                        <div class="col-sm-5"> 
+		                            <input type="file" id="file" name="file" data-campo="file" class="input-small"  style="opacity: 70%;filter: alpha(opacity=70%); color:#000; cursor: pointer; position: inherit; top: 0; right: 0;" value="{portada}" />
+		                        </div>
+		                    </div>  -->                  
+
+
+	                    <!-- Botón -->
+	                    <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                            <button id="btnCancel" type="button" class="btn btn-default" onclick="window.history.go(-1);">{txt_cancelar}</button>
+                            &nbsp;&nbsp;&nbsp;
+                            <button id="btnSubmit" type="button" class="btn btn-primary" onclick="editar('frm-captura-albums_edit','albums_edit');">{txt_agregar}</button>
+                            </div>
+                        </div> 
+                        <div class="col-sm-9 col-sm-offset-2" id="mensajes"></div>
+		        </div>
+	        </section>
+		<!-- Fin de contenedor -->
+		</form>
+		</div>
