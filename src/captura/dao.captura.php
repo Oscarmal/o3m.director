@@ -8,9 +8,9 @@
 // ALBUMS
 function select_albums($searchbox=false){
 	global $db, $usuario;	
-	$filtro .= ($searchbox)?"AND (
-						   alb.album LIKE '%$searchbox%'
-						OR CONCAT(IFNULL(art.artista,''),' - ',IFNULL(art.iglesia,''),' - ',IFNULL(art.ministerio,''),' - ',IFNULL(art.pais,'')) LIKE '%$searchbox%'
+	$filtro .= ($searchbox)?"AND ( alb.id_album LIKE '%$searchbox%'
+						OR alb.album LIKE '%$searchbox%'
+						OR CONCAT(IFNULL(art.artista,''),' - ',IFNULL(art.iglesia,''),' - ',IFNULL(art.pais,''),' - ',IFNULL(art.ministerio,'')) LIKE '%$searchbox%'
 						OR alb.anio LIKE '%$searchbox%'
 						OR alb.subtitulo LIKE '%$searchbox%'
 				)":'';
@@ -18,7 +18,7 @@ function select_albums($searchbox=false){
 					alb.album, 
 					alb.subtitulo, 
 					alb.id_artista,
-					CONCAT(IFNULL(art.artista,''),' - ',IFNULL(art.iglesia,''),' - ',IFNULL(art.ministerio,''),' - ',IFNULL(art.pais,'')) as artista,
+					CONCAT(IFNULL(art.artista,''),' - ',IFNULL(art.iglesia,''),' - ',IFNULL(art.pais,''),' - ',IFNULL(art.ministerio,'')) as artista,
 					alb.anio, 
 					alb.pistas, 
 					alb.discos,

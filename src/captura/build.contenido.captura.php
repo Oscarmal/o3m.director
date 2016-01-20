@@ -168,7 +168,7 @@ function build_listado_artistas(){
 function build_formulario_albums(){
 // Construye formulario
 	$data = array(
-					 lst_artistas 	=> dropdown_artistas(array(name=>'id_artista'))
+					 lst_artistas 	=> dropdown_artistas(array(name=>'id_artista', requerido => true))
 					,GRID 			=> build_listado_albums()
 				);
 	$html = array_merge(textos_captura(), $data);
